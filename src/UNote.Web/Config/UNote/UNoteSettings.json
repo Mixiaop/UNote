@@ -1,0 +1,8 @@
+﻿{
+	RememberUserExpiresTime: 525600,
+	UserHeartbeatTime: 10,
+	OnlineUserTime: 60,
+	NodeHtmlFilePath: "/html",
+	TempPath: "/_temp",
+	UZeroMediaHost: "http://imgnote.youzy.cn" 
+}

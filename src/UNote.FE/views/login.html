@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title>UNote</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0" />
+
+    <link rel="shortcut icon" href="/img/favicons/favicon.png" />
+    <link rel="icon" type="image/png" href="/img/favicons/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon-180x180.png" />
+
+    <link rel="stylesheet" href="/css/unote.min.css" />
+
+</head>
+<body>
+
+
+    <div class="login-wrap">
+
+        <a href="list.html" class="logo"></a>
+        <p>Sign in to Unote</p>
+        <div class="login">
+            <label>Username</label>
+            <input type="text" name="" class="form-control" />
+            <label>Password</label>
+            <input type="text" name="" class="form-control" />
+            <button class="btn btn-block btn-primary" onclick="location.href='list.html'">Log in</button>
+        </div>
+
+    </div>
+
+    <script src="/libs/core/jquery.min.js"></script>
+    <script src="/libs/core/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('.login-wrap').css('height', $(window).height());
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+﻿{
+  Host: "http://imgnote.youzy.cn",
+  SignatureKey: "UNoteMedia_Signature"
+}

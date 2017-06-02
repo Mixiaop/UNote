@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNote.Configuration", "UNote.Configuration\UNote.Configuration.csproj", "{1453FFA4-4E17-45C2-BA49-CE1F75CD2172}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNote.FE", "UNote.FE\UNote.FE.csproj", "{8B8D5C6D-A810-4FDE-8C98-50FE30679CAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNote.Core", "UNote.Core\UNote.Core.csproj", "{C578BBB2-0945-4FF0-B91A-587E8CBD6053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNote.Services", "UNote.Services\UNote.Services.csproj", "{579A9226-AC12-4176-AC7C-06E41C1CBCE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNote.EntityFramework", "UNote.EntityFramework\UNote.EntityFramework.csproj", "{67BF4402-F416-4C9A-A329-5835C3EF15F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{E3757FD7-D450-45E4-9EEA-327B8914E0C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNote.Console", "UNote.Console\UNote.Console.csproj", "{401000E8-4846-466F-A025-44C3966D7760}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNote.Web", "UNote.Web\UNote.Web.csproj", "{D7952F52-41A9-465E-8087-F172201DBCBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1453FFA4-4E17-45C2-BA49-CE1F75CD2172}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1453FFA4-4E17-45C2-BA49-CE1F75CD2172}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1453FFA4-4E17-45C2-BA49-CE1F75CD2172}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1453FFA4-4E17-45C2-BA49-CE1F75CD2172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B8D5C6D-A810-4FDE-8C98-50FE30679CAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B8D5C6D-A810-4FDE-8C98-50FE30679CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B8D5C6D-A810-4FDE-8C98-50FE30679CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B8D5C6D-A810-4FDE-8C98-50FE30679CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C578BBB2-0945-4FF0-B91A-587E8CBD6053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C578BBB2-0945-4FF0-B91A-587E8CBD6053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C578BBB2-0945-4FF0-B91A-587E8CBD6053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C578BBB2-0945-4FF0-B91A-587E8CBD6053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{579A9226-AC12-4176-AC7C-06E41C1CBCE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{579A9226-AC12-4176-AC7C-06E41C1CBCE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{579A9226-AC12-4176-AC7C-06E41C1CBCE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{579A9226-AC12-4176-AC7C-06E41C1CBCE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67BF4402-F416-4C9A-A329-5835C3EF15F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67BF4402-F416-4C9A-A329-5835C3EF15F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67BF4402-F416-4C9A-A329-5835C3EF15F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67BF4402-F416-4C9A-A329-5835C3EF15F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{401000E8-4846-466F-A025-44C3966D7760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401000E8-4846-466F-A025-44C3966D7760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401000E8-4846-466F-A025-44C3966D7760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401000E8-4846-466F-A025-44C3966D7760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7952F52-41A9-465E-8087-F172201DBCBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7952F52-41A9-465E-8087-F172201DBCBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7952F52-41A9-465E-8087-F172201DBCBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7952F52-41A9-465E-8087-F172201DBCBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C578BBB2-0945-4FF0-B91A-587E8CBD6053} = {E3757FD7-D450-45E4-9EEA-327B8914E0C8}
+		{579A9226-AC12-4176-AC7C-06E41C1CBCE9} = {E3757FD7-D450-45E4-9EEA-327B8914E0C8}
+		{67BF4402-F416-4C9A-A329-5835C3EF15F8} = {E3757FD7-D450-45E4-9EEA-327B8914E0C8}
+		{1453FFA4-4E17-45C2-BA49-CE1F75CD2172} = {E3757FD7-D450-45E4-9EEA-327B8914E0C8}
+	EndGlobalSection
+EndGlobal

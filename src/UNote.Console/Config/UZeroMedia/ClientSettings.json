@@ -1,0 +1,4 @@
+﻿{
+  Host: "http://106.75.50.137:8081",
+  SignatureKey: "UNoteMedia_Signature"
+}

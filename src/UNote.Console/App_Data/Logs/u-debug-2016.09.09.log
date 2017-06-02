@@ -1,0 +1,176 @@
+2016-09-09 10:13:01,391 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-09 10:13:01,782 [1] U.Logging.ULog4netLogger - (null) - Found 17 UPrimes in total.
+2016-09-09 10:13:01,788 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,788 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,789 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,790 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,790 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,790 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,791 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Dapper.UZeroConsoleDapperUPrime, UZeroConsole.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,791 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.UZeroLogUPrime, UZeroLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,792 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Web.UZeroConsoleWebUPrime, UZeroConsole.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,792 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,793 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,793 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,794 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.UZeroConsoleUPrime, UZeroConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,794 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.Dapper.UZeroLogDapperUPrime, UZeroLog.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,795 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,795 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,796 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Dapper.UDapperUPrime, U.Dapper, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:13:01,798 [1] U.Logging.ULog4netLogger - (null) - 17 UPrime loaded.
+2016-09-09 10:13:02,238 [1] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2016-09-09 10:13:02,239 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-09 10:26:57,497 [49] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-09 10:26:57,857 [49] U.Logging.ULog4netLogger - (null) - Found 17 UPrimes in total.
+2016-09-09 10:26:57,862 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,863 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,863 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,864 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.UZeroConsoleUPrime, UZeroConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,864 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Web.UZeroConsoleWebUPrime, UZeroConsole.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,865 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,865 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,866 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,866 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.Dapper.UZeroLogDapperUPrime, UZeroLog.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,867 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Dapper.UZeroConsoleDapperUPrime, UZeroConsole.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,867 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,868 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,868 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Dapper.UDapperUPrime, U.Dapper, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,868 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,869 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.UZeroLogUPrime, UZeroLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,869 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,870 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:26:57,873 [49] U.Logging.ULog4netLogger - (null) - 17 UPrime loaded.
+2016-09-09 10:26:58,307 [49] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2016-09-09 10:26:58,307 [49] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-09 10:53:17,174 [146] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-09 10:53:17,830 [146] U.Logging.ULog4netLogger - (null) - Found 17 UPrimes in total.
+2016-09-09 10:53:17,837 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,838 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Dapper.UZeroConsoleDapperUPrime, UZeroConsole.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,838 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,839 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.UZeroLogUPrime, UZeroLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,840 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,840 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Web.UZeroConsoleWebUPrime, UZeroConsole.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,841 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,841 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,842 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Dapper.UDapperUPrime, U.Dapper, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,843 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,843 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,844 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.UZeroConsoleUPrime, UZeroConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,844 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,845 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.Dapper.UZeroLogDapperUPrime, UZeroLog.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,846 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,846 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,847 [146] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 10:53:17,850 [146] U.Logging.ULog4netLogger - (null) - 17 UPrime loaded.
+2016-09-09 10:53:18,280 [146] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2016-09-09 10:53:18,281 [146] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-09 11:04:39,609 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-09 11:04:40,233 [1] U.Logging.ULog4netLogger - (null) - Found 17 UPrimes in total.
+2016-09-09 11:04:40,236 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.UZeroConsoleUPrime, UZeroConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,236 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,237 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,238 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.Dapper.UZeroLogDapperUPrime, UZeroLog.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,238 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,239 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Web.UZeroConsoleWebUPrime, UZeroConsole.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,239 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,240 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,240 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,241 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.UZeroLogUPrime, UZeroLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,241 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,242 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,242 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,243 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Dapper.UDapperUPrime, U.Dapper, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,243 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,244 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,245 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Dapper.UZeroConsoleDapperUPrime, UZeroConsole.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 11:04:40,248 [1] U.Logging.ULog4netLogger - (null) - 17 UPrime loaded.
+2016-09-09 11:04:40,658 [1] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2016-09-09 11:04:40,659 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-09 13:54:06,064 [128] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-09 13:54:06,279 [128] U.Logging.ULog4netLogger - (null) - Found 17 UPrimes in total.
+2016-09-09 13:54:06,285 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Dapper.UDapperUPrime, U.Dapper, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,286 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.Dapper.UZeroLogDapperUPrime, UZeroLog.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,286 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.UZeroConsoleUPrime, UZeroConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,287 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,288 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,288 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Web.UZeroConsoleWebUPrime, UZeroConsole.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,288 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,289 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,290 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Dapper.UZeroConsoleDapperUPrime, UZeroConsole.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,290 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,291 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,291 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,292 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,292 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,293 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,293 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,294 [128] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.UZeroLogUPrime, UZeroLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 13:54:06,297 [128] U.Logging.ULog4netLogger - (null) - 17 UPrime loaded.
+2016-09-09 13:54:06,735 [128] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2016-09-09 13:54:06,736 [128] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-09 17:49:05,278 [49] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-09 17:49:05,608 [49] U.Logging.ULog4netLogger - (null) - Found 17 UPrimes in total.
+2016-09-09 17:49:05,614 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,614 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Dapper.UDapperUPrime, U.Dapper, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,615 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,616 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.UZeroLogUPrime, UZeroLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,616 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,617 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,617 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Web.UZeroConsoleWebUPrime, UZeroConsole.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,618 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,618 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.Dapper.UZeroLogDapperUPrime, UZeroLog.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,619 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.UZeroConsoleUPrime, UZeroConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,619 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Dapper.UZeroConsoleDapperUPrime, UZeroConsole.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,620 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,620 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,621 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,621 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,622 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,622 [49] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:49:05,626 [49] U.Logging.ULog4netLogger - (null) - 17 UPrime loaded.
+2016-09-09 17:49:06,063 [49] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2016-09-09 17:49:06,064 [49] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-09 17:54:53,085 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-09 17:54:53,663 [1] U.Logging.ULog4netLogger - (null) - Found 17 UPrimes in total.
+2016-09-09 17:54:53,677 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Dapper.UZeroConsoleDapperUPrime, UZeroConsole.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,685 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,697 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Dapper.UDapperUPrime, U.Dapper, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,705 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,713 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Web.UZeroConsoleWebUPrime, UZeroConsole.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,721 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.Dapper.UZeroLogDapperUPrime, UZeroLog.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,730 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,738 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,747 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.UZeroConsoleUPrime, UZeroConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,754 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,767 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,775 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,789 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,797 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,805 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,813 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.UZeroLogUPrime, UZeroLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,822 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 17:54:53,836 [1] U.Logging.ULog4netLogger - (null) - 17 UPrime loaded.
+2016-09-09 17:54:54,370 [1] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2016-09-09 17:54:54,377 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-09 18:03:17,687 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-09 18:03:18,012 [1] U.Logging.ULog4netLogger - (null) - Found 17 UPrimes in total.
+2016-09-09 18:03:18,018 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,019 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,019 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,020 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,020 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,021 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,021 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Dapper.UZeroConsoleDapperUPrime, UZeroConsole.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,021 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.UZeroLogUPrime, UZeroLog, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,022 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.Web.UZeroConsoleWebUPrime, UZeroConsole.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,022 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,023 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,023 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,024 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroConsole.UZeroConsoleUPrime, UZeroConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,024 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroLog.Dapper.UZeroLogDapperUPrime, UZeroLog.Dapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,025 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,025 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,026 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Dapper.UDapperUPrime, U.Dapper, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-09 18:03:18,029 [1] U.Logging.ULog4netLogger - (null) - 17 UPrime loaded.
+2016-09-09 18:03:18,445 [1] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2016-09-09 18:03:18,445 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.

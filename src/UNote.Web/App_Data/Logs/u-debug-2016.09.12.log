@@ -1,0 +1,36 @@
+2016-09-12 18:02:50,633 [34] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-12 18:02:50,863 [34] U.Logging.ULog4netLogger - (null) - Found 8 UPrimes in total.
+2016-09-12 18:02:50,868 [34] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:02:50,868 [34] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:02:50,869 [34] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:02:50,869 [34] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:02:50,870 [34] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:02:50,871 [34] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:02:50,871 [34] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:02:50,872 [34] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Web.Infrastructure.UNoteUPrime, UNote.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:02:50,874 [34] U.Logging.ULog4netLogger - (null) - 8 UPrime loaded.
+2016-09-12 18:02:50,911 [34] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-12 18:04:02,246 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-12 18:04:02,479 [1] U.Logging.ULog4netLogger - (null) - Found 8 UPrimes in total.
+2016-09-12 18:04:02,483 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:04:02,484 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:04:02,485 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:04:02,485 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:04:02,486 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:04:02,486 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:04:02,487 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Web.Infrastructure.UNoteUPrime, UNote.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:04:02,488 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:04:02,489 [1] U.Logging.ULog4netLogger - (null) - 8 UPrime loaded.
+2016-09-12 18:04:02,527 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2016-09-12 18:05:19,451 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2016-09-12 18:05:19,678 [1] U.Logging.ULog4netLogger - (null) - Found 8 UPrimes in total.
+2016-09-12 18:05:19,683 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:05:19,684 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:05:19,684 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:05:19,685 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:05:19,685 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:05:19,686 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:05:19,687 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:05:19,687 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Web.Infrastructure.UNoteUPrime, UNote.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2016-09-12 18:05:19,689 [1] U.Logging.ULog4netLogger - (null) - 8 UPrime loaded.
+2016-09-12 18:05:19,726 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.

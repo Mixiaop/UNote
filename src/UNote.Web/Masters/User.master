@@ -1,0 +1,331 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Masters/Head.Master" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="UNote.Web.Masters.User" %>
+<asp:Content ID="ContentHeadCss" ContentPlaceHolderID="headCss" runat="server">
+    <link rel="stylesheet" href="/css/themes/flat.min.css" />
+    <link rel="stylesheet" href="/css/unote.css" />
+    <style type="text/css">
+        
+        #main-container {
+            position:relative;
+            z-index:100;
+            background:none;
+        }
+        #page-container {
+            background:none;
+        }
+        .side-teambar {
+            margin: 0 auto;
+            padding:13px 20px 1px;
+            max-width: 100%;
+        }
+        .teambar{
+            width:100%;
+            margin: 0 -20px;
+            border-left:3px solid #44B4A5;
+            padding-left:10px;
+        }
+            .teambar>button {
+                background:#212330;
+                font-weight:normal;
+                font-size:15px !important;
+                font-family:'Microsoft YaHei';
+                border:0;
+                color:#666 !important;
+                text-align:left;
+            }
+                .teambar>button i {
+                    font-size:15px !important;
+                    color:#666;
+                    margin-left:5px;
+                }
+    </style>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <script src="/lib/core/require.js" type="text/javascript"></script>
+    <script src="/js/app.init.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder runat="server" ID="userHead"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <div id="page-container" <%= !Model.CurrentPage.ClearUserPage?"class=\"sidebar-l sidebar-o side-scroll header-navbar-fixed\"":"" %>>
+  
+        <%if(!Model.CurrentPage.ClearUserPage){ %>
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <!-- Sidebar Scroll Container -->
+                <div id="sidebar-scroll">
+                    <!-- Sidebar Content -->
+                    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+                    <div class="sidebar-content">
+                        <!-- Side Header -->
+                        <div class="side-header side-content">
+                            <a href="/Users/" class="note">
+                               <span class="u">U</span> note
+                            </a>
+                        </div>
+                        <!-- END Side Header -->
+                        <div class="side-teambar">
+                            <div class="btn-group btn-group-xs teambar">
+                                            <button class="btn btn-default title" data-toggle="dropdown" type="button"><%= Model.CurrentUsedTeam!=null?Model.CurrentUsedTeam.Name:"我的笔记" %> <i class="fa fa-caret-down"></i></button>
+                                            <ul class="dropdown-menu dropdown-menu-left">
+                                                <% if(Model.CurrentUsedTeam != null){ %>
+                                                <li>
+                                                    <a tabindex="-1" href="javascript:;" data-key="0" class="btnUsedTeam">我的笔记</a>
+                                                </li>
+                                                <%} %>
+                                                <% foreach (var team in Model.Teams)
+                                                   {
+                                                       if (team.Id != Model.LoginedUser.CurrentUsedTeamId)
+                                                       { 
+                                                       %>
+                                                <li>
+                                                    <a tabindex="-1" href="javascript:;" data-key="<%= team.Key %>" class="btnUsedTeam"><i class="si si-users"></i> &nbsp;<%= team.Name %></a>
+                                                </li>
+                                                <%}
+                                                   } %>
+                                                <li class="divider"></li>
+                                                <% if(Model.CurrentUsedTeam!=null){ %>
+                                                <li><a tabindex="-1" href="<%= RouteContext.GetRouteUrl("Teams.Nodes", Model.CurrentUsedTeam.Key) %>"  class="btnUsedTeam">管理</a></li>
+                                                <%}else{ %>
+                                                <li><a tabindex="-1" href="<%= RouteContext.GetRouteUrl("Notes.Nodes") %>">管理</a></li>
+                                                <%} %>
+                                            </ul>
+                                        </div>
+                        </div>
+                        <!-- Side Content -->
+                        <div class="side-content">
+                            <ul class="nav-main">
+                                <!-- My notes-->
+                                <% if(Model.LoginedUser.CurrentUsedTeamId == 0 && Model.MyNodes.Count()>0){%>
+                                      <%var currentNavNodeId = Model.CurrentPage.CurrentNavNodeId;
+
+                                        var roots = Model.MyNodes.Where(x => x.ParentId == 0).ToList();
+                                      foreach (var node in roots) {
+                                          var level2 = Model.MyNodes.Where(x => x.ParentId == node.Id);
+                                      %>
+                                <% 
+                                    var opened = false;
+                                   if (node.Id == Model.CurrentPage.CurrentNavNodeId)
+                                       opened = true;
+                                   if (Model.MyNodes.Where(x => (x.ParentsPath == node.Id.ToString() || x.ParentsPath.Contains(node.Id + ",")) 
+                                       && Model.CurrentPage.CurrentNavNodeId == x.Id).Count() > 0)
+                                   {
+                                       opened = true;
+                                   }
+                                      
+                                    %>
+                                <li class="<%= opened?"open":"" %>">
+                                    <% if(level2.Count()>0){ %>
+                                    <a class="nav-submenu <%= Model.CurrentPage.CurrentNavNodeId == node.Id?"active":"" %>" href="/Notes/Contents.aspx?nodeId=<%= node.Id %>"><% if(node.Icon.IsNotNullOrEmpty()){ %><i class="si <%= node.Icon %>"></i><%} %><span class="sidebar-mini-hide"><%= node.NodeName %> <%= node.ContentTotal>0?"({0})".Format(node.ContentTotal):"" %></span></a>
+                                    <ul>
+                                        <% foreach(var level2Node in level2){ %>
+                                        <% 
+                                               var level3 = Model.MyNodes.Where(x => x.ParentId == level2Node.Id);
+                                               if (level3.Count() > 0) {
+                                                   
+                                             %>
+                                        <li <%= opened?"class=\"open\"":"" %>>
+                                            <a href="<%= RouteContext.GetRouteUrl("Notes.Contents",level2Node.Id) %>" class="nav-submenu <%= Model.CurrentPage.CurrentNavNodeId == level2Node.Id?"active":"" %>"  ><%= level2Node.NodeName %> <%= level2Node.ContentTotal>0?"({0})".Format(level2Node.ContentTotal):"" %></a>
+                                            <ul>
+                                                <%foreach (var level3Node in level3) {  %>
+                                                <li>
+                                                    <a href="<%= RouteContext.GetRouteUrl("Notes.Contents",level3Node.Id) %>" <%= Model.CurrentPage.CurrentNavNodeId == level3Node.Id?"class=\"active\"":"" %>><%= level3Node.NodeName %> <%= level3Node.ContentTotal>0?"({0})".Format(level3Node.ContentTotal):"" %></a>
+                                                </li>
+                                                <%} %>
+                                            </ul>
+                                        </li>
+                                        <%}else{ %>
+                                        <li><a  href="<%= RouteContext.GetRouteUrl("Notes.Contents",level2Node.Id) %>" <%= Model.CurrentPage.CurrentNavNodeId == level2Node.Id?"class=\"active\"":"" %>><%= level2Node.NodeName %> <%= level2Node.ContentTotal>0?"({0})".Format(level2Node.ContentTotal):"" %></a></li>
+                                        <%} %>
+                                        <%} %>
+                                    </ul>
+                                    <%}else{ %>
+                                    <a  href="<%= RouteContext.GetRouteUrl("Notes.Contents", node.Id) %>" <%= Model.CurrentPage.CurrentNavNodeId == node.Id?"class=\"active\"":"" %>><% if(node.Icon.IsNotNullOrEmpty()){ %><i class="si <%= node.Icon %>"></i><%} %><span class="sidebar-mini-hide"><%= node.NodeName %> <%= node.ContentTotal>0?"({0})".Format(node.ContentTotal):"" %></span></a>
+                                    <%} %>
+                                </li>
+                                <%} %>
+                                <%} %>
+                                <!-- End My notes -->
+                                <!-- Teams -->
+                                <%  foreach (var team in Model.Teams)
+                                    {
+                                        if (Model.LoginedUser.CurrentUsedTeamId == team.Id && team.NodeCount > 0) { 
+                                        %>
+                                <%--<li class="nav-main-heading" >
+                                    <a href="<%=RouteContext.GetRouteUrl("Teams.Nodes", team.Key) %>"><i class="si si-users"></i><%= team.Name %></a>
+                                </li>--%>
+                                 <%var currentNavNodeId = Model.CurrentPage.CurrentNavNodeId;
+
+                                   var roots = Model.TeamNodes.Where(x => x.TeamId == team.Id && x.ParentId == 0).ToList();
+                                      foreach (var node in roots) {
+                                          var level2 = Model.TeamNodes.Where(x => x.ParentId == node.Id);
+                                      %>
+                                <% 
+                                    var opened = false;
+                                   if (node.Id == Model.CurrentPage.CurrentNavNodeId)
+                                       opened = true;
+                                   if (Model.TeamNodes.Where(x => (x.ParentsPath == node.Id.ToString() || x.ParentsPath.Contains(node.Id + ",")) 
+                                       && Model.CurrentPage.CurrentNavNodeId == x.Id).Count() > 0)
+                                   {
+                                       opened = true;
+                                   }
+                                      
+                                    %>
+                                <li class="<%= opened?"open":"" %>">
+                                    <% if(level2.Count()>0){ %>
+                                    <a class="nav-submenu <%= Model.CurrentPage.CurrentNavNodeId == node.Id?"active":"" %>" href="<%= RouteContext.GetRouteUrl("Notes.Contents", node.Id) %>"><% if(node.Icon.IsNotNullOrEmpty()){ %><i class="si <%= node.Icon %>"></i><%} %><span class="sidebar-mini-hide"><%= node.NodeName %> <%= node.ContentTotal>0?"({0})".Format(node.ContentTotal):"" %></span></a>
+                                    <ul>
+                                        <% foreach(var level2Node in level2){ %>
+                                        <% 
+                                               var level3 = Model.TeamNodes.Where(x => x.ParentId == level2Node.Id);
+                                               if (level3.Count() > 0) {
+                                                   
+                                             %>
+                                        <li <%= opened?"class=\"open\"":"" %>>
+                                            <a href="<%= RouteContext.GetRouteUrl("Notes.Contents", level2Node.Id) %>" class="nav-submenu <%= Model.CurrentPage.CurrentNavNodeId == level2Node.Id?"active":"" %>"  ><%= level2Node.NodeName %> <%= level2Node.ContentTotal>0?"({0})".Format(level2Node.ContentTotal):"" %></a>
+                                            <ul>
+                                                <%foreach (var level3Node in level3) {  %>
+                                                <li>
+                                                    <a href="<%= RouteContext.GetRouteUrl("Notes.Contents", level3Node.Id) %>" <%= Model.CurrentPage.CurrentNavNodeId == level3Node.Id?"class=\"active\"":"" %>><%= level3Node.NodeName %> <%= level3Node.ContentTotal>0?"({0})".Format(level3Node.ContentTotal):"" %></a>
+                                                </li>
+                                                <%} %>
+                                            </ul>
+                                        </li>
+                                        <%}else{ %>
+                                        <li><a  href="<%= RouteContext.GetRouteUrl("Notes.Contents", level2Node.Id) %>" <%= Model.CurrentPage.CurrentNavNodeId == level2Node.Id?"class=\"active\"":"" %>><%= level2Node.NodeName %> <%= level2Node.ContentTotal>0?"({0})".Format(level2Node.ContentTotal):"" %></a></li>
+                                        <%} %>
+                                        <%} %>
+                                    </ul>
+                                    <%}else{ %>
+                                    <a  href="<%= RouteContext.GetRouteUrl("Notes.Contents", node.Id) %>" <%= Model.CurrentPage.CurrentNavNodeId == node.Id?"class=\"active\"":"" %>><% if(node.Icon.IsNotNullOrEmpty()){ %><i class="si <%= node.Icon %>"></i><%} %><span class="sidebar-mini-hide"><%= node.NodeName %> <%= node.ContentTotal>0?"({0})".Format(node.ContentTotal):"" %></span></a>
+                                    <%} %>
+                                </li>
+                                <%} %>
+                                <%} }%>
+                                <!-- End Teams -->
+                            </ul>
+                        </div>
+                        <!-- END Side Content -->
+                    </div>
+                    <!-- Sidebar Content -->
+                </div>
+                <!-- END Sidebar Scroll Container -->
+            </nav>
+            <!-- END Sidebar -->
+
+            <!-- Header -->
+            <header id="header-navbar" class="content-mini content-mini-full" >
+                <div class="row" >
+                    <div class="col-md-8 col-xs-10" >
+                        <!-- Header Navigation Left -->
+                        <ul class="nav-header pull-left">
+                            <li class="hidden-md hidden-lg">
+                                <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                                <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
+                                    <i class="fa fa-navicon"></i>
+                                </button>
+                            </li>
+                            <li>
+                                <button class="btn btn-default pull-right btn-writenote" onclick="window.location.href='<%= Model.RouteWriteUrl %>'" data-toggle="tooltip" data-placement="bottom" title="记上一笔"  type="button">
+                                    <i class="si si-pencil"></i>&nbsp; 写笔记
+                                </button>
+                            </li>
+                             <li class="visible-xs">
+                                <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
+                                <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search" data-class="header-search-xs-visible" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </li>
+                            <li class="js-header-search header-search" id="containerNoteSearchBar">
+                                <div class="form-horizontal" >
+                                    <div class="form-material form-material-primary input-group remove-margin-t remove-margin-b">
+                                        <input type="hidden" id="hidRouteSearchUrl" value="<%= Model.RouteSearchUrl %>" />
+                                         <input class="form-control" type="text"  placeholder="搜索.." value="<%= Model.GetKeywords %>" />
+                                        <span class="input-group-addon"><i class="si si-magnifier"></i></span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- END Header Navigation Left -->
+                    </div>
+                    <div class="col-md-4 col-xs-2">
+                        <!-- Header Navigation Right -->
+                            <ul class="nav-header pull-right">
+                                <li>
+                                    <div class="btn-group">
+                                        <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
+                                            <img src="/img/avatars/avatar1.jpg" alt="Avatar">
+                                            <%--<%= Model.LoginedUser.NickName %>--%>
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right">
+                                             <li>
+                                                <a tabindex="-1" href="<%= RouteContext.GetRouteUrl("Notes.Nodes") %>" title="修改密码">
+                                                    <i class="si si-pencil pull-right"></i>我的目录
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a tabindex="-1" href="<%= RouteContext.GetRouteUrl("Teams.Create") %>" title="修改密码">
+                                                    <i class="si si-users pull-right"></i>新建小组
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a tabindex="-1" href="/Users/ChangePassword.aspx" title="修改密码">
+                                                    <i class="si si-lock pull-right"></i>修改密码
+                                                </a>
+                                            </li>
+                                            <%--<li>
+                                                <a tabindex="-1" href="/Users/UpdateProfile.aspx" title="个人资料">
+                                                    <i class="si si-pencil pull-right"></i>个人资料
+                                                </a>
+                                            </li>--%>
+                                            <li>
+                                                <a tabindex="-1" href="/Logout.aspx" title="退出">
+                                                    <i class="si si-logout pull-right"></i>退出
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                   
+                            </ul>
+                            <!-- END Header Navigation Right -->
+                    </div>
+                </div>
+            </header>
+            <!-- END Header -->
+        <%} %>
+            <!-- Main Container -->
+            <main id="main-container" >
+                <asp:ContentPlaceHolder runat="server" ID="userBody"></asp:ContentPlaceHolder>
+            </main>
+            <!-- END Main Container -->
+
+            <!-- Footer -->
+            <%--<footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
+                <div class="pull-left">
+                    &copy;当前在线： <span class="js-year-copy"></span><a class="font-w600" href="javascript:void(0)" target="_blank">UNote</a> 
+                </div>
+            </footer>--%>
+            <!-- END Footer -->
+        </div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="foot" runat="server">
+    <script src="/js/masters/user.controller.js"></script>
+    <script>
+        function userHeartbeat() {
+            UserService.Heartbeat(function (res) {});
+            setTimeout(function () {
+                userHeartbeat();
+            }, parseInt('<%= Model.UserHeartbeatTime%>'));
+        }
+        userHeartbeat();
+        require(['jquery'], function ($) {
+            $('.btnUsedTeam').on('click', function () {
+                UserService.CurrentUsedTeam($(this).data('key').toString(), function (res) {
+                    window.location.href = '<%= RouteContext.GetRouteUrl("Users.Home") %>';
+                });
+            });
+        });
+    </script>
+
+    <asp:ContentPlaceHolder runat="server" ID="userFoot"></asp:ContentPlaceHolder>
+</asp:Content>
