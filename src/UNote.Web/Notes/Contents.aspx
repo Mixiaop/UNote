@@ -175,11 +175,14 @@
                                 </p>
                                 <%} %>
                                 <% if (content.TeamId > 0)
-                                   { %>
+    {
+        if (content.User != null)
+        {%>
                                 <em class="pull-right createtime"><a><%= content.User.FormatNickName %></a> <%= content.FormatCreationTime %></em>
                                 <%}
-                                   else
-                                   { %>
+    }
+    else
+    { %>
                                 <em class="pull-right createtime"><%= content.FormatCreationTime %></em>
                                 <%} %>
                             </div>
