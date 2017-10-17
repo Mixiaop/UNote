@@ -419,7 +419,8 @@
                             'formatblock', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
                             'italic', 'underline', 'strikethrough', '|', 'image', 'multiimage',
                            'insertfile', 'link', 'unlink'],
-                    uploadJson: '/editors/kindeditor/handler/upload_json.ashx'
+                    uploadJson: '/editors/kindeditor/handler/upload_json.ashx',
+                    filterMode: false
                 });
                 arrEditor[arrEditor.length] = editor;
             });
