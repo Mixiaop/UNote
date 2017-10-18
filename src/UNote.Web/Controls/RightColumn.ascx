@@ -15,7 +15,12 @@
                                             <li>
                                                                 
                                                 <div class="push-5 clearfix">
-                                                    <span class="font-s13 text-muted push-10-l pull-right"><% if(Model.LoginedUser.Id!=content.User.Id){ %><a><%= content.User.FormatNickName %></a><%}else{ %><a>我</a><%} %> &nbsp; <%= content.FormatCreationTime %></span>
+                                                    <span class="font-s13 text-muted push-10-l pull-right"><% if (Model.LoginedUser != null && content.User != null)
+                                                                                                                    { %><% if (Model.LoginedUser.Id != content.User.Id)
+                                                                                                                    { %><a><%= content.User.FormatNickName %></a><%}
+                                                                                                                    else
+                                                                                                                    { %><a>我</a><%}
+                                                                                                                    } %> &nbsp; <%= content.FormatCreationTime %></span>
                                                     <% if(content.Node!=null){ %>
                                                                 <a href="<%= RouteContext.GetRouteUrl("Notes.Contents", content.NodeId) %>" data-toggle="tooltip" title="所属目录" class="node"><span class="label label-info push-5-r"><%= content.Team!=null?content.Team.Name+" / ":"" %> <%= content.Node.NodeName %></span></a>
                                                                 <%} %>
