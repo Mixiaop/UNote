@@ -156,15 +156,18 @@
                                     <!-- Followers -->
                                     <p>
                                         <% 
-                                           if (content.Followers != null)
-                                           {
-                                               foreach (var follower in content.Followers)
-                                               { %>
+                                            if (content.Followers != null)
+                                            {
+                                                foreach (var follower in content.Followers)
+                                                {
+                                                    if (follower != null && follower.User != null)
+                                                    { %>
                                         <div class="item item-circle bg-info-light text-info unote-avatar unote-avatar">
                                             <%= follower.User.FormatNickName %>
                                         </div>
                                         <%}
-                                           } %>
+        }
+    } %>
                                     </p>
                                 </div>
                                 <% if (content.VisitCount > 0)
