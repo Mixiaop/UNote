@@ -404,6 +404,7 @@
 
             var arrEditor = new Array();
             var editor;
+            KindEditor.options.filterMode = false;
             $('.kindeditor').each(function () {
                 editor = KindEditor.create('#' + $(this).attr('id'), {
                     width: '100%',
