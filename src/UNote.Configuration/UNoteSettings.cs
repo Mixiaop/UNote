@@ -6,6 +6,16 @@ namespace UNote.Configuration
     public class UNoteSettings : USettings<UNoteSettings>
     {
         /// <summary>
+        /// 是否外部登录
+        /// </summary>
+        public bool ExternalLoginOpened { get; set; }
+
+        /// <summary>
+        /// 外部登录URL
+        /// </summary>
+        public string ExternalLoginUrl { get; set; }
+
+        /// <summary>
         /// 外部登录用到的App key
         /// </summary>
         public string ExternalLoginAppKey { get; set; }

@@ -1,4 +1,6 @@
 ﻿{
+  "ExternalLoginOpened": false,
+  "ExternalLoginUrl": "",
   "ExternalLoginAppKey": "956e775af7384eaf8b7f8f33e3b993d2",
   "RememberUserExpiresTime": 525600,
   "UserHeartbeatTime": 10,

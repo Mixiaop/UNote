@@ -10,6 +10,7 @@ namespace UNote.Web
 {
     public partial class Login : Infrastructure.PageBase
     {
+        private UNoteSettings _settings = UPrimeEngine.Instance.Resolve<UNoteSettings>();
         private IUserRegistrationService _userRegistrationService = UPrimeEngine.Instance.Resolve<IUserRegistrationService>();
         private IAuthenticationService _authenticationService = UPrimeEngine.Instance.Resolve<IAuthenticationService>();
 
@@ -19,6 +20,12 @@ namespace UNote.Web
             btnLogin.ServerClick += btnLogin_Click;
             if (IsLogined())
                 Response.Redirect("/Users/Default.aspx");
+
+            if (_settings.ExternalLoginOpened && _settings.ExternalLoginUrl.IsNotNullOrEmpty()) {
+                Response.Redirect(string.Format("{0}?unote=1", _settings.ExternalLoginUrl));
+                Response.End();
+            }
+
             if (!IsPostBack)
             {
                 //获取记住的用户
