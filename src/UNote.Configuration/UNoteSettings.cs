@@ -6,6 +6,11 @@ namespace UNote.Configuration
     public class UNoteSettings : USettings<UNoteSettings>
     {
         /// <summary>
+        /// 外部登录用到的App key
+        /// </summary>
+        public string ExternalLoginAppKey { get; set; }
+
+        /// <summary>
         /// 记住用户过期时间（分）
         /// </summary>
         public int RememberUserExpiresTime { get; set; }

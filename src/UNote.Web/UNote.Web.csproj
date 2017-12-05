@@ -394,6 +394,7 @@
     <Content Include="editors\kindeditor\plugins\template\html\3.html" />
     <Content Include="editors\kindeditor\plugins\template\template.js" />
     <Content Include="editors\kindeditor\plugins\wordpaste\wordpaste.js" />
+    <Content Include="ExternalLogin.aspx" />
     <Content Include="icons.html" />
     <Content Include="img\logo.png" />
     <Content Include="img\snowflake1.png" />
@@ -1635,6 +1636,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalLogin.aspx.cs">
+      <DependentUpon>ExternalLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExternalLogin.aspx.designer.cs">
+      <DependentUpon>ExternalLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
