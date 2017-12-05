@@ -18,6 +18,13 @@ namespace UNote.Web
             var userService = UPrimeEngine.Instance.Resolve<IUserService>();
             var authenticationService = UPrimeEngine.Instance.Resolve<IAuthenticationService>();
 
+            //已登录
+            if (authenticationService.GetAuthenticatedUser() != null)
+            {
+                Response.Redirect("/");
+                Response.End();
+            }
+
             var appKey = WebHelper.GetString("appKey");
             var username = WebHelper.GetString("username");
             if (appKey.IsNotNullOrEmpty() && username.IsNotNullOrEmpty())
