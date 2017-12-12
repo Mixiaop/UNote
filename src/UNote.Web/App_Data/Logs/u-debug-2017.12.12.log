@@ -1,0 +1,601 @@
+2017-12-12 10:51:19,174 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2017-12-12 10:51:19,593 [1] U.Logging.ULog4netLogger - (null) - Found 15 UPrimes in total.
+2017-12-12 10:51:19,599 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,600 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.FakeMvc.UFakeMvcUPrime, U.FakeMvc, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,601 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,601 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,602 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,603 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,603 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,604 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Hangfire.UHangfireUPrime, U.HangFire, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,604 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,605 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroSDK.Weixin.UZeroSDKWeixinUPrime, UZeroSDK.Weixin, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,606 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,606 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,607 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,608 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Web.Infrastructure.UNoteUPrime, UNote.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,608 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:51:19,611 [1] U.Logging.ULog4netLogger - (null) - 15 UPrime loaded.
+2017-12-12 10:51:19,905 [1] Hangfire.SqlServer.SqlServerStorage - (null) - Start installing Hangfire SQL objects...
+2017-12-12 10:51:20,141 [1] Hangfire.SqlServer.SqlServerStorage - (null) - Hangfire SQL objects installed.
+2017-12-12 10:51:20,373 [1] U.Logging.ULog4netLogger - (null) - Start background worker：U.Hangfire.HangfireBackgroundJobManager
+2017-12-12 10:51:20,384 [1] Hangfire.BackgroundJobServer - (null) - Starting Hangfire Server
+2017-12-12 10:51:20,387 [1] Hangfire.BackgroundJobServer - (null) - Using job storage: 'SQL Server: 120.132.57.7,1444@UNote'.
+2017-12-12 10:51:20,387 [1] Hangfire.BackgroundJobServer - (null) - Using the following options for SQL Server job storage:
+2017-12-12 10:51:20,388 [1] Hangfire.BackgroundJobServer - (null) -     Queue poll interval: 00:00:15.
+2017-12-12 10:51:20,388 [1] Hangfire.BackgroundJobServer - (null) - Using the following options for Hangfire Server:
+2017-12-12 10:51:20,388 [1] Hangfire.BackgroundJobServer - (null) -     Worker count: 40.
+2017-12-12 10:51:20,389 [1] Hangfire.BackgroundJobServer - (null) -     Listening queues: 'default'.
+2017-12-12 10:51:20,389 [1] Hangfire.BackgroundJobServer - (null) -     Shutdown timeout: 00:00:15.
+2017-12-12 10:51:20,389 [1] Hangfire.BackgroundJobServer - (null) -     Schedule polling interval: 00:00:15.
+2017-12-12 10:51:20,396 [BackgroundProcessingServer] Hangfire.Server.BackgroundProcessingServer - (null) - Background process 'BackgroundProcessingServer' started.
+2017-12-12 10:51:20,473 [ServerHeartbeat] Hangfire.Server.ServerHeartbeat - (null) - Background process 'ServerHeartbeat' started.
+2017-12-12 10:51:20,473 [ServerWatchdog] Hangfire.Server.ServerWatchdog - (null) - Background process 'ServerWatchdog' started.
+2017-12-12 10:51:20,474 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+2017-12-12 10:51:20,476 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'AggregatedCounter'...
+2017-12-12 10:51:20,476 [Hangfire.SqlServer.CountersAggregator] Hangfire.SqlServer.CountersAggregator - (null) - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+2017-12-12 10:51:20,477 [Worker #60216a0c] Hangfire.Server.Worker - (null) - Background process 'Worker #60216a0c' started.
+2017-12-12 10:51:20,478 [Worker #de9d06ae] Hangfire.Server.Worker - (null) - Background process 'Worker #de9d06ae' started.
+2017-12-12 10:51:20,478 [Hangfire.SqlServer.CountersAggregator] Hangfire.SqlServer.CountersAggregator - (null) - Aggregating records in 'Counter' table...
+2017-12-12 10:51:20,481 [Worker #7dbc119b] Hangfire.Server.Worker - (null) - Background process 'Worker #7dbc119b' started.
+2017-12-12 10:51:20,482 [Worker #c08824b8] Hangfire.Server.Worker - (null) - Background process 'Worker #c08824b8' started.
+2017-12-12 10:51:20,482 [Worker #43b94bf7] Hangfire.Server.Worker - (null) - Background process 'Worker #43b94bf7' started.
+2017-12-12 10:51:20,483 [Worker #3419d5e1] Hangfire.Server.Worker - (null) - Background process 'Worker #3419d5e1' started.
+2017-12-12 10:51:20,483 [Worker #71f57564] Hangfire.Server.Worker - (null) - Background process 'Worker #71f57564' started.
+2017-12-12 10:51:20,484 [Worker #39a5ac6e] Hangfire.Server.Worker - (null) - Background process 'Worker #39a5ac6e' started.
+2017-12-12 10:51:20,484 [Worker #91c1940e] Hangfire.Server.Worker - (null) - Background process 'Worker #91c1940e' started.
+2017-12-12 10:51:20,485 [Worker #4ae89669] Hangfire.Server.Worker - (null) - Background process 'Worker #4ae89669' started.
+2017-12-12 10:51:20,485 [Worker #9f46800b] Hangfire.Server.Worker - (null) - Background process 'Worker #9f46800b' started.
+2017-12-12 10:51:20,486 [Worker #6f5332e8] Hangfire.Server.Worker - (null) - Background process 'Worker #6f5332e8' started.
+2017-12-12 10:51:20,487 [Worker #bfc18c46] Hangfire.Server.Worker - (null) - Background process 'Worker #bfc18c46' started.
+2017-12-12 10:51:20,486 [Worker #ffc0333f] Hangfire.Server.Worker - (null) - Background process 'Worker #ffc0333f' started.
+2017-12-12 10:51:20,488 [Worker #197d19e4] Hangfire.Server.Worker - (null) - Background process 'Worker #197d19e4' started.
+2017-12-12 10:51:20,488 [Worker #854f5f39] Hangfire.Server.Worker - (null) - Background process 'Worker #854f5f39' started.
+2017-12-12 10:51:20,489 [Worker #4b720de3] Hangfire.Server.Worker - (null) - Background process 'Worker #4b720de3' started.
+2017-12-12 10:51:20,489 [Worker #01efad6c] Hangfire.Server.Worker - (null) - Background process 'Worker #01efad6c' started.
+2017-12-12 10:51:20,490 [Worker #10d9d5a7] Hangfire.Server.Worker - (null) - Background process 'Worker #10d9d5a7' started.
+2017-12-12 10:51:20,490 [Worker #76a6bfe7] Hangfire.Server.Worker - (null) - Background process 'Worker #76a6bfe7' started.
+2017-12-12 10:51:20,491 [Worker #2049b807] Hangfire.Server.Worker - (null) - Background process 'Worker #2049b807' started.
+2017-12-12 10:51:20,491 [Worker #6b72b874] Hangfire.Server.Worker - (null) - Background process 'Worker #6b72b874' started.
+2017-12-12 10:51:20,492 [Worker #da6e2560] Hangfire.Server.Worker - (null) - Background process 'Worker #da6e2560' started.
+2017-12-12 10:51:20,492 [Worker #a175b301] Hangfire.Server.Worker - (null) - Background process 'Worker #a175b301' started.
+2017-12-12 10:51:20,493 [Worker #c7b0a7f4] Hangfire.Server.Worker - (null) - Background process 'Worker #c7b0a7f4' started.
+2017-12-12 10:51:20,493 [Worker #dd67dab2] Hangfire.Server.Worker - (null) - Background process 'Worker #dd67dab2' started.
+2017-12-12 10:51:20,493 [Worker #c0e94281] Hangfire.Server.Worker - (null) - Background process 'Worker #c0e94281' started.
+2017-12-12 10:51:20,494 [Worker #265af3b2] Hangfire.Server.Worker - (null) - Background process 'Worker #265af3b2' started.
+2017-12-12 10:51:20,494 [Worker #c148496c] Hangfire.Server.Worker - (null) - Background process 'Worker #c148496c' started.
+2017-12-12 10:51:20,495 [Worker #a2d088d3] Hangfire.Server.Worker - (null) - Background process 'Worker #a2d088d3' started.
+2017-12-12 10:51:20,495 [Worker #8ee0c520] Hangfire.Server.Worker - (null) - Background process 'Worker #8ee0c520' started.
+2017-12-12 10:51:20,496 [Worker #8f8a51d2] Hangfire.Server.Worker - (null) - Background process 'Worker #8f8a51d2' started.
+2017-12-12 10:51:20,496 [Worker #1c871a1f] Hangfire.Server.Worker - (null) - Background process 'Worker #1c871a1f' started.
+2017-12-12 10:51:20,497 [Worker #d388d43d] Hangfire.Server.Worker - (null) - Background process 'Worker #d388d43d' started.
+2017-12-12 10:51:20,497 [Worker #7c643293] Hangfire.Server.Worker - (null) - Background process 'Worker #7c643293' started.
+2017-12-12 10:51:20,497 [Worker #96de6fdf] Hangfire.Server.Worker - (null) - Background process 'Worker #96de6fdf' started.
+2017-12-12 10:51:20,498 [Worker #9a421a74] Hangfire.Server.Worker - (null) - Background process 'Worker #9a421a74' started.
+2017-12-12 10:51:20,498 [Worker #225716b7] Hangfire.Server.Worker - (null) - Background process 'Worker #225716b7' started.
+2017-12-12 10:51:20,499 [Worker #8b38072c] Hangfire.Server.Worker - (null) - Background process 'Worker #8b38072c' started.
+2017-12-12 10:51:20,499 [Worker #7cc28081] Hangfire.Server.Worker - (null) - Background process 'Worker #7cc28081' started.
+2017-12-12 10:51:20,500 [RecurringJobScheduler] Hangfire.Server.RecurringJobScheduler - (null) - Background process 'RecurringJobScheduler' started.
+2017-12-12 10:51:20,500 [DelayedJobScheduler] Hangfire.Server.DelayedJobScheduler - (null) - Background process 'DelayedJobScheduler' started.
+2017-12-12 10:51:20,621 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Job'...
+2017-12-12 10:51:20,723 [1] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2017-12-12 10:51:20,724 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2017-12-12 10:51:21,483 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'List'...
+2017-12-12 10:51:21,586 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Set'...
+2017-12-12 10:51:21,688 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Hash'...
+2017-12-12 10:56:24,052 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2017-12-12 10:56:37,256 [1] U.Logging.ULog4netLogger - (null) - Found 15 UPrimes in total.
+2017-12-12 10:56:37,266 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroSDK.Weixin.UZeroSDKWeixinUPrime, UZeroSDK.Weixin, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,267 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Hangfire.UHangfireUPrime, U.HangFire, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,268 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,269 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,270 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,271 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,272 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Web.Infrastructure.UNoteUPrime, UNote.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,272 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,273 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.FakeMvc.UFakeMvcUPrime, U.FakeMvc, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,274 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,275 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,276 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,276 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,277 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,278 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:56:37,282 [1] U.Logging.ULog4netLogger - (null) - 15 UPrime loaded.
+2017-12-12 10:56:37,622 [1] Hangfire.SqlServer.SqlServerStorage - (null) - Start installing Hangfire SQL objects...
+2017-12-12 10:56:37,882 [1] Hangfire.SqlServer.SqlServerStorage - (null) - Hangfire SQL objects installed.
+2017-12-12 10:56:38,208 [1] U.Logging.ULog4netLogger - (null) - Start background worker：U.Hangfire.HangfireBackgroundJobManager
+2017-12-12 10:56:38,217 [1] Hangfire.BackgroundJobServer - (null) - Starting Hangfire Server
+2017-12-12 10:56:38,219 [1] Hangfire.BackgroundJobServer - (null) - Using job storage: 'SQL Server: 120.132.57.7,1444@UNote'.
+2017-12-12 10:56:38,219 [1] Hangfire.BackgroundJobServer - (null) - Using the following options for SQL Server job storage:
+2017-12-12 10:56:38,220 [1] Hangfire.BackgroundJobServer - (null) -     Queue poll interval: 00:00:15.
+2017-12-12 10:56:38,220 [1] Hangfire.BackgroundJobServer - (null) - Using the following options for Hangfire Server:
+2017-12-12 10:56:38,220 [1] Hangfire.BackgroundJobServer - (null) -     Worker count: 40.
+2017-12-12 10:56:38,221 [1] Hangfire.BackgroundJobServer - (null) -     Listening queues: 'default'.
+2017-12-12 10:56:38,221 [1] Hangfire.BackgroundJobServer - (null) -     Shutdown timeout: 00:00:15.
+2017-12-12 10:56:38,222 [1] Hangfire.BackgroundJobServer - (null) -     Schedule polling interval: 00:00:15.
+2017-12-12 10:56:38,240 [BackgroundProcessingServer] Hangfire.Server.BackgroundProcessingServer - (null) - Background process 'BackgroundProcessingServer' started.
+2017-12-12 10:56:38,410 [ServerHeartbeat] Hangfire.Server.ServerHeartbeat - (null) - Background process 'ServerHeartbeat' started.
+2017-12-12 10:56:38,411 [ServerWatchdog] Hangfire.Server.ServerWatchdog - (null) - Background process 'ServerWatchdog' started.
+2017-12-12 10:56:38,423 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+2017-12-12 10:56:38,425 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'AggregatedCounter'...
+2017-12-12 10:56:38,431 [Hangfire.SqlServer.CountersAggregator] Hangfire.SqlServer.CountersAggregator - (null) - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+2017-12-12 10:56:38,433 [Hangfire.SqlServer.CountersAggregator] Hangfire.SqlServer.CountersAggregator - (null) - Aggregating records in 'Counter' table...
+2017-12-12 10:56:38,438 [Worker #488e5a93] Hangfire.Server.Worker - (null) - Background process 'Worker #488e5a93' started.
+2017-12-12 10:56:38,446 [Worker #fdec2538] Hangfire.Server.Worker - (null) - Background process 'Worker #fdec2538' started.
+2017-12-12 10:56:38,449 [Worker #454068bf] Hangfire.Server.Worker - (null) - Background process 'Worker #454068bf' started.
+2017-12-12 10:56:38,455 [Worker #ad202606] Hangfire.Server.Worker - (null) - Background process 'Worker #ad202606' started.
+2017-12-12 10:56:38,458 [Worker #1b14b331] Hangfire.Server.Worker - (null) - Background process 'Worker #1b14b331' started.
+2017-12-12 10:56:38,464 [Worker #1e344ee3] Hangfire.Server.Worker - (null) - Background process 'Worker #1e344ee3' started.
+2017-12-12 10:56:38,468 [Worker #395311bf] Hangfire.Server.Worker - (null) - Background process 'Worker #395311bf' started.
+2017-12-12 10:56:38,471 [Worker #1a375fcb] Hangfire.Server.Worker - (null) - Background process 'Worker #1a375fcb' started.
+2017-12-12 10:56:38,484 [Worker #30bf1178] Hangfire.Server.Worker - (null) - Background process 'Worker #30bf1178' started.
+2017-12-12 10:56:38,491 [Worker #bd031701] Hangfire.Server.Worker - (null) - Background process 'Worker #bd031701' started.
+2017-12-12 10:56:38,507 [Worker #6f0f4aac] Hangfire.Server.Worker - (null) - Background process 'Worker #6f0f4aac' started.
+2017-12-12 10:56:38,524 [Worker #762433cb] Hangfire.Server.Worker - (null) - Background process 'Worker #762433cb' started.
+2017-12-12 10:56:38,541 [Worker #83e22369] Hangfire.Server.Worker - (null) - Background process 'Worker #83e22369' started.
+2017-12-12 10:56:38,562 [Worker #3d9d19b4] Hangfire.Server.Worker - (null) - Background process 'Worker #3d9d19b4' started.
+2017-12-12 10:56:38,569 [Worker #ad980e80] Hangfire.Server.Worker - (null) - Background process 'Worker #ad980e80' started.
+2017-12-12 10:56:38,573 [Worker #8a76abaf] Hangfire.Server.Worker - (null) - Background process 'Worker #8a76abaf' started.
+2017-12-12 10:56:38,577 [Worker #a015bcac] Hangfire.Server.Worker - (null) - Background process 'Worker #a015bcac' started.
+2017-12-12 10:56:38,582 [Worker #5ee7c319] Hangfire.Server.Worker - (null) - Background process 'Worker #5ee7c319' started.
+2017-12-12 10:56:38,586 [Worker #3bfb2220] Hangfire.Server.Worker - (null) - Background process 'Worker #3bfb2220' started.
+2017-12-12 10:56:38,590 [Worker #d4e617ec] Hangfire.Server.Worker - (null) - Background process 'Worker #d4e617ec' started.
+2017-12-12 10:56:38,595 [Worker #9369a87f] Hangfire.Server.Worker - (null) - Background process 'Worker #9369a87f' started.
+2017-12-12 10:56:38,605 [Worker #9972d61c] Hangfire.Server.Worker - (null) - Background process 'Worker #9972d61c' started.
+2017-12-12 10:56:38,614 [Worker #e92f77b0] Hangfire.Server.Worker - (null) - Background process 'Worker #e92f77b0' started.
+2017-12-12 10:56:38,618 [Worker #810ef7d4] Hangfire.Server.Worker - (null) - Background process 'Worker #810ef7d4' started.
+2017-12-12 10:56:38,625 [Worker #f89b2281] Hangfire.Server.Worker - (null) - Background process 'Worker #f89b2281' started.
+2017-12-12 10:56:38,631 [Worker #6ac9919e] Hangfire.Server.Worker - (null) - Background process 'Worker #6ac9919e' started.
+2017-12-12 10:56:38,644 [Worker #890b5d55] Hangfire.Server.Worker - (null) - Background process 'Worker #890b5d55' started.
+2017-12-12 10:56:38,649 [Worker #d73995e8] Hangfire.Server.Worker - (null) - Background process 'Worker #d73995e8' started.
+2017-12-12 10:56:38,655 [Worker #696bae13] Hangfire.Server.Worker - (null) - Background process 'Worker #696bae13' started.
+2017-12-12 10:56:38,665 [Worker #a94624f8] Hangfire.Server.Worker - (null) - Background process 'Worker #a94624f8' started.
+2017-12-12 10:56:38,669 [Worker #8ad35f94] Hangfire.Server.Worker - (null) - Background process 'Worker #8ad35f94' started.
+2017-12-12 10:56:38,676 [Worker #8d3ec95f] Hangfire.Server.Worker - (null) - Background process 'Worker #8d3ec95f' started.
+2017-12-12 10:56:38,681 [Worker #dc48687c] Hangfire.Server.Worker - (null) - Background process 'Worker #dc48687c' started.
+2017-12-12 10:56:38,685 [Worker #35379064] Hangfire.Server.Worker - (null) - Background process 'Worker #35379064' started.
+2017-12-12 10:56:38,690 [Worker #d84412bd] Hangfire.Server.Worker - (null) - Background process 'Worker #d84412bd' started.
+2017-12-12 10:56:38,695 [Worker #6c0ca056] Hangfire.Server.Worker - (null) - Background process 'Worker #6c0ca056' started.
+2017-12-12 10:56:38,728 [Worker #23d1e1bb] Hangfire.Server.Worker - (null) - Background process 'Worker #23d1e1bb' started.
+2017-12-12 10:56:38,735 [Worker #154db32e] Hangfire.Server.Worker - (null) - Background process 'Worker #154db32e' started.
+2017-12-12 10:56:38,743 [Worker #99a0d1e2] Hangfire.Server.Worker - (null) - Background process 'Worker #99a0d1e2' started.
+2017-12-12 10:56:38,747 [Worker #fae38201] Hangfire.Server.Worker - (null) - Background process 'Worker #fae38201' started.
+2017-12-12 10:56:38,752 [DelayedJobScheduler] Hangfire.Server.DelayedJobScheduler - (null) - Background process 'DelayedJobScheduler' started.
+2017-12-12 10:56:38,763 [RecurringJobScheduler] Hangfire.Server.RecurringJobScheduler - (null) - Background process 'RecurringJobScheduler' started.
+2017-12-12 10:56:39,069 [1] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2017-12-12 10:56:39,070 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2017-12-12 10:56:39,501 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Job'...
+2017-12-12 10:56:39,653 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'List'...
+2017-12-12 10:56:39,775 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Set'...
+2017-12-12 10:56:39,890 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Hash'...
+2017-12-12 10:57:41,317 [1] U.Logging.ULog4netLogger - (null) - Loading UPrimes...
+2017-12-12 10:57:41,882 [1] U.Logging.ULog4netLogger - (null) - Found 15 UPrimes in total.
+2017-12-12 10:57:41,893 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.EntityFramework.UNoteEntityFrameworkUPrime, UNote.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,894 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.FakeMvc.UFakeMvcUPrime, U.FakeMvc, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,895 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.AutoMapper.UAutoMapperUPrime, U.AutoMapper, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,896 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Configuration.UNoteConfigurationUPrime, UNote.Configuration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,897 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.ULeadershipUPrime, U, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,898 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.UZeroMediaUPrime, UZeroMedia, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,899 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Services.UNoteServicesUPrime, UNote.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,900 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Hangfire.UHangfireUPrime, U.HangFire, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,900 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.Web.UWebUPrime, U.Web, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,901 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroSDK.Weixin.UZeroSDKWeixinUPrime, UZeroSDK.Weixin, Version=0.2.2.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,902 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UZeroMedia.Client.UZeroMediaClientUPrime, UZeroMedia.Client, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,903 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.WebApi.UWebApiUPrime, U.Web.Api, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,904 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.UNoteCoreUPrime, UNote.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,905 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: UNote.Web.Infrastructure.UNoteUPrime, UNote.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,906 [1] U.Logging.ULog4netLogger - (null) - Loaded UPrime: U.EntityFramework.UEntityFrameworkUPrime, U.EntityFramework, Version=0.5.10.7, Culture=neutral, PublicKeyToken=null
+2017-12-12 10:57:41,910 [1] U.Logging.ULog4netLogger - (null) - 15 UPrime loaded.
+2017-12-12 10:57:42,271 [1] Hangfire.SqlServer.SqlServerStorage - (null) - Start installing Hangfire SQL objects...
+2017-12-12 10:57:42,486 [1] Hangfire.SqlServer.SqlServerStorage - (null) - Hangfire SQL objects installed.
+2017-12-12 10:57:42,745 [1] U.Logging.ULog4netLogger - (null) - Start background worker：U.Hangfire.HangfireBackgroundJobManager
+2017-12-12 10:57:42,754 [1] Hangfire.BackgroundJobServer - (null) - Starting Hangfire Server
+2017-12-12 10:57:42,756 [1] Hangfire.BackgroundJobServer - (null) - Using job storage: 'SQL Server: 120.132.57.7,1444@UNote'.
+2017-12-12 10:57:42,757 [1] Hangfire.BackgroundJobServer - (null) - Using the following options for SQL Server job storage:
+2017-12-12 10:57:42,758 [1] Hangfire.BackgroundJobServer - (null) -     Queue poll interval: 00:00:15.
+2017-12-12 10:57:42,758 [1] Hangfire.BackgroundJobServer - (null) - Using the following options for Hangfire Server:
+2017-12-12 10:57:42,758 [1] Hangfire.BackgroundJobServer - (null) -     Worker count: 40.
+2017-12-12 10:57:42,759 [1] Hangfire.BackgroundJobServer - (null) -     Listening queues: 'default'.
+2017-12-12 10:57:42,759 [1] Hangfire.BackgroundJobServer - (null) -     Shutdown timeout: 00:00:15.
+2017-12-12 10:57:42,760 [1] Hangfire.BackgroundJobServer - (null) -     Schedule polling interval: 00:00:15.
+2017-12-12 10:57:42,788 [BackgroundProcessingServer] Hangfire.Server.BackgroundProcessingServer - (null) - Background process 'BackgroundProcessingServer' started.
+2017-12-12 10:57:42,911 [ServerHeartbeat] Hangfire.Server.ServerHeartbeat - (null) - Background process 'ServerHeartbeat' started.
+2017-12-12 10:57:42,914 [ServerWatchdog] Hangfire.Server.ServerWatchdog - (null) - Background process 'ServerWatchdog' started.
+2017-12-12 10:57:42,927 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Background process 'Hangfire.SqlServer.ExpirationManager' started.
+2017-12-12 10:57:42,930 [Hangfire.SqlServer.CountersAggregator] Hangfire.SqlServer.CountersAggregator - (null) - Background process 'Hangfire.SqlServer.CountersAggregator' started.
+2017-12-12 10:57:42,932 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'AggregatedCounter'...
+2017-12-12 10:57:42,933 [Hangfire.SqlServer.CountersAggregator] Hangfire.SqlServer.CountersAggregator - (null) - Aggregating records in 'Counter' table...
+2017-12-12 10:57:42,934 [Worker #30830e6b] Hangfire.Server.Worker - (null) - Background process 'Worker #30830e6b' started.
+2017-12-12 10:57:42,937 [Worker #0eef6575] Hangfire.Server.Worker - (null) - Background process 'Worker #0eef6575' started.
+2017-12-12 10:57:42,943 [Worker #98207d4a] Hangfire.Server.Worker - (null) - Background process 'Worker #98207d4a' started.
+2017-12-12 10:57:42,947 [Worker #168bb997] Hangfire.Server.Worker - (null) - Background process 'Worker #168bb997' started.
+2017-12-12 10:57:42,953 [Worker #49d1e0d2] Hangfire.Server.Worker - (null) - Background process 'Worker #49d1e0d2' started.
+2017-12-12 10:57:42,956 [Worker #e8863c38] Hangfire.Server.Worker - (null) - Background process 'Worker #e8863c38' started.
+2017-12-12 10:57:42,961 [Worker #d2072b8a] Hangfire.Server.Worker - (null) - Background process 'Worker #d2072b8a' started.
+2017-12-12 10:57:42,965 [Worker #183f4c42] Hangfire.Server.Worker - (null) - Background process 'Worker #183f4c42' started.
+2017-12-12 10:57:42,968 [Worker #00eb75fb] Hangfire.Server.Worker - (null) - Background process 'Worker #00eb75fb' started.
+2017-12-12 10:57:42,974 [Worker #f929e75b] Hangfire.Server.Worker - (null) - Background process 'Worker #f929e75b' started.
+2017-12-12 10:57:42,981 [Worker #d26c9f95] Hangfire.Server.Worker - (null) - Background process 'Worker #d26c9f95' started.
+2017-12-12 10:57:42,985 [Worker #d7cd439c] Hangfire.Server.Worker - (null) - Background process 'Worker #d7cd439c' started.
+2017-12-12 10:57:42,993 [Worker #2627c3e8] Hangfire.Server.Worker - (null) - Background process 'Worker #2627c3e8' started.
+2017-12-12 10:57:43,013 [Worker #d61dbdb9] Hangfire.Server.Worker - (null) - Background process 'Worker #d61dbdb9' started.
+2017-12-12 10:57:43,014 [Worker #39bca2df] Hangfire.Server.Worker - (null) - Background process 'Worker #39bca2df' started.
+2017-12-12 10:57:43,022 [Worker #d2c6eafa] Hangfire.Server.Worker - (null) - Background process 'Worker #d2c6eafa' started.
+2017-12-12 10:57:43,026 [Worker #140a1876] Hangfire.Server.Worker - (null) - Background process 'Worker #140a1876' started.
+2017-12-12 10:57:43,032 [Worker #ac6db435] Hangfire.Server.Worker - (null) - Background process 'Worker #ac6db435' started.
+2017-12-12 10:57:43,041 [Worker #85d5ffb0] Hangfire.Server.Worker - (null) - Background process 'Worker #85d5ffb0' started.
+2017-12-12 10:57:43,048 [Worker #339d7073] Hangfire.Server.Worker - (null) - Background process 'Worker #339d7073' started.
+2017-12-12 10:57:43,063 [Worker #d3ea7b31] Hangfire.Server.Worker - (null) - Background process 'Worker #d3ea7b31' started.
+2017-12-12 10:57:43,068 [Worker #66f33310] Hangfire.Server.Worker - (null) - Background process 'Worker #66f33310' started.
+2017-12-12 10:57:43,079 [Worker #0a9ee4fb] Hangfire.Server.Worker - (null) - Background process 'Worker #0a9ee4fb' started.
+2017-12-12 10:57:43,082 [Worker #356c18a8] Hangfire.Server.Worker - (null) - Background process 'Worker #356c18a8' started.
+2017-12-12 10:57:43,086 [Worker #1fa03114] Hangfire.Server.Worker - (null) - Background process 'Worker #1fa03114' started.
+2017-12-12 10:57:43,089 [Worker #b470c43c] Hangfire.Server.Worker - (null) - Background process 'Worker #b470c43c' started.
+2017-12-12 10:57:43,095 [Worker #75659740] Hangfire.Server.Worker - (null) - Background process 'Worker #75659740' started.
+2017-12-12 10:57:43,099 [Worker #49410bb8] Hangfire.Server.Worker - (null) - Background process 'Worker #49410bb8' started.
+2017-12-12 10:57:43,104 [Worker #e7b3f57b] Hangfire.Server.Worker - (null) - Background process 'Worker #e7b3f57b' started.
+2017-12-12 10:57:43,109 [Worker #c315d5da] Hangfire.Server.Worker - (null) - Background process 'Worker #c315d5da' started.
+2017-12-12 10:57:43,112 [Worker #52c7e4a0] Hangfire.Server.Worker - (null) - Background process 'Worker #52c7e4a0' started.
+2017-12-12 10:57:43,116 [Worker #5aaf30a9] Hangfire.Server.Worker - (null) - Background process 'Worker #5aaf30a9' started.
+2017-12-12 10:57:43,121 [Worker #beb55179] Hangfire.Server.Worker - (null) - Background process 'Worker #beb55179' started.
+2017-12-12 10:57:43,141 [Worker #3e2b4536] Hangfire.Server.Worker - (null) - Background process 'Worker #3e2b4536' started.
+2017-12-12 10:57:43,149 [Worker #b0606b99] Hangfire.Server.Worker - (null) - Background process 'Worker #b0606b99' started.
+2017-12-12 10:57:43,155 [Worker #00a59373] Hangfire.Server.Worker - (null) - Background process 'Worker #00a59373' started.
+2017-12-12 10:57:43,162 [Worker #87704bb4] Hangfire.Server.Worker - (null) - Background process 'Worker #87704bb4' started.
+2017-12-12 10:57:43,168 [Worker #f99d8493] Hangfire.Server.Worker - (null) - Background process 'Worker #f99d8493' started.
+2017-12-12 10:57:43,175 [Worker #9d5c746d] Hangfire.Server.Worker - (null) - Background process 'Worker #9d5c746d' started.
+2017-12-12 10:57:43,193 [Worker #c6b11ab3] Hangfire.Server.Worker - (null) - Background process 'Worker #c6b11ab3' started.
+2017-12-12 10:57:43,205 [DelayedJobScheduler] Hangfire.Server.DelayedJobScheduler - (null) - Background process 'DelayedJobScheduler' started.
+2017-12-12 10:57:43,209 [RecurringJobScheduler] Hangfire.Server.RecurringJobScheduler - (null) - Background process 'RecurringJobScheduler' started.
+2017-12-12 10:57:43,545 [1] U.Logging.ULog4netLogger - (null) - Found 0 classes defines auto mapping attributes
+2017-12-12 10:57:43,547 [1] U.Logging.ULog4netLogger - (null) - (^_^)(^_^)(^_^) UStarter startup completed.
+2017-12-12 10:57:44,092 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Job'...
+2017-12-12 10:57:44,206 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'List'...
+2017-12-12 10:57:44,400 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Set'...
+2017-12-12 10:57:44,517 [Hangfire.SqlServer.ExpirationManager] Hangfire.SqlServer.ExpirationManager - (null) - Removing outdated records from table 'Hash'...
+2017-12-12 11:01:10,975 [Worker #87704bb4] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #87704bb4' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:10,975 [Worker #c6b11ab3] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #c6b11ab3' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:10,975 [Worker #b0606b99] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #b0606b99' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:10,977 [Worker #1fa03114] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #1fa03114' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:10,976 [Worker #beb55179] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #beb55179' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,433 [Worker #00eb75fb] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #00eb75fb' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,433 [Worker #d3ea7b31] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #d3ea7b31' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,436 [Worker #c315d5da] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #c315d5da' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,433 [Worker #39bca2df] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #39bca2df' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,440 [DelayedJobScheduler] Hangfire.Server.DelayedJobScheduler - (null) - Error occurred during execution of 'DelayedJobScheduler' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerDistributedLock..ctor(SqlServerStorage storage, String resource, TimeSpan timeout)
+   在 Hangfire.SqlServer.SqlServerConnection.AcquireDistributedLock(String resource, TimeSpan timeout)
+   在 Hangfire.Server.DelayedJobScheduler.EnqueueNextScheduledJob(BackgroundProcessContext context)
+   在 Hangfire.Server.DelayedJobScheduler.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,511 [Worker #140a1876] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #140a1876' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,511 [Worker #e7b3f57b] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #e7b3f57b' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,513 [Worker #00a59373] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #00a59373' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.Data.SqlClient.SqlException (0x80131904): 连接超时时间已到。在尝试使用预登录握手确认时超过了此超时时间。这可能是因为预登录握手失败或服务器未能及时响应。  尝试连接到此服务器时花费的持续时间是 - [Pre-Login] initialization=10908；handshake=12998； ---> System.ComponentModel.Win32Exception (0x80004005): 等待的操作过时。
+   在 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+ClientConnectionId:b43b14a8-2a04-4362-a991-06552455317a
+Error Number:-2,State:0,Class:11
+2017-12-12 11:01:14,511 [Worker #356c18a8] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #356c18a8' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,511 [Worker #3e2b4536] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #3e2b4536' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,511 [Worker #5aaf30a9] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #5aaf30a9' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,519 [Worker #66f33310] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #66f33310' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:00 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,521 [Worker #f929e75b] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #f929e75b' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,512 [Worker #b470c43c] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #b470c43c' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,521 [Worker #ac6db435] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #ac6db435' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,512 [Worker #75659740] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #75659740' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,522 [Worker #0eef6575] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #0eef6575' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,516 [Worker #30830e6b] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #30830e6b' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)
+2017-12-12 11:01:14,522 [Worker #98207d4a] Hangfire.Server.Worker - (null) - Error occurred during execution of 'Worker #98207d4a' process. Execution will be retried (attempt 1 of 2147483647) in 00:00:01 seconds.
+System.InvalidOperationException: 超时时间已到。超时时间已到，但是尚未从池中获取连接。出现这种情况可能是因为所有池连接均在使用，并且达到了最大池大小。
+   在 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   在 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   在 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   在 System.Data.SqlClient.SqlConnection.Open()
+   在 Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection()
+   在 Hangfire.SqlServer.SqlServerJobQueue.Dequeue(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.SqlServer.SqlServerConnection.FetchNextJob(String[] queues, CancellationToken cancellationToken)
+   在 Hangfire.Server.Worker.Execute(BackgroundProcessContext context)
+   在 Hangfire.Server.ServerProcessExtensions.Execute(IServerProcess process, BackgroundProcessContext context)
+   在 Hangfire.Server.AutomaticRetryProcess.Execute(BackgroundProcessContext context)

@@ -1300,7 +1300,7 @@
     <Content Include="Config\U\HangfireSettings.json" />
     <Content Include="Config\U\log4net.config" />
     <Content Include="Config\U\RedisCacheSettings.json" />
-    <Content Include="Config\U.Utilities\SqlServer\Database.config" />
+    <Content Include="Config\U\Utilities\SqlServer\Database.config" />
     <Content Include="Config\UNote\DatabaseSettings.json" />
     <Content Include="Config\UZeroConsole\ConsoleSettings.json" />
     <Content Include="Config\UZeroConsole\DatabaseSettings.json" />
