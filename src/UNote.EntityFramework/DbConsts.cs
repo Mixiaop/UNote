@@ -6,6 +6,7 @@ namespace UNote.EntityFramework
         public class DbTableName
         {
             public const string Notes_Nodes = "UNote_Nodes";
+            public const string Notes_ContentColumns = "UNote_ContentColumns";
             public const string Notes_Contents = "UNote_Contents";
             public const string Notes_ContentFollowers = "UNote_ContentFollowers";
             public const string Notes_Tags = "UNote_Tags";

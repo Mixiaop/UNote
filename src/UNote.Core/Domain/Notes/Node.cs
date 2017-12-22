@@ -98,6 +98,9 @@ namespace UNote.Domain.Notes
 
         #region Navigation Properties
 
+        /// <summary>
+        /// 所属Team
+        /// </summary>
         public virtual Team Team { get; set; }
 
         #endregion

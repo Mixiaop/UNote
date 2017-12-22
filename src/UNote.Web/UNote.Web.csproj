@@ -196,6 +196,7 @@
   <ItemGroup>
     <Content Include="404.html" />
     <Content Include="AjaxServices\AjaxPro_ServicesGenerateScripts.aspx" />
+    <Content Include="AjaxServices\BoardService.aspx" />
     <Content Include="AjaxServices\ContentService.aspx" />
     <Content Include="AjaxServices\NodeService.aspx" />
     <Content Include="AjaxServices\TeamService.aspx" />
@@ -207,6 +208,7 @@
     <Content Include="css\themes\flat.min.css" />
     <Content Include="css\themes\modern.min.css" />
     <Content Include="css\themes\smooth.min.css" />
+    <Content Include="css\unote-boards.css" />
     <Content Include="editors\kindeditor\css\background.png" />
     <Content Include="editors\kindeditor\css\default.css" />
     <Content Include="editors\kindeditor\css\default.png" />
@@ -413,6 +415,8 @@
     <Content Include="js\notes\addFollower.dialog.js" />
     <Content Include="js\notes\addNode.dialog.html" />
     <Content Include="js\notes\addNode.dialog.js" />
+    <Content Include="js\notes\boards\taskInfo.dialog.html" />
+    <Content Include="js\notes\boards\taskInfo.dialog.js" />
     <Content Include="js\notes\contentInfo.dialog.html" />
     <Content Include="js\notes\contentInfo.dialog.js" />
     <Content Include="js\notes\editNode.dialog.html" />
@@ -447,6 +451,7 @@
     <Content Include="lib\core\underscore-1.6.min.js" />
     <Content Include="lib\core\underscore\underscore-1.6.js" />
     <Content Include="lib\core\underscore\underscore-1.6.min.js" />
+    <Content Include="lib\core\underscore\underscore-1.8.min.js" />
     <Content Include="lib\oneui.js" />
     <Content Include="lib\pages\base_comp_animations.js" />
     <Content Include="lib\pages\base_comp_calendar.js" />
@@ -1364,6 +1369,7 @@
     <Content Include="lib\plugins\summernote\font\summernote.woff" />
     <Content Include="lib\plugins\three\libs\zlib_and_gzip.min.js.map" />
     <Content Include="Notes\AddContent.aspx" />
+    <Content Include="Notes\Boards\Index.aspx" />
     <Content Include="Notes\ContentInfo.aspx" />
     <Content Include="Notes\Contents.aspx" />
     <Content Include="Notes\Download.aspx" />
@@ -1383,6 +1389,8 @@
     <Content Include="Masters\User.master" />
     <Content Include="_Test\downpdf.aspx" />
     <Content Include="_Test\downword.aspx" />
+    <Content Include="_Test\DragTests.aspx" />
+    <Content Include="_Test\Notes\BoardTests.aspx" />
     <Content Include="_Test\NPOI.aspx" />
     <Content Include="_Test\threeline.html" />
     <Content Include="_Test\three\snowflake1.png" />
@@ -1579,6 +1587,13 @@
     <Compile Include="AjaxServices\AjaxPro_ServicesGenerateScripts.aspx.designer.cs">
       <DependentUpon>AjaxPro_ServicesGenerateScripts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AjaxServices\BoardService.aspx.cs">
+      <DependentUpon>BoardService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServices\BoardService.aspx.designer.cs">
+      <DependentUpon>BoardService.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AjaxServices\ContentService.aspx.cs">
       <DependentUpon>ContentService.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1704,6 +1719,13 @@
     </Compile>
     <Compile Include="Notes\AddContent.aspx.designer.cs">
       <DependentUpon>AddContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Notes\Boards\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notes\Boards\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Notes\ContentInfo.aspx.cs">
       <DependentUpon>ContentInfo.aspx</DependentUpon>
@@ -1843,6 +1865,20 @@
     <Compile Include="_Test\downword.aspx.designer.cs">
       <DependentUpon>downword.aspx</DependentUpon>
     </Compile>
+    <Compile Include="_Test\DragTests.aspx.cs">
+      <DependentUpon>DragTests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Test\DragTests.aspx.designer.cs">
+      <DependentUpon>DragTests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_Test\Notes\BoardTests.aspx.cs">
+      <DependentUpon>BoardTests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Test\Notes\BoardTests.aspx.designer.cs">
+      <DependentUpon>BoardTests.aspx</DependentUpon>
+    </Compile>
     <Compile Include="_Test\NPOI.aspx.cs">
       <DependentUpon>NPOI.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1874,6 +1910,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="editors\kindeditor\attached\image\" />
+    <Folder Include="lib\core\handlebars\" />
     <Folder Include="Public\" />
     <Folder Include="Tags\" />
   </ItemGroup>

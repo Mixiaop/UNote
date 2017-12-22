@@ -15,6 +15,7 @@ namespace UNote.Web.AjaxServices
         {
             Utility.RegisterTypeForAjax(typeof(UNote.Web.AjaxServices.NodeService));
             Utility.RegisterTypeForAjax(typeof(UNote.Web.AjaxServices.ContentService));
+            Utility.RegisterTypeForAjax(typeof(UNote.Web.AjaxServices.BoardService));
             Utility.RegisterTypeForAjax(typeof(UNote.Web.AjaxServices.UserService));
             Utility.RegisterTypeForAjax(typeof(UNote.Web.AjaxServices.TeamService));
             Response.Write("generate complete, please check /js/ajaxservices.js");

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbConsts.cs" />
+    <Compile Include="Mapping\Notes\ContentColumnMap.cs" />
     <Compile Include="Mapping\Notes\ContentFollowerMap.cs" />
     <Compile Include="Mapping\Notes\ContentMap.cs" />
     <Compile Include="Mapping\Notes\NodeMap.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Mapping\UNoteEntityTypeConfiguration.cs" />
     <Compile Include="Mapping\Users\UserMap.cs" />
     <Compile Include="Mapping\Users\UserVisitLogMap.cs" />
+    <Compile Include="Repositories\Notes\ContentColumnRepository.cs" />
     <Compile Include="Repositories\Notes\ContentFollowerRepository.cs" />
     <Compile Include="Repositories\Notes\ContentRepository.cs" />
     <Compile Include="Repositories\Notes\NodeRepository.cs" />

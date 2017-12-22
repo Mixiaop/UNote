@@ -18,15 +18,15 @@
                     <li class="current"><span>/</span> <%= Model.Node.NodeName %></li>
                 </ul>
             </div>
-            <div class="col-lg-5 col-xs-4 text-right viewtype-wrapper">
-                <%--<% if (Model.Node.ListShowType == UNote.NodeListShowType.List)
+            <div class="col-lg-9 col-xs-4 text-right viewtype-wrapper">
+                <% if (Model.Node.ListShowType == UNote.NodeListShowType.List)
                    { %>
                 <a class="viewtype active" data-type="1" data-toggle="tooltip" title="列表模式"><i class="si si-list"></i></a><a href="javascript:;" class="viewtype viewtype-onactive" data-type="2" data-toggle="tooltip" title="网格模式"><i class="si si-grid"></i></a>
                 <%}
                    else
                    { %>
                 <a href="javascript:;" class="viewtype viewtype-onactive" data-type="1" data-toggle="tooltip" title="列表模式"><i class="si si-list"></i></a><a class="viewtype active" data-type="2" data-toggle="tooltip" title="网格模式"><i class="si si-grid"></i></a>
-                <%} %>--%>
+                <%} %>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
     <div class="content note-contents">
         <div class="">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <% if (Model.Node.ListShowType == UNote.NodeListShowType.List)
                        { %>
                     <!-- Normal -->
@@ -325,9 +325,9 @@
                     </nav>
                     <!-- END Pagination -->
                 </div>
-                <div class="col-md-4">
+               <%-- <div class="col-md-4">
                     <uc1:RightColumn runat="server" ID="RightColumn" />
-                </div>
+                </div>--%>
             </div>
         </div>
     </div>

@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -464,6 +465,7 @@
     <Content Include="Users\User_Add.aspx" />
     <Content Include="Users\User_List.aspx" />
     <Content Include="Users\User_Update.aspx" />
+    <Content Include="_Tests\DraggTests.aspx" />
     <Content Include="_Tests\WebForm1.aspx" />
     <Content Include="editors\kindeditor\handler\file_manager_json.ashx" />
     <Content Include="editors\kindeditor\handler\upload_json.ashx" />
@@ -1616,6 +1618,13 @@
     </Compile>
     <Compile Include="Users\User_Update.aspx.designer.cs">
       <DependentUpon>User_Update.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_Tests\DraggTests.aspx.cs">
+      <DependentUpon>DraggTests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Tests\DraggTests.aspx.designer.cs">
+      <DependentUpon>DraggTests.aspx</DependentUpon>
     </Compile>
     <Compile Include="_Tests\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

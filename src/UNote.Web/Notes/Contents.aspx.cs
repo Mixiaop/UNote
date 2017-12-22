@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using U;
 using U.Utilities.Web;
 using U.Application.Services.Dto;
@@ -13,14 +12,19 @@ using UNote.Web.Infrastructure;
 
 namespace UNote.Web.Notes
 {
+    /// <summary>
+    /// 分类首页（默认）
+    /// </summary>
     public partial class Contents : Infrastructure.UserPage
     {
+        #region Fields 
         INodeService _nodeService = UPrimeEngine.Instance.Resolve<INodeService>();
         IContentService _contentService = UPrimeEngine.Instance.Resolve<IContentService>();
         ITagService _tagService = UPrimeEngine.Instance.Resolve<ITagService>();
         IUserVisitLogService _userVisitLogService = UPrimeEngine.Instance.Resolve<IUserVisitLogService>();
 
         protected ContentsModel Model = new ContentsModel();
+        #endregion
         protected void Page_Load(object sender, EventArgs e)
         {
             CurrentNav = Infrastructure.Navigation.Contents;
@@ -28,6 +32,15 @@ namespace UNote.Web.Notes
             Model.Node = _nodeService.GetById(Model.GetNodeId);
             Model.LoginedUser = GetLoginedUser();
 
+            if (Model.Node == null)
+                Invoke404();
+
+            if (Model.Node.NodeType == NodeType.Board)
+            {
+                Response.Redirect(RouteContext.GetRouteUrl("Notes.Boards", Model.GetNodeId));
+            }
+
+            #region InitDatas
             if (Model.Node.TeamId > 0)
                 Model.MyNodes = _nodeService.GetAllByTeam(Model.Node.TeamId);
             else
@@ -51,6 +64,7 @@ namespace UNote.Web.Notes
             {
                 BindPageDatas();
             }
+            #endregion
 
         }
 

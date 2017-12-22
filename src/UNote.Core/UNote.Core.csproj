@@ -58,12 +58,14 @@
     <Compile Include="CommonHelper.cs" />
     <Compile Include="Domain\Message\BulletMessage.cs" />
     <Compile Include="Domain\Notes\Content.cs" />
+    <Compile Include="Domain\Notes\ContentColumn.cs" />
     <Compile Include="Domain\Notes\ContentFollower.cs" />
     <Compile Include="Domain\Notes\ContentPic.cs" />
-    <Compile Include="Domain\Notes\IContentFollowerRepository.cs" />
-    <Compile Include="Domain\Notes\IContentRepository.cs" />
-    <Compile Include="Domain\Notes\INodeRepository.cs" />
-    <Compile Include="Domain\Notes\ITagRepository.cs" />
+    <Compile Include="Domain\Notes\Repositories\IContentColumnRepository.cs" />
+    <Compile Include="Domain\Notes\Repositories\IContentFollowerRepository.cs" />
+    <Compile Include="Domain\Notes\Repositories\IContentRepository.cs" />
+    <Compile Include="Domain\Notes\Repositories\INodeRepository.cs" />
+    <Compile Include="Domain\Notes\Repositories\ITagRepository.cs" />
     <Compile Include="Domain\Notes\Node.cs" />
     <Compile Include="Domain\Notes\Tag.cs" />
     <Compile Include="Domain\Teams\ITeamMemberRepository.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Domain\Users\User.cs" />
     <Compile Include="Domain\Users\UserVisitLog.cs" />
     <Compile Include="HtmlHelper.cs" />
+    <Compile Include="UNoteConsts.cs" />
     <Compile Include="UNoteCoreUPrime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

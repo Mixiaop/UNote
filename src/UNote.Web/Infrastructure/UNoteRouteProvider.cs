@@ -19,6 +19,7 @@ namespace UNote.Web.Infrastructure
             ///notes/([0-9]*)/contents?wd=([\\s\\S]*)", "/Notes/Contents.aspx?nodeId=$1&wd=$2
             context.AddRewriterRule(new RewriterRule("/notes/edit", "/Notes/EditContent.aspx"));
             context.AddRewriterRule(new RewriterRule("/notes/([0-9]*)/contents", "/Notes/Contents.aspx?nodeId=$1"));
+            context.AddRewriterRule(new RewriterRule("/notes/([0-9]*)/boards", "/Notes/Boards/Index.aspx?nodeId=$1"));
             context.AddRewriterRule(new RewriterRule("/notes/content/([0-9]*)", "/Notes/ContentInfo.aspx?contentId=$1"));
 
             context.AddRewriterRule(new RewriterRule("/teams/create", "/Teams/CreateNewTeam.aspx"));
@@ -40,6 +41,7 @@ namespace UNote.Web.Infrastructure
             context.AddRoute(new Route("Notes.AddContentItem", Format("/notes/addItem?contentId={0}&nodeId={1}&nodeType={2}")));
             context.AddRoute(new Route("Notes.EditContent", Format("/notes/edit?contentId={0}&nodeType={1}&goUrl={2}")));
             context.AddRoute(new Route("Notes.Contents", Format("/notes/{0}/contents?wd={1}&tag={2}&page={3}")));
+            context.AddRoute(new Route("Notes.Boards", Format("/notes/{0}/boards")));
             context.AddRoute(new Route("Notes.ContentInfo", Format("/notes/content/{0}")));
 
             context.AddRoute(new Route("Teams.Create", Format("/teams/create")));

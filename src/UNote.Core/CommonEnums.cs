@@ -31,11 +31,16 @@ namespace UNote
         /// Word组件
         /// </summary>
         [EnumAlias("Word组件")]
-        Word = 3
+        Word = 3,
+        /// <summary>
+        /// 任务板模式
+        /// </summary>
+        [EnumAlias("任务板")]
+        Board = 11
     }
 
     /// <summary>
-    /// 目录列表显示类型
+    /// 目录列表显示类型（任务板模式下无作用）
     /// </summary>
     public enum NodeListShowType { 
         /// <summary>

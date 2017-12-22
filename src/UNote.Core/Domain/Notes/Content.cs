@@ -11,6 +11,7 @@ namespace UNote.Domain.Notes
     /// </summary>
     public class Content : FullAuditedEntity
     {
+        #region Ctor
         public Content()
         {
             Title = "";
@@ -30,7 +31,14 @@ namespace UNote.Domain.Notes
             NodeHtmlFileCode = "";
             NodeHtmlHomePage = "";
             IsTop = false;
+            ColumnId = 0;
+            ColumnOrder = 0;
+
+            ColumnTaskFinished = false;
+            ColumnTaskFinishedTime = null;
+            ColumnTaskFinishedUserId = 0;
         }
+        #endregion
 
         /// <summary>
         /// 团队Id
@@ -138,18 +146,53 @@ namespace UNote.Domain.Notes
         /// </summary>
         public int ContentItemCount { get; set; }
 
+        #region Board mode
+        /// <summary>
+        /// 所属列Id
+        /// </summary>
+        public int ColumnId { get; set; }
+
+        /// <summary>
+        /// 所属列排序
+        /// </summary>
+        public int ColumnOrder { get; set; }
+
+        /// <summary>
+        /// 任务是否完成
+        /// </summary>
+        public bool ColumnTaskFinished { get; set; }
+
+        /// <summary>
+        /// 任务完成的时间
+        /// </summary>
+        public DateTime? ColumnTaskFinishedTime { get; set; }
+
+        /// <summary>
+        /// 任务完成的用户Id
+        /// </summary>
+        public int ColumnTaskFinishedUserId { get; set; }
+        #endregion
+
         #region Navigation Properties
         /// <summary>
         /// 所属分类信息
         /// </summary>
         public virtual Node Node { get; set; }
 
+        /// <summary>
+        /// 所属团队信息
+        /// </summary>
         public virtual Team Team { get; set; }
 
         /// <summary>
         /// 用户信息
         /// </summary>
         public virtual User User { get; set; }
+
+        /// <summary>
+        /// 所属列（Board模式使用）
+        /// </summary>
+        public virtual ContentColumn Column { get; set; }
         #endregion
 
         #region Custom Properties

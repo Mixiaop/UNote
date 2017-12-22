@@ -18,7 +18,7 @@
                                            <li class="current"><span>/</span> <%= Model.Content.Title %></li>
                                        </ul>
                                     </div>
-                                    <div class="col-lg-5 col-xs-4 text-right viewtype-wrapper">
+                                    <div class="col-lg-9 col-xs-4 text-right viewtype-wrapper">
                                     </div>
                                 </div>
                             </div>

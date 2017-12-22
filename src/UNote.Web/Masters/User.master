@@ -45,7 +45,7 @@
     <asp:ContentPlaceHolder runat="server" ID="userHead"></asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <div id="page-container" <%= !Model.CurrentPage.ClearUserPage?"class=\"sidebar-l sidebar-o side-scroll header-navbar-fixed\"":"" %>>
+    <div id="page-container" <%= !Model.CurrentPage.ClearUserPage?"class=\"sidebar-l sidebar-o side-scroll header-navbar-fixed\"":"" %> >
   
         <%if(!Model.CurrentPage.ClearUserPage){ %>
             <!-- Sidebar -->
@@ -212,7 +212,7 @@
             <!-- END Sidebar -->
 
             <!-- Header -->
-            <header id="header-navbar" class="content-mini content-mini-full" >
+            <header id="header-navbar" class="content-mini content-mini-full"  >
                 <div class="row" >
                     <div class="col-md-8 col-xs-10" >
                         <!-- Header Navigation Left -->

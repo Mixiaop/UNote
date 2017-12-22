@@ -1,0 +1,232 @@
+﻿
+.page-header {
+    padding-bottom: 35px;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.content {
+    background: #fff;
+    padding: 0;
+}
+
+.board-list {
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 25px;
+    padding-right: 8px;
+    padding-left: 8px;
+    overflow: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    height:auto;
+    /*height: 810px; test*/
+}
+
+.board {
+    display: inline-block;
+    width: calc(85vw - 15px);
+    height: 100%;
+    padding-left: 8px;
+    white-space: normal;
+    vertical-align: top;
+    box-sizing: border-box;
+    width: 400px;
+    height:auto;
+    overflow:hidden;
+    /*height: 760px; test*/
+}
+
+.board-inner {
+    position: relative;
+    height: 100%;
+    font-size: 14px;
+    background: #f3f3f3;
+    border: 1px solid #e5e5e5;
+}
+
+.board-header {
+    position: relative;
+}
+
+.board-title {
+    margin: 0;
+    padding: 12px 16px;
+    font-size: 1em;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    align-items: center;
+}
+
+.board-title-text {
+    margin-right: auto;
+}
+
+.user-can-drag {
+    cursor: -webkit-grab;
+    cursor: grab;
+}
+
+.color-label {
+    padding: 3px 7px;
+}
+
+.board-delete {
+    margin-right: 10px;
+    padding: 0;
+    color: #c4c4c4;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+}
+
+.board-count-badge {
+    display: inline-flex;
+    align-items: stretch;
+    height: 24px;
+}
+
+.board-count-badge-button {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e5e5;
+    line-height: 1;
+}
+
+    .board-count-badge-button.no-right-border {
+        border-right: 0;
+    }
+
+.board-header-color {
+    border-top: 1px solid;
+}
+.board-title-text {
+    color: #666;
+}
+
+.board-list-component {
+    overflow-y:scroll;
+}
+.board-content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 96%;
+    margin-left: 2%;
+    height:auto;
+    /*height: 760px; test*/
+    z-index: 0;
+}
+    .board-list-component .loading {
+        margin-left:40% !important;
+        margin-top:20px !important;
+    }
+
+    /*列表项*/
+    .board-content-list .block {
+        padding-top:0px;
+        padding-bottom:15px;
+        margin: 0;
+        margin-top: 10px;
+        border-right: 2px solid #ddd;
+        border-bottom: 2px solid #ddd;
+    }
+.board-content-list .block-content {
+    font-size:12px;
+    color:#666;
+}
+.board-content-list .block a {
+    color:#666;
+}
+        .board-content-list .block:hover {
+            cursor:pointer;
+            background:#fcfcfc;
+        }
+.board-content-list .block.over {
+    background:#fcfcfc;
+}
+.board-content-list .block.over a{
+    color:#aaa;
+    text-decoration:line-through;
+}
+
+.board-new-column {
+    height:auto;
+    border-bottom:0;
+}
+.board-new-column>button{
+    text-align:left;
+    font-weight:normal;
+    padding:15px 0 15px 10px;
+}
+    .board-new-column .card {
+        background:#f1f1f1;
+        padding:5px;
+    }
+        .board-new-column .card label {
+            font-size:14px;
+            font-weight:normal;
+        }
+        .board-new-column .card input {
+            margin-top:5px;
+            margin-bottom:10px;
+        }
+        .board-new-column .card button {
+            font-weight:normal;
+        }
+/*board-new-form*/
+.board-new-form {
+    z-index: 4;
+    margin: 0px 0 0 2%;
+    position: absolute;
+    width: 96%;
+    border: 1px solid #ddd;
+}
+
+    .board-new-form .card {
+        position: relative;
+        padding: 11px 10px 11px 16px;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(186,186,186,0.5);
+        list-style: none;
+    }
+
+        .board-new-form .card label {
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+    .board-new-form input {
+        margin: 5px 0 10px 0;
+    }
+
+    .board-new-form button {
+        font-weight: normal;
+        font-size: 12px;
+    }
+
+/*
+    任务板弹框详情
+*/
+.board-task-dialog .modal-dialog {
+    margin-top:0 !important;
+    border-bottom:4px solid #eaeaea;
+    border-right:4px solid #eaeaea;
+}
+    .board-task-dialog .block-header {
+        border-bottom:1px solid #E9E9E9 !important;
+    }
+        .board-task-dialog .block-header .close {
+            color:#666 !important;
+        }
+        .board-task-dialog .block-header h3 span {
+            font-weight:normal;
+            color:#bbb;
+        }
+        .board-task-dialog .block-header h3 a {
+            color:#666 !important;
+            font-weight:normal;
+            vertical-align:middle;
+        }
+            .board-task-dialog .block-header h3 a.over {
+                text-decoration:line-through;
+            }
