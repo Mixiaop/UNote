@@ -60,6 +60,7 @@
     <Compile Include="Domain\Notes\Content.cs" />
     <Compile Include="Domain\Notes\ContentColumn.cs" />
     <Compile Include="Domain\Notes\ContentFollower.cs" />
+    <Compile Include="Domain\Notes\ContentLog.cs" />
     <Compile Include="Domain\Notes\ContentPic.cs" />
     <Compile Include="Domain\Notes\Repositories\IContentColumnRepository.cs" />
     <Compile Include="Domain\Notes\Repositories\IContentFollowerRepository.cs" />

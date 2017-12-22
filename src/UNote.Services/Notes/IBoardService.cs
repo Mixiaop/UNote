@@ -82,6 +82,14 @@ namespace UNote.Services.Notes
         StateOutput<Content> AddTask(int nodeId, int columnId, string title);
 
         /// <summary>
+        /// 更新任务内容
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <param name="content"></param>
+        /// <returns></returns>
+        //StateOutput UpdateTaskContent(int taskId, string content);
+
+        /// <summary>
         /// 根据数组重置列的任务项排序
         /// </summary>
         /// <param name="targetColumnId">目标列</param>
