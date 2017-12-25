@@ -1,4 +1,5 @@
-﻿define(['jquery', 'utils/notify', 'bootstrap'], function ($, notify) {
+﻿//Board模式 - 任务弹出详情
+define(['jquery', 'utils/notify', 'bootstrap'], function ($, notify) {
 
     var $container;
 

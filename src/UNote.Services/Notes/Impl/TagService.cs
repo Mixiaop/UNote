@@ -38,6 +38,21 @@ namespace UNote.Services.Notes
         }
 
         /// <summary>
+        /// 通过名称获取标签信息
+        /// </summary>
+        /// <param name="nodeId"></param>
+        /// <param name="tagName"></param>
+        /// <returns></returns>
+        public Tag GetByName(int nodeId, string tagName)
+        {
+            if (tagName.IsNullOrEmpty())
+                throw new UserFriendlyException("标签名称不能为空");
+
+            var tag = _tagRepository.GetAll().Where(x => x.NodeId == nodeId && x.Name == tagName).FirstOrDefault();
+            return tag;
+        }
+
+        /// <summary>
         /// 是否存在标签名称
         /// </summary>
         /// <param name="nodeId"></param>
@@ -54,7 +69,7 @@ namespace UNote.Services.Notes
         /// <param name="nodeId"></param>
         /// <param name="tagNames">多个标签用英文逗号（,）分开</param>
         /// <param name="userId"></param>
-        public void UpdateTags(int nodeId, string tagNames, int userId = 0)
+        public void CreateOrUpdateTags(int nodeId, string tagNames, int userId = 0)
         {
             if (tagNames.IsNotNullOrEmpty())
             {
@@ -84,20 +99,6 @@ namespace UNote.Services.Notes
                     }
                 }
             }
-        }
-
-        /// <summary>
-        /// 通过名称获取标签信息
-        /// </summary>
-        /// <param name="nodeId"></param>
-        /// <param name="tagName"></param>
-        /// <returns></returns>
-        public Tag GetByName(int nodeId, string tagName) {
-            if (tagName.IsNullOrEmpty())
-                throw new UserFriendlyException("标签名称不能为空");
-
-            var tag = _tagRepository.GetAll().Where(x => x.NodeId == nodeId && x.Name == tagName).FirstOrDefault();
-            return tag;
         }
     }
 }

@@ -416,6 +416,8 @@
     <Content Include="js\notes\addNode.dialog.html" />
     <Content Include="js\notes\addNode.dialog.js" />
     <Content Include="js\notes\boards\index.controller.js" />
+    <Content Include="js\notes\boards\tagSettings.dialog.html" />
+    <Content Include="js\notes\boards\tagSettings.dialog.js" />
     <Content Include="js\notes\boards\taskInfo.dialog.html" />
     <Content Include="js\notes\boards\taskInfo.dialog.js" />
     <Content Include="js\notes\contentInfo.dialog.html" />

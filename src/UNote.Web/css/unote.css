@@ -2,6 +2,10 @@ body {
     background:#f5f7f7 !important;
 }
 
+.page-header .btn-options {
+    font-size:14px;
+    vertical-align:middle;
+}
 
 
 /* global reset */

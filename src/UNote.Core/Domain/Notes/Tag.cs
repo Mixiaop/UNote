@@ -12,6 +12,7 @@ namespace UNote.Domain.Notes
             Alias = "";
             Count = 1;
             UserId = 0;
+            StyleColor = "";
         }
 
         /// <summary>
@@ -38,6 +39,11 @@ namespace UNote.Domain.Notes
         /// 所属目录Id
         /// </summary>
         public int NodeId { get; set; }
+
+        /// <summary>
+        /// Css 颜色
+        /// </summary>
+        public string StyleColor { get; set; }
 
         #region Navigation Properties
         /// <summary>

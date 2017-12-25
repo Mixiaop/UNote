@@ -186,7 +186,7 @@ namespace UNote.Services.Notes
             {
                 content.Tag = content.Tag.Replace("，", ",");
                 //更新标签
-                _tagService.UpdateTags(content.NodeId, content.Tag);
+                _tagService.CreateOrUpdateTags(content.NodeId, content.Tag);
             }
 
             if (!content.Body.IsNullOrEmpty())

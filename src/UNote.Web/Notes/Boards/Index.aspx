@@ -15,7 +15,7 @@
                        { %>
                     <li><span>/</span> <a href="<%= RouteContext.GetRouteUrl("Notes.Contents", node.Id) %>"><%= node.NodeName %></a></li>
                     <%} %>
-                    <li class="current"><span>/</span> <%= Model.Node.NodeName %></li>
+                    <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp;<a class="btn-options"><i class="fa fa-cog"></i></a></li>
                 </ul>
             </div>
         </div>

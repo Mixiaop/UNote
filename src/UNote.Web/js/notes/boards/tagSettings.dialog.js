@@ -1,0 +1,1 @@
+﻿//Board模式 - 标签设置（list、create、update）
