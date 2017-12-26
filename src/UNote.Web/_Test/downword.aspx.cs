@@ -40,18 +40,7 @@ namespace UNote.Web._Test
             {
                 HeaderFooter footer;
                 section.ClearHeadersFooters();
-                //footer = section.HeadersFooters[HeaderFooterType.FooterFirst];
-                //if (footer != null)
-                //    footer.Remove();
-
-                //// Primary footer is the footer used for odd pages.
-                //footer = section.HeadersFooters[HeaderFooterType.FooterPrimary];
-                //if (footer != null)
-                //    footer.Remove();
-
-                //footer = section.HeadersFooters[HeaderFooterType.FooterEven];
-                //if (footer != null)
-                //    footer.Remove();
+               
 
 
             }

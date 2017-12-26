@@ -199,6 +199,7 @@
     <Content Include="AjaxServices\BoardService.aspx" />
     <Content Include="AjaxServices\ContentService.aspx" />
     <Content Include="AjaxServices\NodeService.aspx" />
+    <Content Include="AjaxServices\TagService.aspx" />
     <Content Include="AjaxServices\TeamService.aspx" />
     <Content Include="AjaxServices\UserService.aspx" />
     <Content Include="Controls\RightColumn.ascx" />
@@ -1626,6 +1627,13 @@
     </Compile>
     <Compile Include="AjaxServices\Notes\UploadWordContent.ashx.cs">
       <DependentUpon>UploadWordContent.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="AjaxServices\TagService.aspx.cs">
+      <DependentUpon>TagService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxServices\TagService.aspx.designer.cs">
+      <DependentUpon>TagService.aspx</DependentUpon>
     </Compile>
     <Compile Include="AjaxServices\TeamService.aspx.cs">
       <DependentUpon>TeamService.aspx</DependentUpon>

@@ -28,6 +28,7 @@
         'notes/contentInfoDialog': '/js/notes/contentInfo.dialog',
         'notes/moveContentDialog': '/js/notes/moveContent.dialog',
         'notes/addFollowerDialog': '/js/notes/addFollower.dialog',
+        'notes/boards/tagSettingsDialog': '/js/notes/boards/tagSettings.dialog',
         'notes/boards/taskInfoDialog': '/js/notes/boards/taskInfo.dialog',
         //teams
         'teams/addMemberDialog': '/js/teams/addMember.dialog'

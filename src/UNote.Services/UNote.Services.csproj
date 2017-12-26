@@ -103,6 +103,7 @@
     <Compile Include="Notes\Dto\BoardColumnDto.cs" />
     <Compile Include="Notes\Dto\BoardTaskBriefDto.cs" />
     <Compile Include="Notes\Dto\BoardTaskDto.cs" />
+    <Compile Include="Notes\Dto\TagDto.cs" />
     <Compile Include="Notes\IBoardService.cs" />
     <Compile Include="Notes\Impl\BoardService.cs" />
     <Compile Include="Notes\Impl\ContentFollowerService.cs" />

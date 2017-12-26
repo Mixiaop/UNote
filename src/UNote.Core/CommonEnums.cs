@@ -52,4 +52,9 @@ namespace UNote
         /// </summary>
         Grid = 2
     }
+
+    public enum QueryTagOrderBy {
+        Default,
+        CountDesc
+    }
 }

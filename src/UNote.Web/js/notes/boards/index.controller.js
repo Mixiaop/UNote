@@ -1,8 +1,9 @@
-﻿require(['jquery', 'underscore', 'handlebars', 'notes/boards/taskInfoDialog', 'bootstrap.colorpicker', 'jquery.ui'], function ($, _, handlebars, taskInfoDialog, bsColor, jqueryUI) {
+﻿require(['jquery', 'underscore', 'handlebars', 'notes/boards/taskInfoDialog', 'notes/boards/tagSettingsDialog', 'bootstrap.colorpicker', 'jquery.ui'], function ($, _, handlebars, taskInfoDialog, tagSettingsDialog, bsColor, jqueryUI) {
     var vc = {};
     vc.nodeId = parseInt($('#hidNodeId').val());
 
     vc.modules = {};
+    //tagSettingsDialog.open({ nodeId: vc.nodeId }); //test
 
     //create new column
     vc.modules.newColumn = function () {
@@ -330,7 +331,7 @@
             var $data = template({ content: content });
             $column.find('.board-content-list').prepend($data);
 
-            console.log(content.ColumnTaskFinished);
+            //console.log(content.ColumnTaskFinished);
             if (content.ColumnTaskFinished) {
                 _renderfinishTask(content.Id);
             }
@@ -386,6 +387,9 @@
         vc.modules.newColumn.init();
         vc.modules.columnList.init();
 
+        $('#btn-tagSettings').click(function () {
+            tagSettingsDialog.open({ nodeId: vc.nodeId });
+        });
         $(window).resize(function () {
             vc.modules.columnList.resizeColumns();
         });

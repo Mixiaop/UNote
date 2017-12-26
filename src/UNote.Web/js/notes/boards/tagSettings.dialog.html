@@ -1,1 +1,75 @@
-﻿
+﻿<div class="modal board-tagsettings-dialog" id="modalTagSettings" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="block block-themed block-transparent remove-margin-b">
+                <div class="block-header bg-primary-dark">
+                    <ul class="block-options">
+                        <li>
+                            <button data-dismiss="modal" type="button" class="close"><i class="si si-close"></i></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">
+                       直播学习&nbsp;&nbsp;/&nbsp;&nbsp;<span class="text-gray-dark">标签设置</span>
+                    </h3>
+                </div>
+                <div class="block-content">
+                    <div>
+                        <button class="btn btn-default btn-sm">添加新标签</button>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">名称</th>
+                                <th class="text-center" >颜色</th>
+                                <th class="text-center" ></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tagList">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- add -->
+            <div class="block new-form hidden">
+                <div class="block-content">
+                    <label>     
+                        名称
+                    </label>
+                    <input type="text" name="title" autocomplete="off" class="form-control">
+                    <label>
+                        颜色
+                    </label>
+                    <input type="text" name="color" autocomplete="off" class="form-control">
+                    <div class="clearfix push-5-t">
+                        <button type="button" disabled="disabled" class="btn btn-success pull-left">
+                            提交
+                        </button>
+                        <button type="button" class="btn btn-default btn-cancel pull-right">
+                            取消
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- end add-->
+
+        </div>
+    </div>
+</div>
+<script id="tempTagItem" type="text/x-handlebars-template">
+    {{#each tags}}
+    <tr>
+        <td class="text-center">{{Name}}</td>
+        <td class="text-center">
+            <span class="label label-info" style="background:{{StyleColor}}">Color</span>
+        </td>
+        <td class="text-center">
+            <div class="btn-group">
+                <button class="btn btn-xs btn-default btn-edit" type="button" data-name="{{Name}}" data-color="{{StyleColor}}" data-id="{{Id}}"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-xs btn-default btn-delete" type="button" data-name="{{Name}}" data-id="{{Id}}" ><i class="fa fa-times"></i></button>
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+</script>
+<!-- end template -->

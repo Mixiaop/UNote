@@ -15,7 +15,11 @@
                        { %>
                     <li><span>/</span> <a href="<%= RouteContext.GetRouteUrl("Notes.Contents", node.Id) %>"><%= node.NodeName %></a></li>
                     <%} %>
-                    <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp;<a class="btn-options"><i class="fa fa-cog"></i></a></li>
+                    <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp;<a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-left push-100-l">
+                                                <li><a tabindex="-1" href="javascript:;" id="btn-tagSettings">标签设置</a></li>
+                                            </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -77,7 +81,7 @@
                             </label>
                             <input type="text" autocomplete="off" class="form-control">
                             <div class="clearfix">
-                                <button type="button" disabled="disabled" class="btn btn-success pull-left">
+                                <button type="button" disabled="disabled" data-mode="1" class="btn btn-success pull-left">
                                     提交
                                 </button>
                                 <button type="button" class="btn btn-default pull-right">
