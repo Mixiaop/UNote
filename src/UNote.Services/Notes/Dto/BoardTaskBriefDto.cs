@@ -38,5 +38,6 @@ namespace UNote.Services.Notes.Dto
         /// </summary>
         public int ColumnTaskFinishedUserId { get; set; }
 
+        public bool ExistsBody { get; set; }
     }
 }

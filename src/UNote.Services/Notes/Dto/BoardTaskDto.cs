@@ -75,12 +75,16 @@ namespace UNote.Services.Notes.Dto
 
         public TeamDto Team { get; set; }
 
+        public BoardColumnBriefDto Column { get; set; }
+
         /// <summary>
         /// 格式化文件大小（如：0.5M）
         /// </summary>
         public string FormatFileSize { get; set; }
 
         public string FormatPreviewUrl { get; set; }
+
+        public string FortmatCreationTime { get; set; }
 
 
     }

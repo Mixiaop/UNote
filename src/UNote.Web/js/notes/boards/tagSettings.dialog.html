@@ -19,9 +19,8 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th class="text-center">名称</th>
-                                <th class="text-center" >颜色</th>
-                                <th class="text-center" ></th>
+                                <th class="text-center" >标签</th>
+                                <th class="text-center" width="20%" ></th>
                             </tr>
                         </thead>
                         <tbody id="tagList">
@@ -59,9 +58,8 @@
 <script id="tempTagItem" type="text/x-handlebars-template">
     {{#each tags}}
     <tr>
-        <td class="text-center">{{Name}}</td>
         <td class="text-center">
-            <span class="label label-info" style="background:{{StyleColor}}">Color</span>
+            <span class="label label-info" style="background:{{StyleColor}}">{{Name}}</span>
         </td>
         <td class="text-center">
             <div class="btn-group">

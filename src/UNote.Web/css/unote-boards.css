@@ -1,7 +1,16 @@
-﻿/* 面包屑*/
+﻿ /*::-webkit-scrollbar{width:0px;}*/
+/*----------- 通用 ----------------*/
+.label {
+    padding:4px 8px 4px 8px !important;
+}
+
+
+/* 面包屑*/
+.board-task-dialog .btn {
+    font-weight:normal;
+}
 .page-header {
     padding-bottom: 35px;
-    border-bottom: 1px solid #e9e9e9;
 }
     .page-header .dropdown-menu {
         width:50px !important;
@@ -16,6 +25,29 @@
     padding: 0;
 }
 
+.content input {
+    border:1px solid #000 !important;
+    border-radius:0;
+}
+.content .btn-success {
+    background:#000 !important;
+    border:1px solid #000 !important;
+}
+
+.modal-dialog .btn-success {
+    background:#000 !important;
+    border:1px solid #000 !important;
+}
+
+.modal-dialog .btn-default {
+    background:#fff;
+    border-color:#fff;
+}
+    .modal-dialog .btn-default:hover {
+        border:1px solid #000;
+    }
+/*-----------end 通用 */
+
 .board-list {
     width: 100%;
     padding-top: 16px;
@@ -26,6 +58,7 @@
     overflow-x: scroll;
     white-space: nowrap;
     height:auto;
+    
     /*height: 810px; test*/
 }
 
@@ -39,7 +72,7 @@
     box-sizing: border-box;
     width: 400px;
     height:auto;
-    overflow:hidden;
+    /*overflow:hidden;*/
     /*height: 760px; test*/
 }
 
@@ -47,40 +80,43 @@
     position: relative;
     height: 100%;
     font-size: 14px;
-    background: #f3f3f3;
-    border-bottom: 2px solid #e5e5e5;
-    border-right: 2px solid #e5e5e5;
+    background: #fff;
+    border-top:1px solid #000;
 }
 
-.board-header {
+.board .board-header {
     position: relative;
+    border-bottom:1px solid #000;
 }
+    .board .board-header:hover {
+        cursor:pointer;
+    }
 
 .board-title {
     margin: 0;
-    padding: 12px 16px;
+    padding: 12px 2px;
     font-size: 1em;
     display: flex;
     align-items: center;
 }
+/*每一列*/
+.board-list-component {
+    overflow-y:scroll;
+}
+    .board-list-component .loading {
+        margin-left:40% !important;
+        margin-top:20px !important;
+    }
 
 .board-title-text {
     margin-right: auto;
-}
-
-.user-can-drag {
-    cursor: -webkit-grab;
-    cursor: grab;
-}
-
-.color-label {
-    padding: 3px 7px;
+    color:#000;
 }
 
 .board-delete {
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 0;
-    color: #c4c4c4;
+    color: #ddd;
     background-color: transparent;
     border: 0;
     outline: 0;
@@ -95,67 +131,93 @@
 .board-count-badge-button {
     display: flex;
     align-items: center;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #fff;
     line-height: 1;
+    color:#000;
+    background:none;
 }
+    .board-count-badge-button:hover {
+        background:#000;
+        color:#fff;
+        border: 1px solid #000;
+    }
 
     .board-count-badge-button.no-right-border {
         border-right: 0;
     }
 
-.board-header-color {
-    border-top: 1px solid;
-}
-.board-title-text {
-    color: #666;
-}
-
-.board-list-component {
-    overflow-y:scroll;
-}
 .board-content-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 96%;
-    margin-left: 2%;
+    width: 99%;
+    margin-left: 0.5%;
     height:auto;
     /*height: 760px; test*/
-    z-index: 0;
+    word-break: break-all;
 }
-    .board-list-component .loading {
-        margin-left:40% !important;
-        margin-top:20px !important;
-    }
+
 
     /*列表项*/
-    .board-content-list .block {
-        padding-top:0px;
-        padding-bottom:15px;
+
+    .board-content-list>li>.block {
+        padding:0;
         margin: 0;
-        margin-top: 10px;
-        border-right: 2px solid #ddd;
-        border-bottom: 2px solid #ddd;
+        margin-top: 15px;
+        border:0;
+        border-bottom:1px dashed #000;
+        background:#fff;
+        padding:7px 0 7px 0px;
     }
-.board-content-list .block-content {
+.board-content-list>li .block-content {
     font-size:12px;
-    color:#666;
+    padding:0;
 }
+
 .board-content-list .block a {
-    color:#666;
+    color:#000;
+    font-size:13px;
 }
         .board-content-list .block:hover {
             cursor:pointer;
-            background:#fcfcfc;
+            border-bottom:1px solid #000;
         }
 .board-content-list .block.over {
-    background:#fcfcfc;
+    background:#fefefe;
+    border-bottom:1px dashed #f9f9f9;
+    border-top:0;
 }
 .board-content-list .block.over a{
     color:#aaa;
     text-decoration:line-through;
 }
 
+/*列表项 标签*/
+.board-content-list .block-tags ul {
+    list-style:none;
+    height:auto;
+    display:block;
+    padding:0;
+    padding-left:1px;
+    margin:0;
+    clear:both;
+}
+    .board-content-list .block-tags ul li {
+        float:left;
+        margin-right:10px;
+        margin-bottom:5px;
+    }
+    .board-content-list .block-tags ul li label{
+        padding-top:5px;
+    }
+
+.board-content-list .block-tags i {
+    color:#000;
+}
+.board-content-list .block-tags .time {
+    color:#aaa;
+}
+/*创建新列*/
 .board-new-column {
     height:auto;
     border-bottom:0;
@@ -166,7 +228,7 @@
     padding:15px 0 15px 10px;
 }
     .board-new-column .card {
-        background:#f1f1f1;
+        background:#fff;
         padding:5px;
     }
         .board-new-column .card label {
@@ -212,33 +274,200 @@
     }
 
 /*
-    任务板弹框详情
+    ------------------任务板弹框详情-------------------------
 */
 .board-task-dialog .modal-dialog {
-    margin-top:0 !important;
-    border-bottom:4px solid #eaeaea;
-    border-right:4px solid #eaeaea;
+    padding-bottom:10px;
+    background:#fff;
+    border:0;
+    padding:20px;
+    border:1px solid #000;
+    border-radius:18px
 }
+.board-task-dialog .block-line {
+    padding-bottom:30px;
+    border-bottom:1px dashed #000;
+}
+
     .board-task-dialog .block-header {
-        border-bottom:1px solid #E9E9E9 !important;
+        border-bottom:1px solid #000 !important;
+        padding-left:0;
+        padding-right:0;
+        padding-top:0;
+        width:100%;
     }
         .board-task-dialog .block-header .close {
-            color:#666 !important;
+            color:#000 !important;
         }
-        .board-task-dialog .block-header h3 span {
+
+    /* 标题 */
+.board-task-dialog .block-title {
+    background:red;
+}
+.board-task-dialog .block-title .choose {
+    height:30px;
+    width:22px;
+    float:left;
+}
+.board-task-dialog .block-title .title {
+    float:left;
+    margin-top:7px;
+    margin-left:10px;
+    width:750px;
+    overflow:hidden;
+}
+    .board-task-dialog .block-title .title a {
+        color:#000;
+        font-size:15px;
+    }
+        .board-task-dialog .block-title .title a:hover {
+            background:#000;
+            color:#fff;
+        }
+    .board-task-dialog .block-title .title input {
+        width:600px;
+        display:inline-block;
+        font-weight:normal;
+        font-size:15px;
+    }
+
+        .board-task-dialog .block-title .title span {
             font-weight:normal;
-            color:#bbb;
+            color:#666;
         }
-        .board-task-dialog .block-header h3 a {
-            color:#666 !important;
-            font-weight:normal;
-            vertical-align:middle;
+
+/* body */
+.board-task-dialog .body-text,.board-task-dialog .body-editor {
+    word-wrap:break-word;
+    padding-left:0;
+    padding-right:0;
+}
+    .board-task-dialog .body-text:hover {
+        cursor:pointer;
+    }
+.board-task-dialog .block-content {
+    padding-top:28px;
+}
+/* 动态 */
+.board-task-dialog .block-notice ul {
+    list-style:none;
+}
+.board-task-dialog .block-notice li {
+    text-align:right;
+    color:#000;
+    font-size:12px;
+}
+
+/*分配标签*/
+.board-task-dialog .tags {
+    padding-left:0;
+}
+.board-task-dialog .tags .title {
+    float:left;
+    width:100px;
+    color:#000;
+}
+.board-task-dialog .tags .contents {
+    width:700px;
+    float:left;
+    text-align:left;
+}
+.board-task-dialog .tags .contents ul {
+    list-style:none;
+    float:left;
+    padding:0;
+}
+.board-task-dialog .tags .contents li {
+    float:left;
+    margin-right:5px;
+}
+.board-task-dialog .tags .contents label:hover {
+    cursor:pointer;
+}
+
+.board-task-dialog .tags .contents a {
+    float:left;
+    font-size:12px;
+    display:inline-block;
+    margin:0px 0 0 5px;
+    padding:3px 8px 1px 8px;
+    color:#999;
+    border:1px solid #fff;
+}
+    .board-task-dialog .tags .contents a:hover {
+        border-color:#000;
+        color:#000;
+    }
+
+/* 表单 - 设置标签 */
+.form-choosetags {
+    width:200px;
+    height:auto;
+    border:1px solid #000;
+    position:relative;
+    padding-bottom:10px;
+    background:#fff;
+    padding:8px;
+    position:absolute;
+    left:105px;
+}
+    .form-choosetags .title {
+        width:100% !important;
+        text-align:center;
+        padding:3px 0 10px 0;
+        color:#aaa;
+    }
+        .form-choosetags .title a {
+            float:right;
+            color:#000 !important;
+            padding-left:5px;
+            padding-right:5px;
         }
-            .board-task-dialog .block-header h3 a.over {
-                text-decoration:line-through;
+            .form-choosetags .title a:hover {
+                background:#000;
+                color:#fff;
+            }
+            .form-choosetags .title a:hover i{
+                color:#fff !important;
+            }
+            .form-choosetags .title a i {
+                color:#000 !important;
+            }
+    .form-choosetags ul {
+        list-style:none;
+        padding:10px 0 0 0;
+    }
+        .form-choosetags ul li {
+            margin-bottom:5px;
+        }
+        .form-choosetags ul a {
+            display:block;
+            padding:5px 5px;
+            color:#000;
+            text-align:center;
+            border:1px solid #fff;
+            border-bottom:1px solid #000;
+        }
+            .form-choosetags ul a:hover {
+                border-right:1px solid #000;
+                border-left:1px solid #000;
+                border-bottom:1px solid #000 !important;
+            }
+            .form-choosetags ul a.selected {
+                border:1px solid #55A57A;
+                background:#55A57A;
+                color:#fff;
             }
 
-/*标签设置弹框*/
+
+ /*参与者*/
+
+.board-task-dialog .modal-footer {
+    padding-left:0;
+    padding-right:0;
+}
+
+/*--------------------标签设置弹框-------------------------*/
 .board-tagsettings-dialog {
 
 }

@@ -100,6 +100,7 @@
     <Compile Include="IO\TempFolderService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Mapping\CustomDtoMapper.cs" />
+    <Compile Include="Notes\Dto\BoardColumnBriefDto.cs" />
     <Compile Include="Notes\Dto\BoardColumnDto.cs" />
     <Compile Include="Notes\Dto\BoardTaskBriefDto.cs" />
     <Compile Include="Notes\Dto\BoardTaskDto.cs" />

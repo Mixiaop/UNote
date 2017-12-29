@@ -187,7 +187,7 @@ define(['jquery', 'utils/notify', 'handlebars', 'bootstrap', 'bootstrap.colorpic
             $.ajax({
                 type: 'get',
                 dataType: 'html',
-                url: '/js/notes/boards/tagSettings.dialog.html',
+                url: '/js/notes/boards/tagSettings.dialog.html?t=' + Math.random(),
                 success: function (data) {
                     $('body').append(data);
                     _initialize();

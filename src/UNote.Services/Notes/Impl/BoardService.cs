@@ -210,7 +210,30 @@ namespace UNote.Services.Notes.Impl
                                          .Where(x => x.ColumnId == columnId);
 
             var list = query.OrderBy(x => x.ColumnOrder).ToList();
-            return list.MapTo<IList<BoardTaskBriefDto>>();
+            List<BoardTaskBriefDto> result = new List<BoardTaskBriefDto>();
+
+            if (list != null) {
+                foreach (var info in list) {
+                    var item = info.MapTo<BoardTaskBriefDto>();
+                    if (info.Body.IsNotNullOrEmpty()) {
+                        item.ExistsBody = true;
+                    }
+                    result.Add(item);
+                }
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 通过Id获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public BoardTaskDto GetTask(int id) {
+            var content = _contentService.GetById(id);
+
+            return content.MapTo<BoardTaskDto>();
         }
 
         /// <summary>
@@ -349,6 +372,49 @@ namespace UNote.Services.Notes.Impl
             task.ColumnTaskFinishedUserId = 0;
             task.ColumnTaskFinishedTime = null;
             _contentService.Update(task);
+            return res;
+        }
+
+        public StateOutput UpdateTaskTitle(int taskId, string newTitle) {
+            StateOutput res = new StateOutput();
+            var task = _contentService.GetById(taskId);
+            if (task == null)
+            {
+                res.AddError("task not found");
+                return res;
+            }
+
+            task.Title = newTitle;
+            _contentService.Update(task);
+
+            return res;
+        }
+
+        public StateOutput UpdateTaskBody(int taskId, string newBody) {
+            StateOutput res = new StateOutput();
+            var task = _contentService.GetById(taskId);
+            if (task == null)
+            {
+                res.AddError("task not found");
+                return res;
+            }
+            task.Body = newBody;
+            _contentService.Update(task);
+
+            return res;
+        }
+
+        public StateOutput DeleteTask(int taskId) {
+            StateOutput res = new StateOutput();
+            var task = _contentService.GetById(taskId);
+            if (task == null)
+            {
+                res.AddError("task not found");
+                return res;
+            }
+
+            _contentService.Delete(task);
+
             return res;
         }
         #endregion

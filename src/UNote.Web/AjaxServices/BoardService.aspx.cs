@@ -16,7 +16,7 @@ namespace UNote.Web.AjaxServices
     public partial class BoardService : Infrastructure.AjaxPageBase
     {
         IBoardService _boardService = UPrimeEngine.Instance.Resolve<IBoardService>();
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -119,7 +119,7 @@ namespace UNote.Web.AjaxServices
 
         #region Tasks
         [AjaxMethod]
-        public AjaxResponse<IList<BoardTaskBriefDto>> GetAllItems(int columnId)
+        public AjaxResponse<IList<BoardTaskBriefDto>> GetAllTasks(int columnId)
         {
             AjaxResponse<IList<BoardTaskBriefDto>> res = new AjaxResponse<IList<BoardTaskBriefDto>>();
 
@@ -136,7 +136,16 @@ namespace UNote.Web.AjaxServices
         }
 
         [AjaxMethod]
-        public AjaxResponse<BoardTaskBriefDto> AddItem(int nodeId, int columnId, string title)
+        public AjaxResponse<BoardTaskDto> GetTask(int id) {
+            AjaxResponse<BoardTaskDto> res = new AjaxResponse<BoardTaskDto>();
+            res.Result = _boardService.GetTask(id);
+            res.Result.FortmatCreationTime = res.Result.CreationTime.ToString("yyyy-MM-dd HH:mm");
+            return res;
+        }
+
+
+        [AjaxMethod]
+        public AjaxResponse<BoardTaskBriefDto> AddTask(int nodeId, int columnId, string title)
         {
             AjaxResponse<BoardTaskBriefDto> res = new AjaxResponse<BoardTaskBriefDto>();
             var result = _boardService.AddTask(nodeId, columnId, title.Trim());
@@ -153,7 +162,7 @@ namespace UNote.Web.AjaxServices
         }
 
         [AjaxMethod]
-        public AjaxResponse ResetItemOrders(int targetColumnId, int[] itemIds)
+        public AjaxResponse ResetTaskOrders(int targetColumnId, int[] itemIds)
         {
             AjaxResponse res = new AjaxResponse();
 
@@ -207,6 +216,75 @@ namespace UNote.Web.AjaxServices
             {
 
                 var result = _boardService.CancelFinishTask(taskId, GetLoginedUser().Id);
+                if (!result.Success)
+                {
+                    res.Success = false;
+                    res.Error = new ErrorInfo(result.Errors[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+
+        [AjaxMethod]
+        public AjaxResponse UpdateTaskTitle(int taskId, string newTitle)
+        {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                var result = _boardService.UpdateTaskTitle(taskId, newTitle);
+                if (!result.Success)
+                {
+                    res.Success = false;
+                    res.Error = new ErrorInfo(result.Errors[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+
+        [AjaxMethod]
+        public AjaxResponse UpdateTaskBody(int taskId, string newBody)
+        {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                var result = _boardService.UpdateTaskBody(taskId, newBody);
+                if (!result.Success)
+                {
+                    res.Success = false;
+                    res.Error = new ErrorInfo(result.Errors[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+
+        [AjaxMethod]
+        public AjaxResponse DeleteTask(int taskId)
+        {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                var result = _boardService.DeleteTask(taskId);
                 if (!result.Success)
                 {
                     res.Success = false;

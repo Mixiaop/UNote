@@ -73,6 +73,13 @@ namespace UNote.Services.Notes
         IList<BoardTaskBriefDto> GetAllTasks(int columnId);
 
         /// <summary>
+        /// 通过Id获取信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        BoardTaskDto GetTask(int id);
+
+        /// <summary>
         /// 添加内容项
         /// </summary>
         /// <param name="nodeId">分类Id</param>
@@ -112,6 +119,12 @@ namespace UNote.Services.Notes
         /// <param name="finishUserId"></param>
         /// <returns></returns>
         StateOutput CancelFinishTask(int taskId, int finishUserId);
+
+        StateOutput UpdateTaskTitle(int taskId, string newTitle);
+
+        StateOutput UpdateTaskBody(int taskId, string newBody);
+
+        StateOutput DeleteTask(int taskId);
         #endregion
     }
 }

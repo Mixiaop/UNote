@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/User.master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="UNote.Web.Notes.Boards.Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="userHead" runat="server">
+    <link rel="stylesheet" href="/editors/kindeditor/css/default.css"  />
     <link rel="stylesheet" href="/lib/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" href="/css/unote-boards.css" />
 </asp:Content>
@@ -27,11 +28,11 @@
     <!-- END Page Header -->
     <div class="content">
         <input type="hidden" id="hidNodeId" value="<%= Model.GetNodeId %>" />
-        <div class="board-list">
+        <div class="board-list" >
             <img src="/img/loading.gif" alt="loading" title="loading" id="loadingColumns" />
             <!-- board -->
-            <div class="board board-new-column">
-                <button class="btn btn-default btn-block"><i class="fa fa-plus"></i>&nbsp;新建列表</button>
+            <div class="board board-new-column" >
+                <button class="btn btn-default btn-block" style="background:none;border:0;border-top:1px solid #000;"><i class="fa fa-plus"></i>&nbsp;新建列表</button>
                 <div class="card hidden">
                     <div class="card">
                         <label>
@@ -61,11 +62,11 @@
     <!-- template -->
     <script id="tempColumn" type="text/x-handlebars-template">
         <!-- board -->
-        <div class="board" id="board-column-{{column.Id}}" data-columnid="{{column.Id}}">
+        <div class="board" id="board-column-{{column.Id}}"  data-columnid="{{column.Id}}">
             <div class="board-inner ">
                 <header class="board-header" >
-                    <h3 class="board-title ">
-                        <span class="board-title-text color-label label">{{column.Title}}</span>
+                    <h3 class="board-title">
+                        <span class="board-title-text label">{{column.Title}}</span>
                         <button type="button" class="board-delete" data-toggle="tooltip" data-original-title="删除列表"><i class="fa fa-trash"></i></button>
                         <div class="board-count-badge clearfix">
                             <button type="button" class="board-count-badge-button no-right-border btn btn-sm btn-default hidden" data-toggle="tooltip" data-original-title="编辑列表"><i class="fa fa-pencil"></i></button>
@@ -74,7 +75,7 @@
                     </h3>
                 </header>
                 <div class="board-list-component">
-                    <div class="board-new-form hidden">
+                    <div class="board-new-form hidden" style="border:0;">
                         <div class="card">
                             <label>
                                 标题
@@ -107,11 +108,24 @@
     </script>
 
     <script id="tempContent" type="text/x-handlebars-template">
-        <li id="board-content-{{content.Id}}" data-id="{{content.Id}}" data-columnid="{{content.ColumnId}}" >
+        <li id="board-content-{{content.Id}}" class="js-block-task" data-id="{{content.Id}}" data-columnid="{{content.ColumnId}}" >
                             <div class="block">
                                 <div class="block-content">
                                     <label class="css-input css-checkbox css-checkbox-success"><input type="checkbox" ><span ></span></label> <a href="javascript:;">{{content.Title}}</a>
                                 </div>
+                                <div class="block-tags js-block-tags ">
+                                    <ul class="clearfix">
+                                        <li class="js-content hidden"><i class="fa fa-list"></i></li>
+                                        <%--<li class="time js-time"><i class="fa fa-clock-o"></i> 2017-12-25</li>--%>
+                                        <li class="hidden"><label class="label" style="background:red;">111</label></li>
+                                        <%--<li><label class="label" style="background:#000;">111</label></li>
+                                        <li><label class="label" style="background:#000;">111</label></li>
+                                        <li><label class="label" style="background:#000;">111</label></li>
+                                        <li><label class="label" style="background:#000;">111</label></li>
+                                        <li><label class="label" style="background:#000;">111</label></li>--%>
+                                    </ul>
+                                    
+                                    </div>
                             </div>
                         </li>
     </script>

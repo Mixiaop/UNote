@@ -2,24 +2,84 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="block block-themed block-transparent remove-margin-b">
+                <!-- title -->
                 <div class="block-header">
                     <ul class="block-options">
                         <li>
                             <button data-dismiss="modal" type="button" class="close"><i class="si si-close"></i></button>
                         </li>
                     </ul>
-                    <h3 class="block-title"><label class="css-input css-checkbox css-checkbox-success"><input type="checkbox" ><span></span></label>
-                    <a href="javascript:;" class="over">阅读「分享」中的使用案例，get 最优雅的开发姿势</a> 
-                    <span>&nbsp;&nbsp;/&nbsp;Doing</span></h3>
+                    <div class="block-title">
+                        <div class="choose">
+                            <label class="css-input css-checkbox css-checkbox-success"><input type="checkbox"><span></span></label>
+                        </div>
+                        <div class="title">
+                            <a href="javascript:;" class="js-tooltip" title="点击即可编辑">u</a><!--text-line-through-->
+                            <input type="text" class="form-control hidden" value="u" />
+                            <span>&nbsp;&nbsp;/&nbsp;Doing</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <!--<h3 class="block-title">
+
+                         <input type="text" value="阅读「分享」中的使用案例，get 最优雅的开发姿势" class="form-control" />
+
+
+                    </h3>-->
                 </div>
-                <div class="block-content">
-                    <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
-                    <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
+                <!-- end title-->
+                <!-- body -->
+                <div class="block-content body-text block-line js-body js-tooltip" title="点击即可编辑">
+                    <div class="js-none hidden">点击添加备注</div>
+                    <div class="js-bodyText hidden">u</div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <!--<button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>
-                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal"><i class="fa fa-check"></i> Ok</button>-->
+                <div class="block-content body-editor block-line js-bodyEditor  text-center">
+                    <!--<textarea id="txtTaskBody"  style="height:360px;"></textarea>
+                    <button type="button" class="btn btn-success push-10-t">保存</button>&nbsp;&nbsp;<button type="button" class="btn btn-default push-10-t">取消</button>-->
+                </div>
+                <div class="block-content body-editor block-line js-bodyEditor-copy hidden text-center">
+                    <textarea id="txtTaskBody" style="height:460px;"></textarea>
+                    <button type="button" class="btn btn-success push-10-t">保存</button>&nbsp;&nbsp;<button type="button" class="btn btn-default push-10-t">取消</button>
+                </div>
+                <!-- end body -->
+                <!-- tags -->
+                <div class="block-content tags block-line">
+                    <div class="title"><i class="fa fa-tags"></i>&nbsp;&nbsp;标&nbsp;签</div>
+                    <div class="contents">
+                        <ul class="clearfix">
+                            <!--<li><label class="label" style="background:#000;">111</label></li>
+                            <li><label class="label" style="background:red;">111</label></li>
+                            <li><label class="label" style="background:#000;">111</label></li>
+                            <li><label class="label" style="background:red;">111</label></li>
+                            <li><label class="label" style="background:#000;">111</label></li>-->
+                        </ul>
+                        <a href="javascript:;">+ 添加标签</a>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-choosetags hidden">
+                        <div class="title">设置标签 <a href="javascript:;"><i class="fa fa-remove"></i></a></div>
+                        <div class="clearfix"></div>
+                        <div>
+                            <ul>
+                                <!--<li><a href="javascript:;" >PC</a></li>
+                                <li><a href="javascript:;" style="border-bottom-color:#55A57A;color:#55A57A;">H5</a></li>
+                                <li><a href="javascript:;">IOS</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- end tags-->
+                <!-- notice-->
+                <div class="block-content block-notice block-line">
+                    <ul>
+                        <li>创建了任务,&nbsp;&nbsp;2017-12-27 16:54</li>
+                    </ul>
+                </div>
+                <!-- end notice-->
+                <div class="modal-footer">
+                    <button class="btn btn-default btn-sm js-btn-delete" type="button">删除</button>
+                </div>
             </div>
         </div>
     </div>

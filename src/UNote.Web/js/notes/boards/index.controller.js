@@ -3,9 +3,10 @@
     vc.nodeId = parseInt($('#hidNodeId').val());
 
     vc.modules = {};
-    //tagSettingsDialog.open({ nodeId: vc.nodeId }); //test
-
+    
     //create new column
+    //-------------------
+    //------------------module new column
     vc.modules.newColumn = function () {
         var $btnNewColumn = $('.board-new-column>button');
         var $txtColumnTitle = $('.board-new-column input[name=title]');
@@ -80,6 +81,8 @@
     }();
 
     //columns loading control
+    //-------------------
+    //------------------module column list 
     vc.modules.columnList = function () {
         var $loadingColumns = $('#loadingColumns');
 
@@ -153,8 +156,18 @@
 
                     //add item click
                     $newItem.unbind('click');
-                    $newItem.bind('click', function () {
+                    $newItem.bind('click', function (e) {
                         $newForm.removeClass('hidden');
+                        $newFormTitle.focus();
+                        $(document).one("click", function () {
+                           $newForm.addClass('hidden');
+                        });
+                        e.stopPropagation();
+                    });
+
+                    $newForm.unbind('click');
+                    $newForm.bind('click', function (e) {
+                        e.stopPropagation();
                     });
 
                     $newFormCancel.unbind('click');
@@ -167,7 +180,7 @@
                         if (!committing) {
                             committing = true;
                             $(this).text('添加中.');
-                            BoardService.AddItem(vc.nodeId, columnId, $newFormTitle.val(), function (res) {
+                            BoardService.AddTask(vc.nodeId, columnId, $newFormTitle.val(), function (res) {
                                 $(this).text('提交');
                                 committing = false;
                                 var json = res.value;
@@ -240,10 +253,10 @@
 
                     if (ids.length > 0 && exists) {
                         //update item orders
-                        BoardService.ResetItemOrders(targetColumnId, ids, function (res) {
+                        BoardService.ResetTaskOrders(targetColumnId, ids, function (res) {
                             var json = res.value;
                             if (!json.Success) {
-                                console.log('BoardService.ResetItemOrders error: ' + JSON.stringify(json));
+                                console.log('BoardService.ResetTaskOrders error: ' + JSON.stringify(json));
                             }
                         });
                     }
@@ -252,15 +265,21 @@
                 }
             });
 
-            //列表项点击
-            $('.board ul li').unbind('click');
-            $('.board ul li').bind('click', function () {
+            //##event - 任务项点击
+            $('.js-block-task').unbind('click');
+            $('.js-block-task').bind('click', function () {
                 var id = parseInt($(this).data('id'));
-                taskInfoDialog.open();
+                taskInfoDialog.open({
+                    id: id,
+                    resTitle: vc.modules.columnList.renderTitle,
+                    resFinishd: vc.modules.columnList.renderFinishd,
+                    resDelete: vc.modules.columnList.renderDelete,
+                    resBody: vc.modules.columnList.renderTagBody
+                });
                 return false;
             });
 
-            //列表项checkbox点击
+            //##event 列表项checkbox点击
             $('.board ul li span').unbind('click');
             $('.board ul li span').bind('click', function (e) {
                 var taskId = parseInt($(this).parents('li').data('id'));
@@ -270,7 +289,7 @@
                     BoardService.CancelFinishTask(taskId, function (res) { });
 
                 } else {
-                    _renderfinishTask(taskId);
+                    _renderFinishTask(taskId);
                     //post
                     BoardService.FinishTask(taskId, function (res) { console.log(res); });
                 }
@@ -295,8 +314,9 @@
             $newColumnWrapper.before($data);
             //set class
             if (column.Class != '') {
-                $('#board-column-' + column.Id).find('.board-header').addClass('board-header-color');
-                $('#board-column-' + column.Id).find('.board-header').css('border-color', column.Class);
+                //$('#board-column-' + column.Id).find('.board-header').css('border-color', column.Class);
+                $('#board-column-' + column.Id).find('.board-inner').css('border-top', '1px solid ' + column.Class);
+                $('#board-column-' + column.Id).find('.board-header').css('border-bottom', '1px solid ' + column.Class);
                 $('#board-column-' + column.Id).find('.board-title-text').css('background', column.Class);
                 $('#board-column-' + column.Id).find('.board-title-text').css('color', '#fff');
                 //console.log($($data).find('.board-header').html());
@@ -307,7 +327,7 @@
                 _bindColumnEvents();
             }, 500);
 
-            BoardService.GetAllItems(column.Id, function (res) {
+            BoardService.GetAllTasks(column.Id, function (res) {
                 var $loading = $('#board-column-' + column.Id).find('.loading');
                 var json = res.value;
                 if (json != null && json.Success) {
@@ -317,7 +337,7 @@
                         });
                     }
                 } else {
-                    console.log("BoardService.GetAllItems error: " + JSON.stringify(json));
+                    console.log("BoardService.GetAllTasks error: " + JSON.stringify(json));
                 }
                 $loading.addClass('hidden');
             });
@@ -333,13 +353,27 @@
 
             //console.log(content.ColumnTaskFinished);
             if (content.ColumnTaskFinished) {
-                _renderfinishTask(content.Id);
+                _renderFinishTask(content.Id);
+            }
+
+            if (content.ExistsBody) {
+                _renderTagBody(content.Id, true);
             }
 
             _bindItemEvents();
         }
 
-        var _renderfinishTask = function (taskId) {
+        //-------------------
+        //------------------renders 刷新视图
+        //更新标题
+        var _renderTitle = function (taskId, newTitle) {
+            var $task = $('#board-content-' + taskId);
+
+            $task.find('.block-content a').html(newTitle);
+        }
+
+        //完成任务
+        var _renderFinishTask = function (taskId) {
             //update view
             var $task = $('#board-content-' + taskId);
             $task.find('input[type=checkbox]').prop('checked', true);
@@ -347,6 +381,7 @@
             $task.find('span').data('check', 1);
         }
 
+        //取消任务
         var _renderCancelTask = function (taskId) {
             //update view
             var $task = $('#board-content-' + taskId);
@@ -354,6 +389,24 @@
             $task.find('input[type=checkbox]').prop('checked', false);
             $task.find('span').data('check', 0);
         }
+
+        //删除后触发
+        var _renderDelete = function (taskId) {
+            var $task = $('#board-content-' + taskId);
+            $task.remove();
+        }
+
+        //根据内容是否显示icon
+        var _renderTagBody = function (taskId, have) {
+            var $task = $('#board-content-' + taskId);
+            if (have)
+                $task.find('.js-content').removeClass('hidden');
+            else
+                $task.find('.js-content').addClass('hidden');
+        }
+
+        //-------------------
+        //------------------end renders 
 
         var _init = function () {
             setTimeout(function () {
@@ -377,7 +430,17 @@
 
         return {
             init: _init,
+            renderTitle: _renderTitle,
+            //渲染并触发事件
+            renderFinishd: function (taskId, isFinish) {
+                if (isFinish)
+                    _renderFinishTask(taskId);
+                else
+                    _renderCancelTask(taskId);
+            },
+            renderDelete: _renderDelete,
             resizeColumns: _resizeColumns,
+            renderTagBody: _renderTagBody,
             addNewColumn: _addNewColumn
         }
     }();
@@ -395,4 +458,12 @@
         });
     });
 
+    //tests
+    //tagSettingsDialog.open({ nodeId: vc.nodeId }); 
+    //taskInfoDialog.open({
+    //    id: 68,
+    //    resTitle: vc.modules.columnList.renderTitle,
+    //    resFinishd: vc.modules.columnList.renderFinishd,
+    //    resDelete: vc.modules.columnList.renderDelete
+    //}); 
 });
