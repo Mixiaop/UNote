@@ -1,4 +1,5 @@
-﻿require(['jquery', 'underscore', 'handlebars', 'notes/boards/taskInfoDialog', 'notes/boards/tagSettingsDialog', 'bootstrap.colorpicker', 'jquery.ui'], function ($, _, handlebars, taskInfoDialog, tagSettingsDialog, bsColor, jqueryUI) {
+﻿require(['jquery', 'underscore', 'handlebars', 'notes/boards/taskInfoDialog', 'notes/boards/tagSettingsDialog', 'bootstrap.colorpicker', 'jquery.ui', 'jquery.slimscroll'],
+    function ($, _, handlebars, taskInfoDialog, tagSettingsDialog, bsColor, jqueryUI, jquerySlimScroll) {
     var vc = {};
     vc.nodeId = parseInt($('#hidNodeId').val());
 
@@ -299,28 +300,37 @@
 
         var _resizeColumns = function () {
             var $boards = $('.board');
-            var height = $(window).height() - 120;
-            $('.board-list').css('height', height + 'px');
-            $('.board').css('height', (height - 36) + 'px');
-            $('.board-content-list').css('height', (height - 36) + 'px');
+            var height = $(window).height();
+
+            $('.board-list').css('height', (height - 115) + 'px');
+            $('.board').css('height', (height - 160) + 'px');
+            $('.board-content-list').css('height', (height - 212) + 'px');
+
+            //scroll
+            $('.board-content-list').slimScroll({
+                height: (height - 212) + 'px'
+            });
         }
 
         var _addNewColumn = function (column) {
             var $newColumnWrapper = $('.board-new-column');
+            
 
             var $html = $('#tempColumn').html();
             var template = handlebars.compile($html);
             var $data = template({ column: column });
             $newColumnWrapper.before($data);
+
+            var $column = $('#board-column-' + column.Id);
             //set class
             if (column.Class != '') {
                 //$('#board-column-' + column.Id).find('.board-header').css('border-color', column.Class);
-                $('#board-column-' + column.Id).find('.board-inner').css('border-top', '1px solid ' + column.Class);
-                $('#board-column-' + column.Id).find('.board-header').css('border-bottom', '1px solid ' + column.Class);
-                $('#board-column-' + column.Id).find('.board-title-text').css('background', column.Class);
-                $('#board-column-' + column.Id).find('.board-title-text').css('color', '#fff');
+                $column.find('.board-inner').css('border-top', '2px solid ' + column.Class);
+                $column.find('.board-title-text').css('background', column.Class);
+                $column.find('.board-title-text').css('color', '#fff');
                 //console.log($($data).find('.board-header').html());
             }
+
 
             setTimeout(function () {
                 _resizeColumns();
@@ -460,10 +470,10 @@
 
     //tests
     //tagSettingsDialog.open({ nodeId: vc.nodeId }); 
-    //taskInfoDialog.open({
-    //    id: 68,
-    //    resTitle: vc.modules.columnList.renderTitle,
-    //    resFinishd: vc.modules.columnList.renderFinishd,
-    //    resDelete: vc.modules.columnList.renderDelete
-    //}); 
+    taskInfoDialog.open({
+        id: 68,
+        //resTitle: vc.modules.columnList.renderTitle,
+        //resFinishd: vc.modules.columnList.renderFinishd,
+        //resDelete: vc.modules.columnList.renderDelete
+    }); 
 });

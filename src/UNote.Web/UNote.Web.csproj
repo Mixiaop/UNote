@@ -1129,6 +1129,8 @@
     <Content Include="lib\plugins\jquery-raty\jquery.raty.js" />
     <Content Include="lib\plugins\jquery-raty\jquery.raty.min.css" />
     <Content Include="lib\plugins\jquery-raty\jquery.raty.min.js" />
+    <Content Include="lib\plugins\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="lib\plugins\jquery-slimscroll\jquery.slimscroll.min.js" />
     <Content Include="lib\plugins\jquery-tags-input\jquery.tagsinput.css" />
     <Content Include="lib\plugins\jquery-tags-input\jquery.tagsinput.js" />
     <Content Include="lib\plugins\jquery-tags-input\jquery.tagsinput.min.css" />

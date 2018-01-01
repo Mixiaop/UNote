@@ -16,6 +16,7 @@
         'jquery.fineuploader': '/lib/plugins/jquery.fineuploader/jquery.fineuploader-3.4.1.min',
         'jquery.tagsinput': '/lib/plugins/jquery-tags-input/jquery.tagsinput.min',
         'jquery.ui': '/lib/plugins/jquery-ui/jquery-ui',
+        'jquery.slimscroll': '/lib/plugins/jquery-slimscroll/jquery.slimscroll',
         'cookie': '/lib/core/js.cookie.min',
         'bs.notify': '/lib/plugins/bootstrap-notify/bootstrap-notify.min',
         'kindeditor': '/editors/kindeditor/kindeditor',

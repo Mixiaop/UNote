@@ -32,7 +32,7 @@
             <img src="/img/loading.gif" alt="loading" title="loading" id="loadingColumns" />
             <!-- board -->
             <div class="board board-new-column" >
-                <button class="btn btn-default btn-block" style="background:none;border:0;border-top:1px solid #000;"><i class="fa fa-plus"></i>&nbsp;新建列表</button>
+                <button class="btn btn-default btn-block" ><i class="fa fa-plus"></i>&nbsp;新建列表</button>
                 <div class="card hidden">
                     <div class="card">
                         <label>

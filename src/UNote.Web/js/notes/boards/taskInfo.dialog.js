@@ -256,7 +256,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
         var _renderFormChooseTag = function () {
             if (vc.tags.length > 0) {
                 _.each(vc.tags, function (t) {
-                    $formTagList.append('<li ><a href="javascript:;" style="border-bottom-color:' + t.StyleColor + ';color:' + t.StyleColor + '" >' + t.Name + '</a></li>');
+                    $formTagList.append('<li ><a href="javascript:;" style="background:' + t.StyleColor + ';color:#fff" ><span class="selected"></span>' + t.Name + '</a></li>');
                 });
             }
         }
@@ -288,6 +288,8 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
             $btnAddNew.unbind('click');
             $btnAddNew.bind('click', function (e) {
                 $form.removeClass('hidden');
+                $form.css('left', ($(this).position().left + 5) + 'px');
+
                 $(document).one('click', function () {
                     $form.addClass('hidden');
                 });

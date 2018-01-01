@@ -25,27 +25,7 @@
     padding: 0;
 }
 
-.content input {
-    border:1px solid #000 !important;
-    border-radius:0;
-}
-.content .btn-success {
-    background:#000 !important;
-    border:1px solid #000 !important;
-}
 
-.modal-dialog .btn-success {
-    background:#000 !important;
-    border:1px solid #000 !important;
-}
-
-.modal-dialog .btn-default {
-    background:#fff;
-    border-color:#fff;
-}
-    .modal-dialog .btn-default:hover {
-        border:1px solid #000;
-    }
 /*-----------end 通用 */
 
 .board-list {
@@ -78,15 +58,15 @@
 
 .board-inner {
     position: relative;
-    height: 100%;
     font-size: 14px;
-    background: #fff;
-    border-top:1px solid #000;
+    border-top:2px solid #E2E4E6;
+    background:#E2E4E6;
+    border-radius:3px;
 }
 
 .board .board-header {
     position: relative;
-    border-bottom:1px solid #000;
+    padding:0 10px 0 10px;
 }
     .board .board-header:hover {
         cursor:pointer;
@@ -101,7 +81,9 @@
 }
 /*每一列*/
 .board-list-component {
-    overflow-y:scroll;
+    overflow:hidden;
+    padding:0;
+    margin:0;
 }
     .board-list-component .loading {
         margin-left:40% !important;
@@ -110,13 +92,15 @@
 
 .board-title-text {
     margin-right: auto;
-    color:#000;
+    color:#333;
+    font-size:14px;
+    font-weight:bold;
 }
 
 .board-delete {
     margin-right: 5px;
     padding: 0;
-    color: #ddd;
+    color: #bbb;
     background-color: transparent;
     border: 0;
     outline: 0;
@@ -131,15 +115,14 @@
 .board-count-badge-button {
     display: flex;
     align-items: center;
-    border: 1px solid #fff;
     line-height: 1;
-    color:#000;
+    color:#777;
     background:none;
+    border:none;
 }
     .board-count-badge-button:hover {
-        background:#000;
-        color:#fff;
-        border: 1px solid #000;
+        background:#aaa;
+        color:#333;
     }
 
     .board-count-badge-button.no-right-border {
@@ -163,11 +146,14 @@
     .board-content-list>li>.block {
         padding:0;
         margin: 0;
-        margin-top: 15px;
+        margin-bottom: 10px;
+        margin-left:10px;
+        margin-right:10px;
         border:0;
-        border-bottom:1px dashed #000;
         background:#fff;
-        padding:7px 0 7px 0px;
+        padding:5px 10px;
+        border-radius:3px;
+        border-bottom: 1px solid #ccc;
     }
 .board-content-list>li .block-content {
     font-size:12px;
@@ -175,12 +161,12 @@
 }
 
 .board-content-list .block a {
-    color:#000;
+    color:#555;
     font-size:13px;
 }
         .board-content-list .block:hover {
             cursor:pointer;
-            border-bottom:1px solid #000;
+            background:#EDEFF0;
         }
 .board-content-list .block.over {
     background:#fefefe;
@@ -212,7 +198,7 @@
     }
 
 .board-content-list .block-tags i {
-    color:#000;
+    color:#aaa;
 }
 .board-content-list .block-tags .time {
     color:#aaa;
@@ -278,31 +264,34 @@
 */
 .board-task-dialog .modal-dialog {
     padding-bottom:10px;
-    background:#fff;
     border:0;
     padding:20px;
-    border:1px solid #000;
-    border-radius:18px
+    border-radius:3px;
+    margin-top:10px;
+    background:#EDEFF0;
+    border-bottom:1px solid #ccc;
+}
+.board-task-dialog .block {
+    background:#EDEFF0;
 }
 .board-task-dialog .block-line {
     padding-bottom:30px;
-    border-bottom:1px dashed #000;
 }
 
     .board-task-dialog .block-header {
-        border-bottom:1px solid #000 !important;
+        border-bottom:1px solid #ddd !important;
         padding-left:0;
         padding-right:0;
         padding-top:0;
         width:100%;
     }
         .board-task-dialog .block-header .close {
-            color:#000 !important;
+            color:#333333 !important;
         }
 
     /* 标题 */
 .board-task-dialog .block-title {
-    background:red;
+    
 }
 .board-task-dialog .block-title .choose {
     height:30px;
@@ -317,12 +306,12 @@
     overflow:hidden;
 }
     .board-task-dialog .block-title .title a {
-        color:#000;
+        color:#333333;
         font-size:15px;
     }
         .board-task-dialog .block-title .title a:hover {
-            background:#000;
-            color:#fff;
+            background:#ccc;
+            
         }
     .board-task-dialog .block-title .title input {
         width:600px;
@@ -354,7 +343,7 @@
 }
 .board-task-dialog .block-notice li {
     text-align:right;
-    color:#000;
+    color:#666;
     font-size:12px;
 }
 
@@ -365,8 +354,13 @@
 .board-task-dialog .tags .title {
     float:left;
     width:100px;
-    color:#000;
+    color:#333333;
+    font-size:14px;
+    font-weight:bold;
 }
+    .board-task-dialog .tags .title i{
+        color:#aaa;
+    }
 .board-task-dialog .tags .contents {
     width:700px;
     float:left;
@@ -389,74 +383,78 @@
     float:left;
     font-size:12px;
     display:inline-block;
-    margin:0px 0 0 5px;
+    margin:1px 0 0 5px;
     padding:3px 8px 1px 8px;
-    color:#999;
-    border:1px solid #fff;
+    color:#666;
+    border-radius:3px;
 }
     .board-task-dialog .tags .contents a:hover {
-        border-color:#000;
-        color:#000;
+       background:#ddd;
     }
 
 /* 表单 - 设置标签 */
 .form-choosetags {
     width:200px;
     height:auto;
-    border:1px solid #000;
     position:relative;
     padding-bottom:10px;
     background:#fff;
-    padding:8px;
+    padding:8px 8px 5px 8px;
     position:absolute;
     left:105px;
+    border-radius:3px;
+    border-bottom:1px solid #ccc;
 }
     .form-choosetags .title {
         width:100% !important;
         text-align:center;
         padding:3px 0 10px 0;
-        color:#aaa;
+        color:#333;
     }
         .form-choosetags .title a {
             float:right;
-            color:#000 !important;
+            color:#ccc !important;
             padding-left:5px;
             padding-right:5px;
         }
             .form-choosetags .title a:hover {
-                background:#000;
-                color:#fff;
+                background:#ddd;
             }
             .form-choosetags .title a:hover i{
                 color:#fff !important;
             }
             .form-choosetags .title a i {
-                color:#000 !important;
+                color:#ccc !important;
             }
     .form-choosetags ul {
         list-style:none;
         padding:10px 0 0 0;
     }
         .form-choosetags ul li {
-            margin-bottom:5px;
+            margin-bottom:10px;
+            width:94%;
+            margin-left:3%;
         }
         .form-choosetags ul a {
             display:block;
             padding:5px 5px;
-            color:#000;
+            color:#333;
             text-align:center;
-            border:1px solid #fff;
-            border-bottom:1px solid #000;
+            position:relative;
+            background:#ddd;
+            border-radius:3px;
         }
             .form-choosetags ul a:hover {
-                border-right:1px solid #000;
-                border-left:1px solid #000;
-                border-bottom:1px solid #000 !important;
             }
-            .form-choosetags ul a.selected {
-                border:1px solid #55A57A;
-                background:#55A57A;
-                color:#fff;
+            .form-choosetags ul span.selected {
+                background:#fff;
+                width:10px;
+                height:10px;
+                border-radius:15px;
+                display:block;
+                position:absolute;
+                top:10px;
+                left:10px;
             }
 
 
