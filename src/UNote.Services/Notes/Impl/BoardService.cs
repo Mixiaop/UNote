@@ -5,7 +5,9 @@ using U.AutoMapper;
 using U.UI;
 using U.Application.Services.Dto;
 using UNote.Domain.Notes;
+using UNote.Services.Users;
 using UNote.Services.Notes.Dto;
+
 
 namespace UNote.Services.Notes.Impl
 {
@@ -14,16 +16,24 @@ namespace UNote.Services.Notes.Impl
         #region Fields & Ctor
         private readonly IContentColumnRepository _columnRepository;
         private readonly IContentRepository _contentRepository;
+        private readonly IContentLogRepository _contentLogRepository;
 
         private readonly IContentService _contentService;
+        private readonly IContentFollowerService _contentFollowerService;
         private readonly INodeService _nodeService;
+        private readonly IUserService _userService;
 
-        public BoardService(IContentColumnRepository columnRepository, IContentRepository contentRepository, IContentService contentService, INodeService nodeService)
+        public BoardService(IContentColumnRepository columnRepository, IContentRepository contentRepository, IContentLogRepository contentLogRepository,
+            IContentService contentService, IContentFollowerService contentFollowerService, INodeService nodeService, IUserService userService)
         {
             _columnRepository = columnRepository;
             _contentRepository = contentRepository;
+            _contentLogRepository = contentLogRepository;
+
             _contentService = contentService;
+            _contentFollowerService = contentFollowerService;
             _nodeService = nodeService;
+            _userService = userService;
         }
         #endregion
 
@@ -133,23 +143,29 @@ namespace UNote.Services.Notes.Impl
         /// <param name="columnIds"></param>
         /// <param name="columnList"></param>
         /// <returns></returns>
-        public StateOutput ResetColumnOrders(int[] columnIds, List<ContentColumn> columnList = null) {
+        public StateOutput ResetColumnOrders(int[] columnIds, List<ContentColumn> columnList = null)
+        {
             StateOutput res = new StateOutput();
-            if (columnIds != null && columnIds.Length > 0) {
+            if (columnIds != null && columnIds.Length > 0)
+            {
                 List<ContentColumn> columns = null;
                 if (columnList != null && columnList.Count > 0)
                 {
                     columns = columnList;
                 }
-                else {
+                else
+                {
                     columns = _columnRepository.GetAll().Where(x => columnIds.Contains(x.Id)).ToList();
                 }
 
-                if (columns != null && columns.Count > 0) {
+                if (columns != null && columns.Count > 0)
+                {
                     var index = 1;
-                    foreach (int id in columnIds) {
+                    foreach (int id in columnIds)
+                    {
                         var item = columns.Where(x => x.Id == id).FirstOrDefault();
-                        if (item != null) {
+                        if (item != null)
+                        {
                             item.Order = index;
                             _columnRepository.Update(item);
                             index++;
@@ -178,7 +194,8 @@ namespace UNote.Services.Notes.Impl
                 }
 
                 var count = _contentRepository.Count(x => x.ColumnId == columnId);
-                if (count > 0) {
+                if (count > 0)
+                {
                     res.AddError("请先清空此列表上的任务。");
                     return res;
                 }
@@ -212,14 +229,19 @@ namespace UNote.Services.Notes.Impl
             var list = query.OrderBy(x => x.ColumnOrder).ToList();
             List<BoardTaskBriefDto> result = new List<BoardTaskBriefDto>();
 
-            if (list != null) {
-                foreach (var info in list) {
+            if (list != null)
+            {
+                foreach (var info in list)
+                {
                     var item = info.MapTo<BoardTaskBriefDto>();
-                    if (info.Body.IsNotNullOrEmpty()) {
+                    if (info.Body.IsNotNullOrEmpty())
+                    {
                         item.ExistsBody = true;
                     }
                     result.Add(item);
                 }
+
+                LoadFollowers(result);
             }
 
             return result;
@@ -230,10 +252,15 @@ namespace UNote.Services.Notes.Impl
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public BoardTaskDto GetTask(int id) {
+        public BoardTaskDto GetTask(int id)
+        {
             var content = _contentService.GetById(id);
 
-            return content.MapTo<BoardTaskDto>();
+            var task = content.MapTo<BoardTaskDto>();
+
+            LoadFollowers(task);
+
+            return task;
         }
 
         /// <summary>
@@ -275,9 +302,9 @@ namespace UNote.Services.Notes.Impl
                 content.ColumnId = columnId;
                 content.Title = title;
                 content.ColumnOrder = 1;
-
+                content.UserId = GetLoginedUserId();
                 var prev = _contentRepository.GetAll()
-                                             .Where(x=>x.ColumnId == columnId)
+                                             .Where(x => x.ColumnId == columnId)
                                              .OrderByDescending(x => x.ColumnOrder)
                                              .Take(1)
                                              .FirstOrDefault();
@@ -290,6 +317,9 @@ namespace UNote.Services.Notes.Impl
                 //column.ContentCount++;
                 _columnRepository.Update(column);
                 content.Id = _contentService.Insert(content);
+
+                //log
+                AddTaskLog(content.Id, content.UserId, "创建了任务");
 
                 res.Items = content;
             }
@@ -306,7 +336,8 @@ namespace UNote.Services.Notes.Impl
         /// <param name="targetColumnId">目标列</param>
         /// <param name="itemIds">内容项Ids</param>
         /// <returns></returns>
-        public StateOutput ResetTaskOrders(int targetColumnId, int[] itemIds) {
+        public StateOutput ResetTaskOrders(int targetColumnId, int[] itemIds)
+        {
             StateOutput res = new StateOutput();
             if (itemIds != null && itemIds.Length > 0 && targetColumnId > 0)
             {
@@ -338,10 +369,12 @@ namespace UNote.Services.Notes.Impl
         /// <param name="taskId"></param>
         /// <param name="finishUserId"></param>
         /// <returns></returns>
-        public StateOutput FinishTask(int taskId, int finishUserId) {
+        public StateOutput FinishTask(int taskId, int finishUserId)
+        {
             StateOutput res = new StateOutput();
             var task = _contentService.GetById(taskId);
-            if (task == null) {
+            if (task == null)
+            {
                 res.AddError("task not found");
                 return res;
             }
@@ -350,6 +383,8 @@ namespace UNote.Services.Notes.Impl
             task.ColumnTaskFinishedUserId = finishUserId;
             task.ColumnTaskFinishedTime = DateTime.Now;
             _contentService.Update(task);
+
+            AddTaskLog(task.Id, GetLoginedUserId(), "完成了任务");
             return res;
         }
 
@@ -359,7 +394,8 @@ namespace UNote.Services.Notes.Impl
         /// <param name="taskId"></param>
         /// <param name="finishUserId"></param>
         /// <returns></returns>
-        public StateOutput CancelFinishTask(int taskId, int finishUserId) {
+        public StateOutput CancelFinishTask(int taskId, int finishUserId)
+        {
             StateOutput res = new StateOutput();
             var task = _contentService.GetById(taskId);
             if (task == null)
@@ -372,10 +408,13 @@ namespace UNote.Services.Notes.Impl
             task.ColumnTaskFinishedUserId = 0;
             task.ColumnTaskFinishedTime = null;
             _contentService.Update(task);
+
+            AddTaskLog(task.Id, GetLoginedUserId(), "重做了任务");
             return res;
         }
 
-        public StateOutput UpdateTaskTitle(int taskId, string newTitle) {
+        public StateOutput UpdateTaskTitle(int taskId, string newTitle)
+        {
             StateOutput res = new StateOutput();
             var task = _contentService.GetById(taskId);
             if (task == null)
@@ -390,7 +429,8 @@ namespace UNote.Services.Notes.Impl
             return res;
         }
 
-        public StateOutput UpdateTaskBody(int taskId, string newBody) {
+        public StateOutput UpdateTaskBody(int taskId, string newBody)
+        {
             StateOutput res = new StateOutput();
             var task = _contentService.GetById(taskId);
             if (task == null)
@@ -404,7 +444,29 @@ namespace UNote.Services.Notes.Impl
             return res;
         }
 
-        public StateOutput DeleteTask(int taskId) {
+        /// <summary>
+        /// 更新标签
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <param name="tags">标签之间逗号“,”分割</param>
+        /// <returns></returns>
+        public StateOutput UpdateTaskTags(int taskId, string tags)
+        {
+            StateOutput res = new StateOutput();
+            var task = _contentService.GetById(taskId);
+            if (task == null)
+            {
+                res.AddError("task not found");
+                return res;
+            }
+            task.Tag = tags;
+            _contentService.Update(task);
+
+            return res;
+        }
+
+        public StateOutput DeleteTask(int taskId)
+        {
             StateOutput res = new StateOutput();
             var task = _contentService.GetById(taskId);
             if (task == null)
@@ -416,6 +478,139 @@ namespace UNote.Services.Notes.Impl
             _contentService.Delete(task);
 
             return res;
+        }
+        #endregion
+
+        #region Task Followers
+        public void AddTaskFollower(int taskId, int userId)
+        {
+            var task = _contentService.GetById(taskId);
+            var user = _userService.GetById(userId);
+
+            _contentFollowerService.AddFollower(task, user);
+        }
+
+        public void DeleteTaskFollower(int taskId, int userId)
+        {
+            var task = _contentService.GetById(taskId);
+            var user = _userService.GetById(userId);
+
+            _contentFollowerService.RemoveFollower(task, user);
+        }
+        #endregion
+
+        #region Task Logs
+
+        /// <summary>
+        /// 获取所有任务跟踪，默认最新10条
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public IList<BoardTaskLogDto> GetAllTaskLogs(int taskId, int count = 10) {
+            var query = _contentLogRepository.GetAll();
+            if (taskId > 0)
+            {
+                query = query.Where(x => x.ContentId == taskId)
+                             .OrderByDescending(x => x.CreationTime);
+
+                if (count > 0) {
+                    query = query.Take(count);
+                }
+
+                var list = query.ToList();
+
+                var logs = list.MapTo<IList<BoardTaskLogDto>>();
+                if (logs != null) {
+                    logs.ForEach((log) => {
+                        log.FormatCreationTime = CommonHelper.FormatTimeNote(log.CreationTime, log.CreationTime.ToString("yyyy-MM-dd HH:mm"));
+                    });
+                }
+
+                return logs;
+                
+            }
+            else {
+                return new List<BoardTaskLogDto>();
+            }
+        }
+
+        private void AddTaskLog(int taskId, int creatorId, string desc)
+        {
+            ContentLog log = new ContentLog();
+            log.ContentId = taskId;
+            log.UserId = creatorId;
+            log.Desc = desc;
+            _contentLogRepository.Insert(log);
+        }
+        #endregion
+
+        #region Private Methods
+        /// <summary>
+        /// 为笔记批量载入关注的人
+        /// </summary>
+        /// <param name="contents"></param>
+        private void LoadFollowers(IList<BoardTaskBriefDto> tasks)
+        {
+            if (tasks != null)
+            {
+                List<int> ids = new List<int>();
+                tasks.ForEach((x) =>
+                {
+                    ids.Add(x.Id);
+                });
+                var allFollowers = _contentFollowerService.GetAllFollowers(ids);
+
+                if (allFollowers != null && allFollowers.Count > 0)
+                {
+                    foreach (var task in tasks)
+                    {
+                        if (task.Followers == null)
+                            task.Followers = new List<BoardTaskFollowerDto>();
+
+
+                        var followers = allFollowers.Where(x => x.ContentId == task.Id).ToList();
+                        if (followers != null)
+                        {
+                            followers.ForEach((f) =>
+                            {
+                                if (f != null && f.UserId > 0)
+                                {
+                                    task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName });
+                                }
+                            });
+                        }
+
+                    }
+                }
+            }
+        }
+
+        private void LoadFollowers(BoardTaskBriefDto task)
+        {
+            if (task != null)
+            {
+                List<int> ids = new List<int>();
+                ids.Add(task.Id);
+
+                var allFollowers = _contentFollowerService.GetAllFollowers(ids);
+
+                if (allFollowers != null && allFollowers.Count > 0)
+                {
+                    if (task.Followers == null)
+                        task.Followers = new List<BoardTaskFollowerDto>();
+
+                    if (allFollowers != null)
+                    {
+                        allFollowers.ForEach((f) =>
+                        {
+                            if (f != null && f.UserId > 0)
+                            {
+                                task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName });
+                            }
+                        });
+                    }
+                }
+            }
         }
         #endregion
     }

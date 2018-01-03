@@ -6,7 +6,21 @@
                 <div class="block-header">
                     <ul class="block-options">
                         <li>
-                            <button data-dismiss="modal" type="button" class="close"><i class="si si-close"></i></button>
+                            <button data-dismiss="modal" type="button" class="close"><i class="si si-close"></i></button><button type="button" class="close btn-actions" data-toggle="dropdown"><i class="fa fa-angle-down"></i></button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-header">任务菜单</li>
+                                <li>
+                                    <a tabindex="-1" href="/notes/content/4470" target="_blank" class="js-preview" >
+                                        <i class="si si-screen-desktop pull-right"></i>预览任务
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a tabindex="-1" href="javascript:void(0)" class="js-deletetask">
+                                        <i class="si si-trash pull-right"></i>删除任务
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                     <div class="block-title">
@@ -51,7 +65,7 @@
                             <li><label class="label" style="background:red;">111</label></li>
                             <li><label class="label" style="background:#000;">111</label></li>
                             <li><label class="label" style="background:red;">111</label></li>-->
-                            <li><label class="label" style="background:#000;">111</label></li>
+                            <!--<li><label class="label" style="background:#000;">111</label></li>-->
                         </ul>
                         <a href="javascript:;">+ 添加标签</a>
                         <div class="clearfix"></div>
@@ -71,16 +85,34 @@
                     </div>
                 </div>
                 <!-- end tags-->
+                <!-- users -->
+                <div class="block-content users block-line">
+                    <div class="title"><i class="fa fa-users"></i>&nbsp;&nbsp;参与者</div>
+                    <div class="contents">
+                        <div class="items clearfix">
+                            <!--<div class="item item-circle bg-info-light text-info">施俊彦</div>
+                            <div class="item item-circle bg-info-light text-info">王力</div>
+                            <div class="item item-circle bg-info-light text-info">陈三</div>-->
+                        </div>
+                        <a href="javascript:;">+ 添加参与者</a>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="form-chooseusers ">
+                        <input type="text" placeholder="查找成员" id="txtSearchUsers" class="form-control" />
+                            <ul>
+                                <!--<li><div class="item item-circle bg-info-light text-info">施俊彦</div>&nbsp;&nbsp;&nbsp;施俊彦 <span class="selected"></span></li>
+                                <li><div class="item item-circle bg-info-light text-info">王力</div>&nbsp;&nbsp;&nbsp;王力 <span class="selected"></span></li>-->
+                            </ul>
+                    </div>
+                </div>
+                <!-- end users-->
                 <!-- notice-->
                 <div class="block-content block-notice block-line">
                     <ul>
-                        <li>创建了任务,&nbsp;&nbsp;2017-12-27 16:54</li>
+                        <!--<li><a>施俊彦</a> 创建了任务,&nbsp;&nbsp;2017-12-27 16:54</li>-->
                     </ul>
                 </div>
                 <!-- end notice-->
-                <div class="modal-footer">
-                    <button class="btn btn-default btn-sm js-btn-delete" type="button">删除</button>
-                </div>
             </div>
         </div>
     </div>

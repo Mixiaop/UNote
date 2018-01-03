@@ -28,6 +28,7 @@
     <!-- END Page Header -->
     <div class="content">
         <input type="hidden" id="hidNodeId" value="<%= Model.GetNodeId %>" />
+        <input type="hidden" id="hidTeamId" value="<%= Model.Node.TeamId %>" />
         <div class="board-list" >
             <img src="/img/loading.gif" alt="loading" title="loading" id="loadingColumns" />
             <!-- board -->
@@ -113,19 +114,23 @@
                                 <div class="block-content">
                                     <label class="css-input css-checkbox css-checkbox-success"><input type="checkbox" ><span ></span></label> <a href="javascript:;">{{content.Title}}</a>
                                 </div>
-                                <div class="block-tags js-block-tags ">
+                                <div class="block-tags js-block-tags">
                                     <ul class="clearfix">
-                                        <li class="js-content hidden"><i class="fa fa-list"></i></li>
+                                        <li class="js-content hidden js-tooltip" title="任务备注"><i class="fa fa-list"></i></li>
                                         <%--<li class="time js-time"><i class="fa fa-clock-o"></i> 2017-12-25</li>--%>
-                                        <li class="hidden"><label class="label" style="background:red;">111</label></li>
                                         <%--<li><label class="label" style="background:#000;">111</label></li>
-                                        <li><label class="label" style="background:#000;">111</label></li>
+                                        <li data-type='tag'><label class="label" style="background:#000;">111</label></li>
                                         <li><label class="label" style="background:#000;">111</label></li>
                                         <li><label class="label" style="background:#000;">111</label></li>
                                         <li><label class="label" style="background:#000;">111</label></li>--%>
+                                        <%--<li data-type='tag'><label class="label" style="background:#000;">紧急</label></li>
+                                        <li data-type='tag'><label class="label" style="background:#000;">紧急中中</label></li>--%>
                                     </ul>
-                                    
                                     </div>
+                                 <div class="block-users js-block-users clearfix">
+                                    <%--<div class="item item-circle bg-info-light text-info">施俊彦</div>
+                                     <div class="item item-circle bg-info-light text-info">陈三</div>--%>
+                                     </div>
                             </div>
                         </li>
     </script>

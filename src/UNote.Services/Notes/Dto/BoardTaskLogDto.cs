@@ -1,20 +1,12 @@
-﻿using U.Domain.Entities.Auditing;
-using UNote.Domain.Users;
+﻿using UNote.Services.Users.Dto;
 
-namespace UNote.Domain.Notes
+namespace UNote.Services.Notes.Dto
 {
     /// <summary>
-    /// 内容动态，记录一篇内容的一生
-    /// (分类开启任务板模式时使用)
+    /// 任务板日志跟踪
     /// </summary>
-    public class ContentLog : CreationAuditedEntity
+    public class BoardTaskLogDto : U.Application.Services.Dto.CreationAuditedEntityDto
     {
-        public ContentLog() {
-            ContentId = 0;
-            UserId = 0;
-            Desc = "";
-        }
-
         /// <summary>
         /// 内容Id
         /// </summary>
@@ -33,6 +25,11 @@ namespace UNote.Domain.Notes
         /// <summary>
         /// 创建者信息
         /// </summary>
-        public virtual User User { get; set; }
+        public UserBriefDto User { get; set; }
+
+        /// <summary>
+        /// 格式化时间
+        /// </summary>
+        public string FormatCreationTime { get; set; }
     }
 }

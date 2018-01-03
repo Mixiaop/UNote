@@ -1103,6 +1103,8 @@
     <Content Include="lib\plugins\jquery-auto-complete\jquery.auto-complete.js" />
     <Content Include="lib\plugins\jquery-auto-complete\jquery.auto-complete.min.css" />
     <Content Include="lib\plugins\jquery-auto-complete\jquery.auto-complete.min.js" />
+    <Content Include="lib\plugins\jquery-confirm\jquery-confirm.css" />
+    <Content Include="lib\plugins\jquery-confirm\jquery-confirm.js" />
     <Content Include="lib\plugins\jquery-countdown\jquery.countdown.js" />
     <Content Include="lib\plugins\jquery-countdown\jquery.countdown.min.js" />
     <Content Include="lib\plugins\jquery-jvectormap\jquery-jvectormap.css" />

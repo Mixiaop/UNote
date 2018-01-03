@@ -1,6 +1,7 @@
 ﻿using U;
 using U.Logging;
 using U.Application.Services.Events;
+using UNote.Services.Authrization;
 
 namespace UNote.Services
 {
@@ -9,11 +10,16 @@ namespace UNote.Services
     /// </summary>
     public abstract class ServiceBase : U.Application.Services.ApplicationService
     {
-        public ILogger Logger;
         public IEventPublisher EventPublisher;
+        public IAuthenticationService AuthService;
         public ServiceBase() {
-            Logger = UPrimeEngine.Instance.Resolve<ILogger>();
             EventPublisher = UPrimeEngine.Instance.Resolve<IEventPublisher>();
+            AuthService = UPrimeEngine.Instance.Resolve<IAuthenticationService>();
+        }
+
+        public int GetLoginedUserId() {
+            var user = AuthService.GetAuthenticatedUser();
+            return user != null ? user.Id : 0;
         }
     }
 }

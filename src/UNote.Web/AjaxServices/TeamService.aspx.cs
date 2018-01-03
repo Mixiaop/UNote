@@ -4,7 +4,6 @@ using AjaxPro;
 using U;
 using U.Web.Models;
 using U.AutoMapper;
-using UNote.Domain.Teams;
 using UNote.Services.Teams;
 using UNote.Services.Users;
 using UNote.Services.Users.Dto;
@@ -59,13 +58,13 @@ namespace UNote.Web.AjaxServices
         }
 
         [AjaxMethod]
-        public AjaxResponse<IList<UserDto>> GetAllMembers(int teamId) {
-            AjaxResponse<IList<UserDto>> res = new AjaxResponse<IList<UserDto>>();
+        public AjaxResponse<IList<UserBriefDto>> GetAllMembers(int teamId) {
+            AjaxResponse<IList<UserBriefDto>> res = new AjaxResponse<IList<UserBriefDto>>();
             var members = _teamService.GetAllMembers(teamId);
-            res.Result = new List<UserDto>();
+            res.Result = new List<UserBriefDto>();
             if (members != null) {
                 foreach (var member in members) {
-                    var user = member.User.MapTo<UserDto>();
+                    var user = member.User.MapTo<UserBriefDto>();
                     res.Result.Add(user);
                 }
             }

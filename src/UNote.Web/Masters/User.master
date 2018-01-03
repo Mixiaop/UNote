@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/Masters/Head.Master" AutoEventWireup="true" CodeBehind="User.master.cs" Inherits="UNote.Web.Masters.User" %>
 <asp:Content ID="ContentHeadCss" ContentPlaceHolderID="headCss" runat="server">
     <link rel="stylesheet" href="/css/themes/flat.min.css" />
+    <link rel="stylesheet" href="/lib/plugins/jquery-confirm/jquery-confirm.css" />
     <link rel="stylesheet" href="/css/unote.css" />
     <style type="text/css">
         

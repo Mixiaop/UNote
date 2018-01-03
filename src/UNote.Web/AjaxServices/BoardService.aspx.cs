@@ -139,7 +139,8 @@ namespace UNote.Web.AjaxServices
         public AjaxResponse<BoardTaskDto> GetTask(int id) {
             AjaxResponse<BoardTaskDto> res = new AjaxResponse<BoardTaskDto>();
             res.Result = _boardService.GetTask(id);
-            res.Result.FortmatCreationTime = res.Result.CreationTime.ToString("yyyy-MM-dd HH:mm");
+            res.Result.FormatCreationTime = CommonHelper.FormatTimeNote(res.Result.CreationTime, res.Result.CreationTime.ToString("yyyy-MM-dd HH:mm"));
+            // res.Result.CreationTime.ToString("yyyy-MM-dd HH:mm");
             return res;
         }
 
@@ -290,6 +291,86 @@ namespace UNote.Web.AjaxServices
                     res.Success = false;
                     res.Error = new ErrorInfo(result.Errors[0]);
                 }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+
+        /// <summary>
+        /// 更新标签
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <param name="tags">多个之间，逗号“,”分割</param>
+        /// <returns></returns>
+        [AjaxMethod]
+        public AjaxResponse UpdateTaskTags(int taskId, string tags) {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                var result = _boardService.UpdateTaskTags(taskId, tags);
+                if (!result.Success)
+                {
+                    res.Success = false;
+                    res.Error = new ErrorInfo(result.Errors[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+
+        [AjaxMethod]
+        public AjaxResponse AddTaskFollower(int taskId, int userId) {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                _boardService.AddTaskFollower(taskId, userId);
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+
+        [AjaxMethod]
+        public AjaxResponse DeleteTaskFollower(int taskId, int userId)
+        {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                _boardService.DeleteTaskFollower(taskId, userId);
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+
+        [AjaxMethod]
+        public AjaxResponse<IList<BoardTaskLogDto>> GetRecentTaskLogs(int taskId) {
+            AjaxResponse<IList<BoardTaskLogDto>> res = new AjaxResponse<IList<BoardTaskLogDto>>();
+
+            try
+            {
+                res.Result = _boardService.GetAllTaskLogs(taskId);
             }
             catch (Exception ex)
             {

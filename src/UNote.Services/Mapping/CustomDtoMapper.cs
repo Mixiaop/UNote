@@ -36,9 +36,11 @@ namespace UNote.Services.Mapping
             Mapper.CreateMap<Content, BoardTaskBriefDto>().ReverseMap();
             Mapper.CreateMap<ContentColumn, BoardColumnDto>().ReverseMap();
             Mapper.CreateMap<ContentColumn, BoardColumnBriefDto>().ReverseMap();
+            Mapper.CreateMap<ContentLog, BoardTaskLogDto>().ReverseMap();
             Mapper.CreateMap<Tag, TagDto>().ReverseMap();
 
             Mapper.CreateMap<User, UserDto>().ReverseMap();
+            Mapper.CreateMap<User, UserBriefDto>().ReverseMap();
             Mapper.CreateMap<Team, TeamDto>().ReverseMap();
 
         }

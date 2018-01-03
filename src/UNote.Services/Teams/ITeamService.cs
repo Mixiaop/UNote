@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using U.Application.Services.Dto;
 using UNote.Domain.Teams;
-using UNote.Domain.Users;
 
 namespace UNote.Services.Teams
 {

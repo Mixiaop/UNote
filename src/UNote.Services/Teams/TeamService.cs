@@ -95,10 +95,11 @@ namespace UNote.Services.Teams
             return new PagedResultDto<TeamMember>(count, list);
         }
 
-        public IList<TeamMember> GetAllMembers(int teamId) {
+        public IList<TeamMember> GetAllMembers(int teamId)
+        {
             var query = _teamMemberRepository.GetAll();
             query = query
-                    .Where(x => x.TeamId == teamId)
+                    .Where(x => x.TeamId == teamId && x.User != null)
                     .OrderByDescending(x => x.IsAdmin);
 
             var list = query.ToList();

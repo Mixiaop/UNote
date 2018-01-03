@@ -124,7 +124,30 @@ namespace UNote.Services.Notes
 
         StateOutput UpdateTaskBody(int taskId, string newBody);
 
+        /// <summary>
+        /// 更新标签
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <param name="tags">标签之间逗号“,”分割</param>
+        /// <returns></returns>
+        StateOutput UpdateTaskTags(int taskId, string tags);
+
         StateOutput DeleteTask(int taskId);
+        #endregion
+
+        #region Task Followers
+        void AddTaskFollower(int taskId, int userId);
+
+        void DeleteTaskFollower(int taskId, int userId);
+        #endregion
+
+        #region Task Logs
+        /// <summary>
+        /// 获取所有任务跟踪，默认最新10条
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        IList<BoardTaskLogDto> GetAllTaskLogs(int taskId, int count = 10);
         #endregion
     }
 }

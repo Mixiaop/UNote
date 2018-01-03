@@ -17,6 +17,7 @@
         'jquery.tagsinput': '/lib/plugins/jquery-tags-input/jquery.tagsinput.min',
         'jquery.ui': '/lib/plugins/jquery-ui/jquery-ui',
         'jquery.slimscroll': '/lib/plugins/jquery-slimscroll/jquery.slimscroll',
+        'jquery.confirm': '/lib/plugins/jquery-confirm/jquery-confirm',
         'cookie': '/lib/core/js.cookie.min',
         'bs.notify': '/lib/plugins/bootstrap-notify/bootstrap-notify.min',
         'kindeditor': '/editors/kindeditor/kindeditor',
@@ -44,6 +45,7 @@
         'jquery.fineuploader': { deps: ['jquery'] },
         'jquery.tagsinput': { deps: ['jquery'] },
         'jquery.ui': { deps: ['jquery'] },
+        'jquery.confirm': { deps: ['jquery'] },
         'kindeditor/zh_CN': { deps: ['kindeditor'] }//, 'css!./editors/kindeditor/css/default.css'
         // 'handlebars': { exports: 'Handlebars' },
     }

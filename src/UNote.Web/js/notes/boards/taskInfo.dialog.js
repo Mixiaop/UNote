@@ -1,32 +1,149 @@
 ﻿//Board模式 - 任务弹出详情
-define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], function ($, notify, _) {
+define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jquery.confirm'], function ($, notify, _) {
 
+    //-----------------------------------------------------------------
+    //---------------properties-------------------------------------------
     var $container;
 
     //context
     var vc = {
-        task: {                       //当前内容项
-            NodeId: 0,                //分类Id
-            Title: '',                //标题
-            Body: '',                 //内容
+        task: {                        //当前内容项
+            NodeId: 0,                 //分类Id
+            TeamId: 0,                 //TeamId
+            Title: '',                 //标题
+            Body: '',                  //内容
             ColumnTaskFinished: false, //任务是否已完成
-            FortmatCreationTime: '',  //创建任务的时间
-            Tag: '',                  //已选中的标签, 逗号分割
-            TagList:[],               //已选中的标签列表
+            FormatCreationTime: '',   //创建任务的时间
+            Tag: '',                   //已选中的标签, 逗号分割
+            FormatTags: [],             //已选中的标签列表
             Column: {
                 Title: ''             //列名称
-            }
+            },
+            Followers: [],            //all followers {Id: id}
         },
         tags: [],                      //分类的标签列表
-        isLoadingTags : false,         //是否已载入
+        users: [],                     //Team参与者列表 {Id: '', NickName:'',...}
+        isLoadingTags: false,          //是否首次已载入
+        isLoadingUsers: false,         //是否首次已载入
         options: {
             id: 0,
             resTitle: function () { },
             resFinishd: function () { },
             resDelete: function () { },
-            resBody: function () { }
+            resBody: function () { },
+            resTags: function () { },
+            resUsers: function () { }
         }
     };
+
+    //-----------------------------------------------------------------
+    //---------------methods-------------------------------------------
+    function _bindJQueryEvents() {
+        //##events 
+        $('[data-toggle="tooltip"], .js-tooltip').tooltip({
+            container: 'body',
+            animation: false
+        });
+    }
+
+    //是否已选中（存在）的标签
+    function _existsTag(name) {
+        var exists = false;
+        if (vc.task.FormatTags.length > 0) {
+            _.each(vc.task.FormatTags, function (t) {
+                if (t == name) {
+                    exists = true;
+                }
+            });
+        }
+        return exists;
+    }
+
+    //选择标签
+    function _chooseTagPost(name) {
+        if (!_existsTag(name)) {
+            vc.task.FormatTags.push(name);
+        } else {
+            //已存在取消
+            var tags = [];
+            _.each(vc.task.FormatTags, function (t) {
+                if (t != name)
+                    tags.push(t);
+            });
+
+            vc.task.FormatTags = tags;
+        }
+
+        var tags = '';
+        _.each(vc.task.FormatTags, function (t) {
+            tags += t + ',';
+        });
+
+        if (tags != '') {
+            tags = tags.substring(0, tags.length - 1);
+        }
+
+        //回调
+        if (vc.options.resTags != undefined)
+            vc.options.resTags(vc.task.Id, vc.task.FormatTags);
+
+        BoardService.UpdateTaskTags(vc.task.Id, tags, function (res) {
+            if (!res.value.Success) {
+                console.log('error: BoardService.UpdateTaskTitle');
+            }
+        });
+    }
+
+    //是否存在参与者
+    function _existsUser(userId) {
+        var exists = false;
+        if (vc.task.Followers.length > 0) {
+            _.each(vc.task.Followers, function (user) {
+                if (user.UserId == userId) {
+                    exists = true;
+                }
+            });
+        }
+        return exists;
+    }
+
+    //选择参与者
+    function _chooseUserPost(userId, nickName) {
+        if (!_existsUser(userId)) {
+            vc.task.Followers.push({ UserId: userId, NickName: nickName });
+
+            //回调
+            if (vc.options.resUsers != undefined)
+                vc.options.resUsers(vc.task.Id, vc.task.Followers);
+
+            //add
+            BoardService.AddTaskFollower(vc.task.Id, userId, function (res) {
+                if (!res.value.Success) {
+                    console.log('error: BoardService.AddTaskFollower');
+                }
+            });
+        } else {
+            //已存在取消
+            var users = [];
+            _.each(vc.task.Followers, function (user) {
+                if (user.UserId != userId)
+                    users.push(user);
+            });
+
+            vc.task.Followers = users;
+
+            //回调
+            if (vc.options.resUsers != undefined)
+                vc.options.resUsers(vc.task.Id, vc.task.Followers);
+
+            //remove
+            BoardService.DeleteTaskFollower(vc.task.Id, userId, function (res) {
+                if (!res.value.Success) {
+                    console.log('error: BoardService.DeleteTaskFollower');
+                }
+            });
+        }
+    }
 
     //-----------------------------------------------------------------
     //---------------modules-------------------------------------------
@@ -109,7 +226,9 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
 
 
                     //post
-                    BoardService.CancelFinishTask(taskId, function (res) { });
+                    BoardService.CancelFinishTask(taskId, function (res) {
+                        vc.modules.logs.initialize();
+                    });
 
                 } else {
                     $choose.find('input[type=checkbox]').prop('checked', true);
@@ -120,7 +239,9 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
                         vc.options.resFinishd(taskId, true);
 
                     //post
-                    BoardService.FinishTask(taskId, function (res) { });
+                    BoardService.FinishTask(taskId, function (res) {
+                        vc.modules.logs.initialize();
+                    });
                 }
                 return false;
             });
@@ -252,13 +373,56 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
         var $btnAddNew;     // 添加新标签
         var $selectedList;  //已选择的列表
 
-        //渲染设置标签的列表
-        var _renderFormChooseTag = function () {
-            if (vc.tags.length > 0) {
-                _.each(vc.tags, function (t) {
-                    $formTagList.append('<li ><a href="javascript:;" style="background:' + t.StyleColor + ';color:#fff" ><span class="selected"></span>' + t.Name + '</a></li>');
+        //render已选中的标签
+        var _renderSelctedTags = function () {
+            $selectedList.html('');
+
+            if (vc.task.FormatTags.length > 0) {
+                _.each(vc.task.FormatTags, function (tag) {
+                    var color = '';
+                    _.each(vc.tags, function (obj) {
+                        if (tag == obj.Name)
+                            color = obj.StyleColor; //get color
+                    });
+
+                    if (color == '')
+                        color = '#999';
+
+                    $selectedList.append('<li><label class="label" style="background:' + color + ';">' + tag + '</label></li>');
                 });
             }
+            //<li><label class="label" style="background:#000;">111</label></li>
+        }
+
+        //first render设置标签的列表
+        var _renderFormChooseTag = function () {
+            if (vc.tags.length > 0) {
+                $formTagList.html('');
+                _.each(vc.tags, function (t) {
+                    var $tag = '<li ><a href="javascript:;" style="background:' + t.StyleColor + ';color:#fff" data-name="' + t.Name + '" >';
+                    if (_existsTag(t.Name)) {
+                        $tag += '<span class="selected"></span>';
+                    }
+                    $tag += t.Name + '</a></li>';
+
+                    $formTagList.append($tag);
+                });
+            }
+
+            //##events
+            $container.find('.tags .form-choosetags ul a').unbind('click');
+            $container.find('.tags .form-choosetags ul a').bind('click', function () {
+                var name = $(this).data('name');
+                _chooseTagPost(name);
+                if (_existsTag(name)) {
+                    $(this).prepend('<span class="selected"></span>');
+                } else {
+                    $(this).text(name);
+                }
+
+                _renderSelctedTags();
+                //console.log(vc.task.FormatTags);
+            });
         }
 
 
@@ -278,10 +442,13 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
                         if (json.Result.length > 0) {
                             vc.tags = json.Result;
                             _renderFormChooseTag();
+                            _renderSelctedTags();
                             vc.isLoadingTags = true;
                         }
                     }
                 });
+            } else {
+                _renderSelctedTags();
             }
 
             //##---events
@@ -313,23 +480,207 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
         }
     }();
 
-    vc.modules.btns = function () {
-        function _initialize() {
-            //#event - delete
-            $container.find('.js-btn-delete').unbind('click');
-            $container.find('.js-btn-delete').bind('click', function () {
-                if (confirm('你确认永远删除任务【' + vc.task.Title + '】吗')) {
-                    vc.options.resDelete(vc.task.Id);
-                    vc.close();
-                    //post
-                    BoardService.DeleteTask(vc.task.Id, function (res) {
-                        if (!res.value.Success) {
-                            console.log('error: BoardService.UpdateTaskBody');
+    vc.modules.users = function () {
+        var $form;          // 选择参与者的表单
+        var $formUserList;   //
+        var $btnAddNew;     // 添加新参与者
+        var $selectedList;  //已选择的列表
+
+        //----------renders
+        //first render设置参与者的列表
+
+        var _renderFormUsers = function (users) {
+            var index = 1;
+            $formUserList.html('');
+            _.each(users, function (u) {
+                if (u != undefined && u.Id != undefined && u.NickName != null && index <= 6) {
+                    var nickName = u.NickName.substring(0, 1);
+                    var $user = '<li data-userid=' + u.Id + ' data-nickname="' + nickName + '"><div class="item item-circle bg-info-light text-info">' +
+                                nickName + '</div>&nbsp;&nbsp;&nbsp;' + u.NickName;
+                    if (_existsUser(u.Id)) {
+                        $user += '<span class="selected"></span>';
+                    }
+                    $user += '</li>';
+
+                    $formUserList.append($user);
+                    index++;
+                }
+            });
+
+            if ($formUserList.html() == '') {
+                $formUserList.append('<li>该成员不在列表中</li>');
+            }
+
+            //##events
+            $container.find('.users .form-chooseusers ul li').unbind('click');
+            $container.find('.users .form-chooseusers ul li').bind('click', function () {
+                var userid = $(this).data('userid');
+                var name = $(this).data('nickname');
+                _chooseUserPost(userid, name);
+
+                if (_existsUser(userid)) {
+                    $(this).append('<span class="selected"></span>');
+                } else {
+                    $(this).find('span').remove();
+                }
+
+                _renderSelectedList();
+            });
+
+            $container.find('.users .form-chooseusers input').unbind('keyup');
+            $container.find('.users .form-chooseusers input').bind('keyup', function (e) {
+                var w = $.trim($(this).val());
+                var searchUsers = [];
+                var index = 1;
+                if (index <= 6) {
+                    _.each(vc.users, function (user) {
+                        if (user != undefined && user.Id != undefined && user.NickName != null && user.NickName.indexOf(w) != -1) {
+                            searchUsers.push(user);
                         }
                     });
+                    index++;
+                }
+                if (w == '') {
+                    _renderFormUsers(vc.users);
+                } else {
+                    _renderFormUsers(searchUsers);
                 }
             });
         }
+
+        var _firstRenderFormUsers = function () {
+            if (vc.users.length > 0) {
+                $formUserList.html('');
+                
+                _renderFormUsers(vc.users);
+            }
+        }
+
+        //render已选中的标签
+        var _renderSelectedList = function () {
+            $selectedList.html('');
+
+            if (vc.task.Followers.length > 0) {
+                _.each(vc.task.Followers, function (user) {
+                    var nickName = user.NickName.substring(0, 1);
+                    $selectedList.append('<div class="item item-circle bg-info-light text-info js-tooltip" data-userid="' + user.UserId +
+                                         '" title="' + user.NickName + '">' + nickName + '</div>');
+                });
+            }
+            _bindJQueryEvents();
+        }
+
+        function _initialize() {
+            $form = $container.find('.users .form-chooseusers');
+            $formUserList = $container.find('.users .form-chooseusers ul');
+            $btnAddNew = $container.find('.users .contents a');
+            $selectedList = $container.find('.users .contents .items');
+
+            //init datas
+            $form.addClass('hidden');
+
+            if (!vc.isLoadingUsers) {
+                //first init
+                TeamService.GetAllMembers(vc.task.TeamId, function (res) {
+                    var json = res.value;
+                    if (json.Success) {
+                        if (json.Result.length > 0) {
+                            vc.users = json.Result;
+                            _firstRenderFormUsers();
+                            _renderSelectedList();
+                            vc.isLoadingUsers = true;
+                        }
+                    }
+                });
+            } else {
+                _renderSelectedList();
+            }
+
+            //##---events
+            $btnAddNew.unbind('click');
+            $btnAddNew.bind('click', function (e) {
+                $form.removeClass('hidden');
+                $form.css('left', ($(this).position().left + 5) + 'px');
+                $form.css('top', ($(this).position().top + 25) + 'px');
+
+                $(document).one('click', function () {
+                    $form.addClass('hidden');
+                });
+                e.stopPropagation();
+            });
+
+            $form.unbind('click');
+            $form.bind('click', function (e) {
+                e.stopPropagation();
+            });
+        }
+        return {
+            initialize: _initialize
+        }
+    }();
+
+    vc.modules.options = function () {
+        var $block;
+        var $btnAction;
+        var $btnDeleteTask;
+
+        function _initialize() {
+            $block = $('.block-options');
+            $btnAction = $block.find('.btn-actions');
+            $btnDeleteTask = $block.find('.js-deletetask');
+
+            //##event actions
+            $btnAction.unbind('click');
+            $btnAction.bind('click', function () {
+                var $menus = $(this).next();
+                $menus.css('top', $(this).position().top + 25 + 'px');
+            });
+
+            //delete task
+            $btnDeleteTask.unbind('click');
+            $btnDeleteTask.bind('click', function () {
+                $.confirm({
+                    confirmButtonClass: 'btn-danger',
+                    title: '删除任务',
+                    content: '你确认永远删除任务【' + vc.task.Title + '】吗?',
+                    confirm: function () {
+                        vc.options.resDelete(vc.task.Id);
+                        vc.close();
+                        //post
+                        BoardService.DeleteTask(vc.task.Id, function (res) {
+                            if (!res.value.Success) {
+                                console.log('error: BoardService.UpdateTaskBody');
+                            }
+                        });
+                    }
+                });
+            });
+
+            //preview task
+            $block.find('.js-preview').prop('href', '/notes/content/' + vc.task.Id);
+        }
+        return {
+            initialize: _initialize
+        }
+    }();
+
+    vc.modules.logs = function () {
+        var $logItems;
+
+        function _initialize() {
+            $logItems = $('.block-notice ul');
+            
+            BoardService.GetRecentTaskLogs(vc.task.Id, function (res) {
+                if (res.value.Success) {
+                    $logItems.html('');
+                    var logs = res.value.Result;
+                    _.each(logs, function (log) {
+                        $logItems.append('<li><a>' + log.User.NickName + '</a> ' + log.Desc + ',&nbsp;&nbsp;' + log.FormatCreationTime + '</li>');
+                    });
+                } 
+            });
+        }
+
         return {
             initialize: _initialize
         }
@@ -352,28 +703,22 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
                 vc.task = json.Result;
                 callback();
 
-                //##events 
-                $('[data-toggle="tooltip"], .js-tooltip').tooltip({
-                    container: 'body',
-                    animation: false
-                });
-
-                
-
                 //init modules
                 vc.modules.title.initialize();
                 vc.modules.body.initialize();
                 vc.modules.tags.initialize();
-                vc.modules.btns.initialize();
+                vc.modules.users.initialize();
+                vc.modules.options.initialize();
+                vc.modules.logs.initialize();
 
-                //绑定任务创建时间
-                $('.block-notice ul').html('<li>创建了任务,&nbsp;&nbsp;' + vc.task.FortmatCreationTime + '</li>');
+                _bindJQueryEvents();
             }
         });
     }
 
     //-----------------------------------------------------------------
     //---------------exposed methods-----------------------------------
+
     vc.open = function (options) {
         $.extend(vc.options, options);
         if ($container == undefined) {
@@ -404,7 +749,6 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap'], func
             $container.modal('hide');
         }
     }
-
 
     return vc;
 });

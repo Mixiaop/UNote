@@ -1,4 +1,5 @@
-﻿using UNote.Services.Teams.Dto;
+﻿using System.Collections.Generic;
+using UNote.Services.Teams.Dto;
 
 namespace UNote.Services.Notes.Dto
 {
@@ -53,12 +54,6 @@ namespace UNote.Services.Notes.Dto
         public int VisitCount { get; set; }
 
         /// <summary>
-        /// 标签
-        /// 多个标签用英文逗号（,）分开
-        /// </summary>
-        public string Tag { get; set; }
-
-        /// <summary>
         /// 是否公开
         /// </summary>
         public bool Public { get; set; }
@@ -73,8 +68,6 @@ namespace UNote.Services.Notes.Dto
         /// </summary>
         public NodeDto Node { get; set; }
 
-        public TeamDto Team { get; set; }
-
         public BoardColumnBriefDto Column { get; set; }
 
         /// <summary>
@@ -83,9 +76,7 @@ namespace UNote.Services.Notes.Dto
         public string FormatFileSize { get; set; }
 
         public string FormatPreviewUrl { get; set; }
-
-        public string FortmatCreationTime { get; set; }
-
-
+    
+        public string FormatCreationTime { get; set; }
     }
 }

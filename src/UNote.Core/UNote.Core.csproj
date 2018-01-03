@@ -64,6 +64,7 @@
     <Compile Include="Domain\Notes\ContentPic.cs" />
     <Compile Include="Domain\Notes\Repositories\IContentColumnRepository.cs" />
     <Compile Include="Domain\Notes\Repositories\IContentFollowerRepository.cs" />
+    <Compile Include="Domain\Notes\Repositories\IContentLogRepository.cs" />
     <Compile Include="Domain\Notes\Repositories\IContentRepository.cs" />
     <Compile Include="Domain\Notes\Repositories\INodeRepository.cs" />
     <Compile Include="Domain\Notes\Repositories\ITagRepository.cs" />

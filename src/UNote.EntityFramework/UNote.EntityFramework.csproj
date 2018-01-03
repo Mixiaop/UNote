@@ -63,6 +63,7 @@
     <Compile Include="DbConsts.cs" />
     <Compile Include="Mapping\Notes\ContentColumnMap.cs" />
     <Compile Include="Mapping\Notes\ContentFollowerMap.cs" />
+    <Compile Include="Mapping\Notes\ContentLogMap.cs" />
     <Compile Include="Mapping\Notes\ContentMap.cs" />
     <Compile Include="Mapping\Notes\NodeMap.cs" />
     <Compile Include="Mapping\Notes\TagMap.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Mapping\Users\UserVisitLogMap.cs" />
     <Compile Include="Repositories\Notes\ContentColumnRepository.cs" />
     <Compile Include="Repositories\Notes\ContentFollowerRepository.cs" />
+    <Compile Include="Repositories\Notes\ContentLogRepository.cs" />
     <Compile Include="Repositories\Notes\ContentRepository.cs" />
     <Compile Include="Repositories\Notes\NodeRepository.cs" />
     <Compile Include="Repositories\Notes\TagRepository.cs" />

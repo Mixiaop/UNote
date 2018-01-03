@@ -1,23 +1,8 @@
 ﻿
 namespace UNote.Services.Users.Dto
 {
-    public class UserDto : U.Application.Services.Dto.FullAuditedEntityDto
+    public class UserDto : UserBriefDto
     {
-        /// <summary>
-        /// 用户名
-        /// </summary>
-        public string Username { get; set; }
-
-        /// <summary>
-        /// 密码
-        /// </summary>
-        public string Password { get; set; }
-
-        /// <summary>
-        /// 昵称
-        /// </summary>
-        public string NickName { get; set; }
-
         /// <summary>
         /// 用户类型Id
         /// </summary>
@@ -29,15 +14,16 @@ namespace UNote.Services.Users.Dto
         public int ContentTotal { get; set; }
 
         /// <summary>
-        /// 头像Id
+        /// 最后一次访问IP
         /// </summary>
-        public int AvatarId { get; set; }
+        public string LastIpAddress { get; set; }
 
         /// <summary>
-        /// 头像地址
+        /// 最后一次登录时间
         /// </summary>
-        public string AvatarUrl { get; set; }
+        public string LastLoginTime { get; set; }
 
+        
         /// <summary>
         /// Email （找回密码时用到）
         /// </summary>
@@ -47,16 +33,6 @@ namespace UNote.Services.Users.Dto
         /// 邮箱是否验证
         /// </summary>
         public bool EmailValidation { get; set; }
-
-        /// <summary>
-        /// 最后一次访问IP
-        /// </summary>
-        public string LastIpAddress { get; set; }
-
-        /// <summary>
-        /// 最后一次登录时间
-        /// </summary>
-        public string LastLoginTime { get; set; }
 
         #region Custom Properties
         /// <summary>
@@ -69,5 +45,6 @@ namespace UNote.Services.Users.Dto
         /// </summary>
         public string FormatNickName { get; set; }
         #endregion
+
     }
 }
