@@ -118,6 +118,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
             //add
             BoardService.AddTaskFollower(vc.task.Id, userId, function (res) {
+                vc.modules.logs.initialize();
                 if (!res.value.Success) {
                     console.log('error: BoardService.AddTaskFollower');
                 }
@@ -138,6 +139,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
             //remove
             BoardService.DeleteTaskFollower(vc.task.Id, userId, function (res) {
+                vc.modules.logs.initialize();
                 if (!res.value.Success) {
                     console.log('error: BoardService.DeleteTaskFollower');
                 }
@@ -199,6 +201,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                         vc.options.resTitle(vc.task.Id, vc.task.Title);
                     }
                     BoardService.UpdateTaskTitle(vc.task.Id, value, function (res) {
+                        vc.modules.logs.initialize();
                         if (!res.value.Success) {
                             console.log('error: BoardService.UpdateTaskTitle');
                         }
@@ -302,6 +305,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
                 //post
                 BoardService.UpdateTaskBody(vc.task.Id, value, function (res) {
+                    vc.modules.logs.initialize();
                     if (!res.value.Success) {
                         console.log('error: BoardService.UpdateTaskBody');
                     }
@@ -551,7 +555,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
         var _firstRenderFormUsers = function () {
             if (vc.users.length > 0) {
                 $formUserList.html('');
-                
+
                 _renderFormUsers(vc.users);
             }
         }
@@ -666,18 +670,60 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
     vc.modules.logs = function () {
         var $logItems;
+        var $btnShowMore;
+        var showCount = 10;
+        var dataLogs = [];
+        var showmore = false;
+
+        var _render = function (count) {
+            $logItems.html('');
+            if (count == 0) {
+                _.each(dataLogs, function (log) {
+                    $logItems.append('<li><a>' + log.User.NickName + '</a> ' + log.Desc + ',&nbsp;&nbsp;' + log.FormatCreationTime + '</li>');
+                });
+            } else {
+                _.each(dataLogs, function (log) {
+                    if (count > 0) {
+                        $logItems.append('<li><a>' + log.User.NickName + '</a> ' + log.Desc + ',&nbsp;&nbsp;' + log.FormatCreationTime + '</li>');
+                        count--;
+                    }
+                });
+            }
+        }
 
         function _initialize() {
             $logItems = $('.block-notice ul');
-            
+            $btnShowMore = $('.block-notice .showmore');
+            showmore = false;
+
             BoardService.GetRecentTaskLogs(vc.task.Id, function (res) {
                 if (res.value.Success) {
-                    $logItems.html('');
-                    var logs = res.value.Result;
-                    _.each(logs, function (log) {
-                        $logItems.append('<li><a>' + log.User.NickName + '</a> ' + log.Desc + ',&nbsp;&nbsp;' + log.FormatCreationTime + '</li>');
-                    });
-                } 
+                    //$logItems.html('');
+                    dataLogs = res.value.Result;
+                    _render(showCount);
+
+                    if (dataLogs.length > showCount) {
+                        $btnShowMore.text('显示较早的 ' + dataLogs.length + ' 条动态');
+                        $btnShowMore.removeClass('hidden');
+                        showmore = true;
+                    } else {
+                        $btnShowMore.addClass('hidden');
+                    }
+                }
+            });
+
+            //##events
+            $btnShowMore.unbind('click');
+            $btnShowMore.bind('click', function () {
+                if (showmore) {
+                    _render(0);
+                    showmore = false;
+                    $btnShowMore.text('隐藏较早的动态');
+                } else {
+                    showmore = true;
+                    _render(showCount);
+                    $btnShowMore.text('显示较早的 ' + dataLogs.length + ' 条动态');
+                }
             });
         }
 

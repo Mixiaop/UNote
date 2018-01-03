@@ -390,6 +390,9 @@ body {
     padding-top: 28px;
 }
 /* 动态 */
+.board-task-dialog .block-notice {
+    padding-right:0 !important;
+}
 .board-task-dialog .block-notice ul {
     list-style: none;
 }
@@ -398,8 +401,14 @@ body {
     text-align: right;
     color: #999;
     font-size: 12px;
-    margin-bottom:5px;
+    margin-bottom:8px;
 }
+    .board-task-dialog .block-notice .showmore {
+        display:block;
+        float:right;
+        font-size:14px;
+        padding-bottom:10px;
+    }
 
 /*分配标签*/
 .board-task-dialog .tags {

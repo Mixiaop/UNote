@@ -143,11 +143,11 @@ namespace UNote.Services.Notes
 
         #region Task Logs
         /// <summary>
-        /// 获取所有任务跟踪，默认最新10条
+        /// 获取所有任务跟踪
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
-        IList<BoardTaskLogDto> GetAllTaskLogs(int taskId, int count = 10);
+        IList<BoardTaskLogDto> GetAllTaskLogs(int taskId, int count = 0);
         #endregion
     }
 }

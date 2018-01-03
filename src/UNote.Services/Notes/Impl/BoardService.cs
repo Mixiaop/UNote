@@ -426,6 +426,7 @@ namespace UNote.Services.Notes.Impl
             task.Title = newTitle;
             _contentService.Update(task);
 
+            AddTaskLog(task.Id, GetLoginedUserId(), "更新了任务标题");
             return res;
         }
 
@@ -441,6 +442,7 @@ namespace UNote.Services.Notes.Impl
             task.Body = newBody;
             _contentService.Update(task);
 
+            AddTaskLog(task.Id, GetLoginedUserId(), "更新了任务内容");
             return res;
         }
 
@@ -488,6 +490,7 @@ namespace UNote.Services.Notes.Impl
             var user = _userService.GetById(userId);
 
             _contentFollowerService.AddFollower(task, user);
+            AddTaskLog(task.Id, GetLoginedUserId(), "添加了参与者【" + user.NickName + "】");
         }
 
         public void DeleteTaskFollower(int taskId, int userId)
@@ -496,6 +499,7 @@ namespace UNote.Services.Notes.Impl
             var user = _userService.GetById(userId);
 
             _contentFollowerService.RemoveFollower(task, user);
+            AddTaskLog(task.Id, GetLoginedUserId(), "移除了参与者【" + user.NickName + "】");
         }
         #endregion
 
@@ -506,7 +510,7 @@ namespace UNote.Services.Notes.Impl
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
-        public IList<BoardTaskLogDto> GetAllTaskLogs(int taskId, int count = 10) {
+        public IList<BoardTaskLogDto> GetAllTaskLogs(int taskId, int count = 0) {
             var query = _contentLogRepository.GetAll();
             if (taskId > 0)
             {
