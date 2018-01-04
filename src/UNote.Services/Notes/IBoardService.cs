@@ -48,6 +48,8 @@ namespace UNote.Services.Notes
         /// <returns></returns>
         StateOutput UpdateColumn(int columnId, string title, string css = "");
 
+        StateOutput UpdateColumnTitle(int columnId, string title);
+
         /// <summary>
         /// 根据数组重置列排序
         /// </summary>
@@ -123,6 +125,8 @@ namespace UNote.Services.Notes
         StateOutput UpdateTaskTitle(int taskId, string newTitle);
 
         StateOutput UpdateTaskBody(int taskId, string newBody);
+
+        StateOutput UpdateTaskExpirationDate(int taskId, string date);
 
         /// <summary>
         /// 更新标签

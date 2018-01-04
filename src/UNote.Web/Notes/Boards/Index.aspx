@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="userHead" runat="server">
     <link rel="stylesheet" href="/editors/kindeditor/css/default.css"  />
     <link rel="stylesheet" href="/lib/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="/lib/plugins/bootstrap-datepicker/bootstrap-datepicker3.css">
     <link rel="stylesheet" href="/css/unote-boards.css" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="userBody" runat="server">
     <!-- Page Header -->
@@ -68,6 +70,9 @@
                 <header class="board-header" >
                     <h3 class="board-title">
                         <span class="board-title-text label">{{column.Title}}</span>
+                        <span class="board-title-text-input label hidden" style="background:none;">
+                        <input type="text" class="form-control" />
+                            </span>
                         <button type="button" class="board-delete" data-toggle="tooltip" data-original-title="删除列表"><i class="fa fa-trash"></i></button>
                         <div class="board-count-badge clearfix">
                             <button type="button" class="board-count-badge-button no-right-border btn btn-sm btn-default hidden" data-toggle="tooltip" data-original-title="编辑列表"><i class="fa fa-pencil"></i></button>
@@ -117,7 +122,7 @@
                                 <div class="block-tags js-block-tags">
                                     <ul class="clearfix">
                                         <li class="js-content hidden js-tooltip" title="任务备注"><i class="fa fa-list"></i></li>
-                                        <%--<li class="time js-time"><i class="fa fa-clock-o"></i> 2017-12-25</li>--%>
+                                        <li class="time js-expirationDate hidden"><i class="fa fa-clock-o"></i> 2017-12-25</li>
                                         <%--<li><label class="label" style="background:#000;">111</label></li>
                                         <li data-type='tag'><label class="label" style="background:#000;">111</label></li>
                                         <li><label class="label" style="background:#000;">111</label></li>
@@ -135,6 +140,5 @@
                         </li>
     </script>
     <!-- end template -->
-    
     <script type="text/javascript" src="/js/notes/boards/index.controller.js"></script>
 </asp:Content>

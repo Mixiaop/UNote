@@ -51,6 +51,10 @@ namespace UNote.Services.Notes.Dto
         /// </summary>
         public int ColumnTaskFinishedUserId { get; set; }
 
+        /// <summary>
+        /// 任务截止时间
+        /// </summary>
+        public string ColumnTaskExpirationDate { get; set; }
         #region Custom
         /// <summary>
         /// 所有参与者

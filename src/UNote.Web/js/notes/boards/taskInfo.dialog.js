@@ -1,5 +1,5 @@
 ﻿//Board模式 - 任务弹出详情
-define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jquery.confirm'], function ($, notify, _) {
+define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jquery.confirm', 'bootstrap.datepicker'], function ($, notify, _) {
 
     //-----------------------------------------------------------------
     //---------------properties-------------------------------------------
@@ -32,7 +32,8 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
             resDelete: function () { },
             resBody: function () { },
             resTags: function () { },
-            resUsers: function () { }
+            resUsers: function () { },
+            resExpirationDate: function () { }
         }
     };
 
@@ -627,11 +628,29 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
         var $block;
         var $btnAction;
         var $btnDeleteTask;
+        var committing = false;
+
+        var _renderDate = function (date) {
+            var $expirationDateBlock = $('.block-expiration');
+
+            if (date != '') {
+                $expirationDateBlock.removeClass('hidden');
+                $expirationDateBlock.find('a').text(date);
+            } else {
+                $expirationDateBlock.addClass('hidden');
+            }
+
+            var $expirationDateInput = $block.find('.js-setExpirationDate').next();
+            $expirationDateInput.val(date);
+        }
 
         function _initialize() {
             $block = $('.block-options');
             $btnAction = $block.find('.btn-actions');
             $btnDeleteTask = $block.find('.js-deletetask');
+
+            //renders 
+            _renderDate(vc.task.ColumnTaskExpirationDate);
 
             //##event actions
             $btnAction.unbind('click');
@@ -662,6 +681,50 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
             //preview task
             $block.find('.js-preview').prop('href', '/notes/content/' + vc.task.Id);
+
+            //expiration date
+            var datePicker = $block.find('.js-setExpirationDate').next().datepicker();
+            datePicker.on('changeDate', function (e) {
+                vc.task.ColumnTaskExpirationDate = date;
+                var date = $block.find('.js-setExpirationDate').next().val();
+                _renderDate(date);
+                if (vc.options.resExpirationDate != undefined)
+                    vc.options.resExpirationDate(vc.task.Id, date);
+
+                //post
+                BoardService.UpdateTaskExpirationDate(vc.task.Id, date, function (res) {
+                    if (!res.value.Success) {
+                        console.log('error: BoardService.UpdateTaskExpirationDate');
+                    } else {
+                        vc.modules.logs.initialize();
+                    }
+                });
+                datePicker.datepicker('hide');
+            });
+
+            $block.find('.js-setExpirationDate').unbind('click');
+            $block.find('.js-setExpirationDate').bind('click', function () {
+                datePicker.datepicker('show');
+                
+                $('.datepicker').css('left', ($(this).offset().left  + 'px'));
+                $('.datepicker').css('top', ($(this).offset().top - 50 + 'px'));
+            });
+
+            $('.block-expiration a').unbind('click');
+            $('.block-expiration a').bind('click', function () {
+                vc.task.ColumnTaskExpirationDate = '';
+                _renderDate('');
+                if (vc.options.resExpirationDate != undefined)
+                    vc.options.resExpirationDate(vc.task.Id, '');
+                //post
+                BoardService.UpdateTaskExpirationDate(vc.task.Id, '', function (res) {
+                    if (!res.value.Success) {
+                        console.log('error: BoardService.UpdateTaskExpirationDate');
+                    } else {
+                        vc.modules.logs.initialize();
+                    }
+                });
+            });
         }
         return {
             initialize: _initialize

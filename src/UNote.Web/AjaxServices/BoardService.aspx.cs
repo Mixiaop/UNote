@@ -94,6 +94,28 @@ namespace UNote.Web.AjaxServices
         }
 
         [AjaxMethod]
+        public AjaxResponse UpdateColumnTitle(int columnId, string title) {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                var result = _boardService.UpdateColumnTitle(columnId, title);
+                if (!result.Success)
+                {
+                    res.Success = false;
+                    res.Error = new ErrorInfo(result.Errors[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+
+        [AjaxMethod]
         public AjaxResponse DeleteColumn(int columnId)
         {
             AjaxResponse res = new AjaxResponse();
@@ -279,13 +301,42 @@ namespace UNote.Web.AjaxServices
         }
 
         [AjaxMethod]
-        public AjaxResponse DeleteTask(int taskId)
+        public AjaxResponse UpdateTaskExpirationDate(int taskId, string date)
         {
             AjaxResponse res = new AjaxResponse();
 
             try
             {
-                var result = _boardService.DeleteTask(taskId);
+                var result = _boardService.UpdateTaskExpirationDate(taskId, date);
+                if (!result.Success)
+                {
+                    res.Success = false;
+                    res.Error = new ErrorInfo(result.Errors[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+        
+
+        /// <summary>
+        /// 更新标签
+        /// </summary>
+        /// <param name="taskId"></param>
+        /// <param name="tags">多个之间，逗号“,”分割</param>
+        /// <returns></returns>
+        [AjaxMethod]
+        public AjaxResponse UpdateTaskTags(int taskId, string tags) {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                var result = _boardService.UpdateTaskTags(taskId, tags);
                 if (!result.Success)
                 {
                     res.Success = false;
@@ -301,19 +352,14 @@ namespace UNote.Web.AjaxServices
             return res;
         }
 
-        /// <summary>
-        /// 更新标签
-        /// </summary>
-        /// <param name="taskId"></param>
-        /// <param name="tags">多个之间，逗号“,”分割</param>
-        /// <returns></returns>
         [AjaxMethod]
-        public AjaxResponse UpdateTaskTags(int taskId, string tags) {
+        public AjaxResponse DeleteTask(int taskId)
+        {
             AjaxResponse res = new AjaxResponse();
 
             try
             {
-                var result = _boardService.UpdateTaskTags(taskId, tags);
+                var result = _boardService.DeleteTask(taskId);
                 if (!result.Success)
                 {
                     res.Success = false;

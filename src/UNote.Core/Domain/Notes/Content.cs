@@ -37,6 +37,7 @@ namespace UNote.Domain.Notes
             ColumnTaskFinished = false;
             ColumnTaskFinishedTime = null;
             ColumnTaskFinishedUserId = 0;
+            ColumnTaskExpirationDate = "";
         }
         #endregion
 
@@ -171,6 +172,11 @@ namespace UNote.Domain.Notes
         /// 任务完成的用户Id
         /// </summary>
         public int ColumnTaskFinishedUserId { get; set; }
+
+        /// <summary>
+        /// 任务截止时间
+        /// </summary>
+        public string ColumnTaskExpirationDate { get; set; }
         #endregion
 
         #region Navigation Properties

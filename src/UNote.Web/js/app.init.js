@@ -5,6 +5,9 @@
         //lib
         'jquery': '/lib/core/jquery.min',
         'bootstrap': '/lib/core/bootstrap.min',
+        'bootstrap.colorpicker': '/lib/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min',
+        'bootstrap.datepicker': '/lib/plugins/bootstrap-datepicker/bootstrap-datepicker',
+        'bootstrap.datepicker.zh-CN': '/lib/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
         'underscore': '/lib/core/underscore/underscore-1.8',
         'handlebars': '/lib/core/handlebars/handlebars-v2.0.0',
         'jquery.placeholder': '/lib/core/jquery.placeholder.min',
@@ -12,7 +15,6 @@
         'jquery.scrollLock': '/lib/core/jquery.scrollLock.min',
         'jquery.appear': '/lib/core/jquery.appear.min',
         'jquery.countTo': '/lib/core/jquery.countTo.min',
-        'bootstrap.colorpicker': '/lib/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min',
         'jquery.fineuploader': '/lib/plugins/jquery.fineuploader/jquery.fineuploader-3.4.1.min',
         'jquery.tagsinput': '/lib/plugins/jquery-tags-input/jquery.tagsinput.min',
         'jquery.ui': '/lib/plugins/jquery-ui/jquery-ui',
@@ -38,7 +40,9 @@
     },
     shim: {
         'bootstrap': { deps: ['jquery'] },
-        'bootstrap.colorpicker': { deps: ['jquery','bootstrap'] },
+        'bootstrap.colorpicker': { deps: ['jquery', 'bootstrap'] },
+        'bootstrap.datepicker': { deps: ['jquery', 'bootstrap'] },
+        'bootstrap.datepicker.zh-CN': { deps: ['bootstrap.datepicker'] },
         'jquery.scrollLock': { deps: ['jquery'] },
         'jquery.slimscroll': { deps: ['jquery'] },
         'jquery.appear': { deps: ['jquery'] },

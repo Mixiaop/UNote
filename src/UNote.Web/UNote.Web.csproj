@@ -416,6 +416,7 @@
     <Content Include="js\notes\addFollower.dialog.js" />
     <Content Include="js\notes\addNode.dialog.html" />
     <Content Include="js\notes\addNode.dialog.js" />
+    <Content Include="js\notes\boards\index.controller20180104.js" />
     <Content Include="js\notes\boards\index.controller.js" />
     <Content Include="js\notes\boards\tagSettings.dialog.html" />
     <Content Include="js\notes\boards\tagSettings.dialog.js" />

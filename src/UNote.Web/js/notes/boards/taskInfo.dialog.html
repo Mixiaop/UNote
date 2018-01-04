@@ -14,6 +14,12 @@
                                         <i class="si si-screen-desktop pull-right"></i>预览任务
                                     </a>
                                 </li>
+                                <li>
+                                    <a tabindex="-1"  href="javascript:void(0)" class="js-setExpirationDate">
+                                        <i class="si si-clock pull-right"></i>设置截止日期
+                                    </a>
+                                    <input type="text" class="form-control hidden">
+                                </li>
                                 <li class="divider"></li>
                                 <li>
                                     <a tabindex="-1" href="javascript:void(0)" class="js-deletetask">
@@ -34,12 +40,16 @@
                         </div>
                         <div class="clear"></div>
                     </div>
-                    <!--<h3 class="block-title">
-
-                         <input type="text" value="阅读「分享」中的使用案例，get 最优雅的开发姿势" class="form-control" />
-
-
-                    </h3>-->
+                    <div class="clearfix"></div>
+                    <div class="block-expiration hidden" >
+                        <i class="fa fa-clock-o js-tooltip" title="截止日期"></i>&nbsp;<a href="javascript:;" class="js-tooltip" title="点击取消">2017-08-09</a>
+                        <!--<div class="input-group" data-provide="datepicker">
+                            <div class="input-group-addon">
+                                <span class="glyphicon glyphicon-hourglass js-tooltip" title="截止时间"></span>
+                            </div>
+                            
+                        </div>-->
+                    </div>
                 </div>
                 <!-- end title-->
                 <!-- body -->

@@ -137,6 +137,25 @@ namespace UNote.Services.Notes.Impl
             return res;
         }
 
+        public StateOutput UpdateColumnTitle(int columnId, string title) {
+            var res = new StateOutput();
+            try
+            {
+                var column = this.GetColumn(columnId);
+                if (column != null)
+                {
+                    column.Title = title;
+                    _columnRepository.Update(column);
+                }
+            }
+            catch (Exception ex)
+            {
+                res.AddError(ex.Message);
+            }
+
+            return res;
+        }
+
         /// <summary>
         /// 根据数组重置列排序
         /// </summary>
@@ -443,6 +462,25 @@ namespace UNote.Services.Notes.Impl
             _contentService.Update(task);
 
             AddTaskLog(task.Id, GetLoginedUserId(), "更新了任务内容");
+            return res;
+        }
+
+        public StateOutput UpdateTaskExpirationDate(int taskId, string date) {
+            StateOutput res = new StateOutput();
+            var task = _contentService.GetById(taskId);
+            if (task == null)
+            {
+                res.AddError("task not found");
+                return res;
+            }
+            bool again = false;
+            if (task.ColumnTaskExpirationDate.IsNotNullOrEmpty()) {
+                again = true;
+            }
+            task.ColumnTaskExpirationDate = date;
+            _contentService.Update(task);
+
+            AddTaskLog(task.Id, GetLoginedUserId(), (date.IsNotNullOrEmpty() ? (again ? "重设" : "设置") : "取消") + "了截止时间");
             return res;
         }
 

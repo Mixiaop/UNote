@@ -104,6 +104,17 @@ body {
     font-weight: bold;
 }
 
+.board-title-text-input {
+     margin-right: auto;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+    .board-title-text-input input {
+        width:100%;
+    }
+
 .board-delete {
     margin-right: 5px;
     padding: 0;
@@ -217,6 +228,7 @@ body {
 
     .board-content-list .block-tags .time {
         color: #aaa;
+        font-size:12px;margin-top:2px;
     }
 /*列表项 参与者*/
 .block-users {
@@ -225,7 +237,7 @@ body {
     .block-users div {
         width: 30px;
         height: 30px;
-        font-size: 12px;
+        font-size: 15px;
         line-height: 30px;
         margin-top: 2px;
         margin-right:5px;
@@ -323,6 +335,7 @@ body {
     padding-left: 0;
     padding-right: 0;
     padding-top: 0;
+    padding-bottom:10px;
     width: 100%;
 }
 
@@ -336,6 +349,24 @@ body {
         padding:0 !important;
     }
 
+.board-task-dialog .block-expiration {
+    width:100px;
+    padding:0;
+    padding-left:3px;
+    padding-top:5px;
+    color:#999;
+    font-size:13px;
+}
+.board-task-dialog .block-expiration i{
+    font-size:16px;
+}
+    .board-task-dialog .block-expiration a {
+        color:#999;
+    }
+        .board-task-dialog .block-expiration a:hover {
+            cursor:pointer;
+            background:#ddd;
+        }
 /* 标题 */
 .board-task-dialog .block-title {
 }
@@ -583,7 +614,7 @@ body {
         .board-task-dialog .users .items div {
             width: 30px;
             height: 30px;
-            font-size: 12px;
+            font-size: 15px;
             line-height: 30px;
             float: left;
             margin-right: 5px;
@@ -632,7 +663,7 @@ body {
             .form-chooseusers ul li div {
                 width: 30px;
                 height: 30px;
-                font-size: 12px;
+                font-size: 15px;
                 line-height: 30px;
                 background:#42AA8B;
                 color:#fff;
