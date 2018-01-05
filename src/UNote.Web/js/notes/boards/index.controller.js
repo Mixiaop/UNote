@@ -594,7 +594,7 @@
                             if (json != null && res != null && json.Success) {
                                 vc.modules.renders.columnNewTaskFormReset(columnId);
                                 //add new column
-                                vc.modules.columnList.addNewItem(json.Result);
+                                vc.modules.service.taskItemAdd(json.Result);
                             } else {
                                 console.log('error: ' + json.Error.Message);
                             }
