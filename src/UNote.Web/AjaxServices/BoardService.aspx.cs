@@ -322,7 +322,7 @@ namespace UNote.Web.AjaxServices
 
             return res;
         }
-        
+
 
         /// <summary>
         /// 更新标签
@@ -337,6 +337,29 @@ namespace UNote.Web.AjaxServices
             try
             {
                 var result = _boardService.UpdateTaskTags(taskId, tags);
+                if (!result.Success)
+                {
+                    res.Success = false;
+                    res.Error = new ErrorInfo(result.Errors[0]);
+                }
+            }
+            catch (Exception ex)
+            {
+                res.Success = false;
+                res.Error = new ErrorInfo(ex.Message);
+            }
+
+            return res;
+        }
+        
+        [AjaxMethod]
+        public AjaxResponse ArchiveTasks(List<int> taskIds)
+        {
+            AjaxResponse res = new AjaxResponse();
+
+            try
+            {
+                var result = _boardService.ArchiveTasks(taskIds);
                 if (!result.Success)
                 {
                     res.Success = false;
@@ -374,9 +397,12 @@ namespace UNote.Web.AjaxServices
 
             return res;
         }
+        #endregion
 
+        #region TaskFollowers / logs
         [AjaxMethod]
-        public AjaxResponse AddTaskFollower(int taskId, int userId) {
+        public AjaxResponse AddTaskFollower(int taskId, int userId)
+        {
             AjaxResponse res = new AjaxResponse();
 
             try
@@ -411,7 +437,8 @@ namespace UNote.Web.AjaxServices
         }
 
         [AjaxMethod]
-        public AjaxResponse<IList<BoardTaskLogDto>> GetRecentTaskLogs(int taskId) {
+        public AjaxResponse<IList<BoardTaskLogDto>> GetRecentTaskLogs(int taskId)
+        {
             AjaxResponse<IList<BoardTaskLogDto>> res = new AjaxResponse<IList<BoardTaskLogDto>>();
 
             try

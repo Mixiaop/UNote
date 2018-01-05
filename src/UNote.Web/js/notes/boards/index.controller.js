@@ -53,23 +53,24 @@
                         //bind columns
                         $.each($boards, function () {
                             var columnId = parseInt($(this).data('columnid'));
+                            var columnTitle = $(this).data('title');
                             var $this = this;
 
                             //filter create new column
                             if (columnId > 0) {
-                                
+                                //archived column
+                                var $archived = $(this).find('.board-title .js-archived');
+                                $archived.unbind('click');
+                                $archived.bind('click', function () {
+                                    vc.modules.service.columnArchiveTasks(columnId, columnTitle);
+                                });
+
+
                                 //delete column
-                                var $deleteColumn = $(this).find('.board-delete');
+                                var $deleteColumn = $(this).find('.board-title .js-deleteColumn');
                                 $deleteColumn.unbind('click');
                                 $deleteColumn.bind('click', function () {
-                                    $.confirm({
-                                        confirmButtonClass: 'btn-danger',
-                                        title: '删除列表',
-                                        content: '您确定要永远删除这个列表吗?',
-                                        confirm: function () {
-                                            vc.modules.service.columnDelete(columnId);
-                                        }
-                                    });
+                                    vc.modules.service.columnDelete(columnId, columnTitle);
                                 });
 
                                 //add item click
@@ -452,8 +453,16 @@
         }();
 
         vc.modules.service = function () {
-            var committing = false; 
-            
+            var committing = false;
+
+            var $task = function (taskId) {
+                return $('#board-content-' + taskId);
+            }
+
+            var $column = function (columnId) {
+                return $('#board-column-' + columnId);
+            }
+
             return {
                 initialize: function () {
                     setTimeout(function () {
@@ -507,13 +516,23 @@
                     });
                 },
                 //列表 - 删除提供异步回调
-                columnDelete: function (columnId) {
-                    BoardService.DeleteColumn(columnId, function (res) {
-                        var json = res.value;
-                        if (json.Success) {
-                            vc.modules.renders.columnRemove(columnId);
-                        } else {
-                            alert(json.Error.Message);
+                columnDelete: function (columnId, columnTitle) {
+                    $.confirm({
+                        confirmButtonClass: 'btn-danger',
+                        title: '删除列表',
+                        content: '您确定要永远删除列表【' + columnTitle + '】吗?',
+                        confirm: function () {
+                            BoardService.DeleteColumn(columnId, function (res) {
+                                var json = res.value;
+                                if (json.Success) {
+                                    vc.modules.renders.columnRemove(columnId);
+                                } else {
+                                    $.alert({
+                                        title: '删除失败',
+                                        content: json.Error.Message
+                                    });
+                                }
+                            });
                         }
                     });
                 },
@@ -522,6 +541,40 @@
                     BoardService.UpdateColumnTitle(columnId, title, function (res) {
                         if (!res.value.Success) {
                             console.log('error: BoardService.UpdateColumnTitle');
+                        }
+                    });
+                },
+                //列表 - 归档列表已完成的任务
+                columnArchiveTasks: function (columnId, columnTitle) {
+                    $.confirm({
+                        confirmButtonClass: 'btn-danger',
+                        title: '归档任务',
+                        content: '您确定要归档【' + columnTitle + '】下所有已完成的任务吗?',
+                        confirm: function () {
+                            var $currentColumn = $column(columnId);
+                            var taskIds = [];
+                            var $li = $currentColumn.find('.board-content-list li');
+
+                            $li.each(function () {
+                                var taskId = parseInt($(this).data('id'));
+                                if ($(this).find('span').data('check') == 1) {
+                                    taskIds.push(taskId);
+                                }
+                            });
+
+                            if (taskIds.length > 0) {
+                                _.each(taskIds, function (taskId) {
+                                    vc.modules.renders.taskRemove(taskId);
+                                });
+
+                                //post
+                                BoardService.ArchiveTasks(taskIds, function (res) {
+                                    var json = res.value;
+                                    if (!json.Success) {
+                                        console.log('BoardService.CancelFinishTask error: ' + JSON.stringify(json));
+                                    }
+                                });
+                            }
                         }
                     });
                 },
@@ -561,13 +614,23 @@
                 taskFinish: function (taskId) {
                     vc.modules.renders.taskFinish(taskId);
                     //post
-                    BoardService.FinishTask(taskId, function (res) { console.log(res); });
+                    BoardService.FinishTask(taskId, function (res) {
+                        var json = res.value;
+                        if (!json.Success) {
+                            console.log('BoardService.FinishTask error: ' + JSON.stringify(json));
+                        }
+                    });
                 },
                 //任务 - 取消
                 taskCancel: function (taskId) {
                     vc.modules.renders.taskCancel(taskId);
                     //post
-                    BoardService.CancelFinishTask(taskId, function (res) { });
+                    BoardService.CancelFinishTask(taskId, function (res) {
+                        var json = res.value;
+                        if (!json.Success) {
+                            console.log('BoardService.CancelFinishTask error: ' + JSON.stringify(json));
+                        }
+                    });
                 }
             }
         }();
@@ -704,6 +767,6 @@
         //});
 
         //setTimeout(function () {
-            //vc.modules.renders.taskExpirationDate(68, '2017-08-09');
+        //vc.modules.renders.taskExpirationDate(68, '2017-08-09');
         //}, 3000);
     });

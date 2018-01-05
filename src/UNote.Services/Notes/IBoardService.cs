@@ -136,6 +136,13 @@ namespace UNote.Services.Notes
         /// <returns></returns>
         StateOutput UpdateTaskTags(int taskId, string tags);
 
+        /// <summary>
+        /// 通过任务列表归档任务（状态已完成）
+        /// </summary>
+        /// <param name="taskIds"></param>
+        /// <returns></returns>
+        StateOutput ArchiveTasks(List<int> taskIds);
+
         StateOutput DeleteTask(int taskId);
         #endregion
 

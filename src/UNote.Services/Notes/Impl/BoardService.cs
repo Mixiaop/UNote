@@ -243,7 +243,7 @@ namespace UNote.Services.Notes.Impl
                 throw new UserFriendlyException("columnId must be greater than zero");
 
             var query = _contentRepository.GetAll()
-                                         .Where(x => x.ColumnId == columnId);
+                                         .Where(x => x.ColumnId == columnId && x.Archived == false);
 
             var list = query.OrderBy(x => x.ColumnOrder).ToList();
             List<BoardTaskBriefDto> result = new List<BoardTaskBriefDto>();
@@ -501,6 +501,30 @@ namespace UNote.Services.Notes.Impl
             }
             task.Tag = tags;
             _contentService.Update(task);
+
+            return res;
+        }
+
+        /// <summary>
+        /// 通过任务列表归档任务（状态已完成）
+        /// </summary>
+        /// <param name="taskIds"></param>
+        /// <returns></returns>
+        public StateOutput ArchiveTasks(List<int> taskIds) {
+            StateOutput res = new StateOutput();
+            if (taskIds != null && taskIds.Count > 0)
+            {
+                var query = _contentRepository.GetAll().Where(x => taskIds.Contains(x.Id) && x.ColumnTaskFinished == true && x.Archived == false)
+                                                       .OrderBy(x => x.CreationTime);
+                var list = query.ToList();
+
+                list.ForEach((task) =>{
+                    task.Archived = true;
+                    task.ArchivedDate = DateTime.Now;
+                    _contentRepository.Update(task);
+                });
+            }
+            
 
             return res;
         }

@@ -1,4 +1,5 @@
-﻿using U.Domain.Entities.Auditing;
+﻿using System;
+using U.Domain.Entities.Auditing;
 using UNote.Domain.Teams;
 
 namespace UNote.Domain.Notes

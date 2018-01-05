@@ -5,7 +5,11 @@
     <link rel="stylesheet" href="/lib/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" href="/lib/plugins/bootstrap-datepicker/bootstrap-datepicker3.css">
     <link rel="stylesheet" href="/css/unote-boards.css" />
-
+    <style>
+        .board .dropdown-menu {
+            top:80%;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="userBody" runat="server">
     <!-- Page Header -->
@@ -65,7 +69,7 @@
     <!-- template -->
     <script id="tempColumn" type="text/x-handlebars-template">
         <!-- board -->
-        <div class="board" id="board-column-{{column.Id}}"  data-columnid="{{column.Id}}">
+        <div class="board" id="board-column-{{column.Id}}" data-columnid="{{column.Id}}" data-title="{{column.Title}}">
             <div class="board-inner ">
                 <header class="board-header" >
                     <h3 class="board-title">
@@ -73,7 +77,21 @@
                         <span class="board-title-text-input label hidden" style="background:none;">
                         <input type="text" class="form-control" />
                             </span>
-                        <button type="button" class="board-delete" data-toggle="tooltip" data-original-title="删除列表"><i class="fa fa-trash"></i></button>
+                        <button type="button" class="board-delete js-listset" data-toggle="dropdown" data-original-title="列表设置"><i class="fa fa-angle-down"></i></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-header">列表菜单</li>
+                                <li>
+                                    <a tabindex="-1"  href="javascript:void(0)" class="js-archived">
+                                        <i class="si si-cloud-download pull-right"></i>归档已完成任务
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a tabindex="-1" href="javascript:void(0)" class="js-deleteColumn">
+                                        <i class="si si-trash pull-right"></i>删除列表
+                                    </a>
+                                </li>
+                            </ul>
                         <div class="board-count-badge clearfix">
                             <button type="button" class="board-count-badge-button no-right-border btn btn-sm btn-default hidden" data-toggle="tooltip" data-original-title="编辑列表"><i class="fa fa-pencil"></i></button>
                             <button type="button" class="board-count-badge-button btn btn-sm btn-default board-new" data-toggle="tooltip" data-original-title="新任务"><i class="fa fa-plus"></i></button>

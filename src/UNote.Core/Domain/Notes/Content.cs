@@ -31,13 +31,14 @@ namespace UNote.Domain.Notes
             NodeHtmlFileCode = "";
             NodeHtmlHomePage = "";
             IsTop = false;
+
             ColumnId = 0;
             ColumnOrder = 0;
-
             ColumnTaskFinished = false;
             ColumnTaskFinishedTime = null;
             ColumnTaskFinishedUserId = 0;
             ColumnTaskExpirationDate = "";
+            Archived = false;
         }
         #endregion
 
@@ -146,6 +147,16 @@ namespace UNote.Domain.Notes
         /// 内容项数量 
         /// </summary>
         public int ContentItemCount { get; set; }
+
+        /// <summary>
+        /// 内容(任务)是否已归档
+        /// </summary>
+        public bool Archived { get; set; }
+
+        /// <summary>
+        /// 归档时间
+        /// </summary>
+        public DateTime? ArchivedDate { get; set; }
 
         #region Board mode
         /// <summary>
