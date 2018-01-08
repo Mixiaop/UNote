@@ -1378,6 +1378,7 @@
     <Content Include="lib\plugins\summernote\font\summernote.woff" />
     <Content Include="lib\plugins\three\libs\zlib_and_gzip.min.js.map" />
     <Content Include="Notes\AddContent.aspx" />
+    <Content Include="Notes\Boards\ArchivedTasks.aspx" />
     <Content Include="Notes\Boards\Index.aspx" />
     <Content Include="Notes\ContentInfo.aspx" />
     <Content Include="Notes\Contents.aspx" />
@@ -1729,12 +1730,21 @@
     <Compile Include="Masters\User.master.designer.cs">
       <DependentUpon>User.master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Notes\BaseNodeModel.cs" />
+    <Compile Include="Models\Notes\Boards\ArchivedTasksModel.cs" />
     <Compile Include="Notes\AddContent.aspx.cs">
       <DependentUpon>AddContent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Notes\AddContent.aspx.designer.cs">
       <DependentUpon>AddContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Notes\Boards\ArchivedTasks.aspx.cs">
+      <DependentUpon>ArchivedTasks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notes\Boards\ArchivedTasks.aspx.designer.cs">
+      <DependentUpon>ArchivedTasks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Notes\Boards\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

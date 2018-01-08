@@ -505,6 +505,48 @@ namespace UNote.Services.Notes.Impl
             return res;
         }
 
+
+        /// <summary>
+        /// 替换分类下（未归档）所有任务的标签名称
+        /// </summary>
+        /// <param name="nodeId"></param>
+        /// <param name="originalTagName"></param>
+        /// <param name="newTagName"></param>
+        /// <returns></returns>
+        public StateOutput ReplaceAllTaskTags(int nodeId, string originalTagName, string newTagName) {
+            StateOutput res = new StateOutput();
+            try
+            {
+                var tasks = _contentRepository.GetAll()
+                                              .Where(x => x.NodeId == nodeId && x.Archived == false && x.Tag.Contains(originalTagName))
+                                              .OrderByDescending(x => x.CreationTime)
+                                              .ToList();
+                tasks.ForEach((t) => {
+                    var tagList = t.Tag.Split(",");
+                    t.Tag = "";
+                    foreach (var s in tagList) {
+                        if (s.IsNotNullOrEmpty() && s.ToLower() == originalTagName.ToLower())
+                        {
+                            t.Tag += newTagName + ",";
+                        }
+                        else {
+                            t.Tag += s + ",";
+                        }
+                    }
+
+                    if (t.Tag.IsNotNullOrEmpty()) {
+                        t.Tag = t.Tag.TrimEnd(",");
+
+                        _contentRepository.Update(t);
+                    }
+                });
+            }
+            catch (Exception ex) {
+                res.AddError(ex.Message);
+            }
+            return res;
+        }
+
         /// <summary>
         /// 通过任务列表归档任务（状态已完成）
         /// </summary>

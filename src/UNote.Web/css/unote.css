@@ -190,27 +190,27 @@ body {
     height: 23px;
 }
 
-    .page-header ul {
+    .page-header>div>div>ul {
         margin: 0;
         padding: 0;
         list-style: none;
         font-size: 12px;
     }
 
-        .page-header ul li {
+        .page-header>div>div>ul li {
             float: left;
             margin-right: 5px;
         }
 
-            .page-header ul li span {
+            .page-header>div>div>ul li span {
                 margin-right: 3px;
             }
 
-            .page-header ul li a {
+            .page-header>div>div>ul li a {
                 color: #666;
             }
 
-                .page-header ul li a:hover {
+                .page-header>div>div>ul li a:hover {
                     color: #44B4A5;
                 }
 

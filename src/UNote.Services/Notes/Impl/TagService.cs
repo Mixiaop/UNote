@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using U.UI;
 using UNote.Domain.Notes;
+using UNote.Services.Events;
 
 namespace UNote.Services.Notes
 {
-    public class TagService : ITagService
+    public class TagService : ServiceBase, ITagService
     {
         private readonly ITagRepository _tagRepository;
         public TagService(ITagRepository tagRepository)
@@ -133,12 +134,15 @@ namespace UNote.Services.Notes
         public void UpdateTag(int tagId, string tagName, string styleColor) {
             var tag = _tagRepository.Get(tagId);
             if (tag != null) {
+                string originalName = tag.Name;
                 if (tag.Name != tagName)
                     tag.Count = 0;
                 tag.Name = tagName;
                 tag.StyleColor = styleColor;
                 
                 _tagRepository.Update(tag);
+
+                EventPublisher.Publish(new TagUpdatedEvent(tag.Node, originalName, tagName));
             }
         }
 

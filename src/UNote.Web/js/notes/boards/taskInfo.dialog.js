@@ -500,7 +500,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
             _.each(users, function (u) {
                 if (u != undefined && u.Id != undefined && u.NickName != null && index <= 6) {
                     var nickName = u.NickName.substring(0, 1);
-                    var $user = '<li data-userid=' + u.Id + ' data-nickname="' + nickName + '"><div class="item item-circle bg-info-light text-info">' +
+                    var $user = '<li data-userid=' + u.Id + ' data-nickname="' + u.NickName + '"><div class="item item-circle bg-info-light text-info">' +
                                 nickName + '</div>&nbsp;&nbsp;&nbsp;' + u.NickName;
                     if (_existsUser(u.Id)) {
                         $user += '<span class="selected"></span>';

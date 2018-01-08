@@ -15,19 +15,22 @@
     <!-- Page Header -->
     <div class="page-header">
         <div class="row">
-            <div class="col-lg-3 col-xs-8">
+            <div class="col-lg-12 col-xs-12">
                 <ul>
                     <li><%= Model.Node.TeamId> 0? Model.Node.Team.Name: "我的笔记" %></li>
                     <% foreach (var node in Model.Parents)
                        { %>
                     <li><span>/</span> <a href="<%= RouteContext.GetRouteUrl("Notes.Contents", node.Id) %>"><%= node.NodeName %></a></li>
                     <%} %>
-                    <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp;<a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="fa fa-cog"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-left push-100-l">
-                                                <li><a tabindex="-1" href="javascript:;" id="btn-tagSettings">标签设置</a></li>
-                                            </ul>
-                    </li>
+                    <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp; </li>
                 </ul>
+                <div class="board-menus">
+                     <a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="si si-list"></i> 菜单</a>
+                        <ul class="dropdown-menu dropdown-menu-right push-30-r">
+                                                <li><a tabindex="-1" href="javascript:;" id="btn-tagSettings"><i class="si si-settings pull-right"></i> 标签设置</a></li>
+                            <li><a tabindex="-1" href="<%= RouteContext.GetRouteUrl("Notes.Boards.ArchivedTasks", Model.GetNodeId) %>" ><i class="si si-cloud-download pull-right"></i> 查看归档</a></li>
+                                            </ul>
+                </div>
             </div>
         </div>
     </div>

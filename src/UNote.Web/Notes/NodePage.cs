@@ -4,6 +4,7 @@ using System.Web.UI.WebControls;
 using U;
 using UNote.Domain.Notes;
 using UNote.Services.Notes;
+using UNote.Web.Models.Notes;
 
 namespace UNote.Web.Notes
 {
@@ -11,6 +12,35 @@ namespace UNote.Web.Notes
     {
         INodeService _nodeService = UPrimeEngine.Instance.Resolve<INodeService>();
 
+        public void LoadBase(BaseNodeModel model)
+        {
+            model.Node = _nodeService.GetById(model.GetNodeId);
+            if (model.Node == null)
+                Invoke404();
+
+            if (model.Node.NodeType != NodeType.Board)
+            {
+                Response.Redirect(RouteContext.GetRouteUrl("Notes.Contents", model.GetNodeId));
+            }
+
+            #region InitDatas
+            if (model.Node.TeamId > 0)
+                model.MyNodes = _nodeService.GetAllByTeam(model.Node.TeamId);
+            else
+                model.MyNodes = _nodeService.GetAll(GetLoginedUser().Id);
+
+            if (model.Node.ParentsPath.IsNotNullOrEmpty())
+            {
+                string[] parentIds = model.Node.ParentsPath.Split(',');
+                foreach (var id in parentIds)
+                {
+                    var node = model.MyNodes.Where(x => x.Id == id.ToInt()).FirstOrDefault();
+                    if (node != null)
+                        model.Parents.Add(node);
+                }
+            }
+            #endregion
+        }
 
         /// <summary>
         /// 获取 dropdownlist 的 listitem 层级排序，并加载到指定的 dropdownlist 中
@@ -46,5 +76,7 @@ namespace UNote.Web.Notes
                 AddNoteListItem(ddl, allNodes, node);
             });
         }
+
+        
     }
 }

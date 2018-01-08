@@ -137,6 +137,15 @@ namespace UNote.Services.Notes
         StateOutput UpdateTaskTags(int taskId, string tags);
 
         /// <summary>
+        /// 替换分类下（未归档）所有任务的标签名称
+        /// </summary>
+        /// <param name="nodeId"></param>
+        /// <param name="originalTagName"></param>
+        /// <param name="newTagName"></param>
+        /// <returns></returns>
+        StateOutput ReplaceAllTaskTags(int nodeId, string originalTagName, string newTagName);
+
+        /// <summary>
         /// 通过任务列表归档任务（状态已完成）
         /// </summary>
         /// <param name="taskIds"></param>

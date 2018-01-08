@@ -96,6 +96,8 @@
   <ItemGroup>
     <Compile Include="Authrization\FormsAuthenticationService.cs" />
     <Compile Include="Authrization\IAuthenticationService.cs" />
+    <Compile Include="Events\Consumers\NoteEventConsumer.cs" />
+    <Compile Include="Events\TagUpdatedEvent.cs" />
     <Compile Include="IO\ITempFolderService.cs" />
     <Compile Include="IO\TempFolderService.cs" />
     <Compile Include="IService.cs" />
