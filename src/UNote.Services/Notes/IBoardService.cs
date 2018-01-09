@@ -75,6 +75,16 @@ namespace UNote.Services.Notes
         IList<BoardTaskBriefDto> GetAllTasks(int columnId);
 
         /// <summary>
+        /// 搜索已归档的任务列表并分页返回
+        /// </summary>
+        /// <param name="nodeId"></param>
+        /// <param name="keywords"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        PagedResultDto<BoardTaskBriefDto> SearchArchivedTasks(int nodeId, string keywords = "", int pageIndex = 1, int pageSize = 20);
+
+        /// <summary>
         /// 通过Id获取信息
         /// </summary>
         /// <param name="id"></param>

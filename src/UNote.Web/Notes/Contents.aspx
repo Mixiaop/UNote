@@ -154,7 +154,7 @@
                                         <%} %>
                                     </p>
                                     <!-- Followers -->
-                                    <p>
+                                    <p class="hidden">
                                         <% 
                                             if (content.Followers != null)
                                             {
@@ -229,7 +229,7 @@
                                     <%}
                                        else
                                        { %>
-                                    <a href="javascript:;" title="查看" name="btnView" data-id="<%= content.Id %>" class="AddVisitCount">
+                                    <a href="<%= RouteContext.GetRouteUrl("Notes.ContentInfo", content.Id) %>" target="_blank" title="查看" name="btnView" data-id="<%= content.Id %>" class="AddVisitCount">
                                         <img class="img-responsive" src="<%= content.FormatPreviewUrl %>" alt="<%= content.Title %>">
                                     </a>
                                     <%}
@@ -270,7 +270,7 @@
                                             <%}
                                                                else
                                                                { %>
-                                            <a class="text-primary-dark AddVisitCount" href="javascript:;" title="<%= content.Title %>" name="btnView" data-id="<%= content.Id %>"><%= content.Title %></a><%} %></h4>
+                                            <a class="text-primary-dark AddVisitCount" href="<%= RouteContext.GetRouteUrl("Notes.ContentInfo", content.Id) %>" target="_blank" title="<%= content.Title %>" name="btnView" data-id="<%= content.Id %>"><%= content.Title %></a><%} %></h4>
                                         <p><%= content.Summary %><%= !content.Summary.IsNullOrEmpty()?"...":"" %></p>
                                         <p class="tags">
                                             <% if (content.Node != null)
@@ -364,10 +364,10 @@
             });
 
             //view
-            $('a[name=btnView]').on('click', function () {
-                var contentId = parseInt($(this).data('id'));
-                contentInfoDialog.open({ contentId: contentId });
-            });            $viewTypeWrapper.find('.viewtype-onactive').on('click', function () {
+            //$('a[name=btnView]').on('click', function () {
+            //    var contentId = parseInt($(this).data('id'));
+            //    contentInfoDialog.open({ contentId: contentId });
+            //});            $viewTypeWrapper.find('.viewtype-onactive').on('click', function () {
                 var type = parseInt($(this).data('type'));                NodeService.SetListShowType(parseInt("<%= Model.Node.Id%>"), type, function (res) {
                     var json = res.value;
                     if (json.Success) {

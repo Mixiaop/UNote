@@ -221,7 +221,7 @@
                                     </div>
                                 </div>
                                 <% if(Model.Content.TeamId > 0){ %>
-                                <div class="form-group">
+                                <div class="form-group hidden">
                                     <div class="col-xs-12">
                                         <div class="form-material">
                                             <label>

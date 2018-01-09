@@ -228,7 +228,7 @@ namespace UNote.Services.Notes
 
                 if (followers.Count > 0)
                 {
-                    _notificationService.AddContentAfterSending(content, followers);
+                    //_notificationService.AddContentAfterSending(content, followers);
                 }
             }
             return content.Id;
@@ -280,7 +280,7 @@ namespace UNote.Services.Notes
 
             if (followers.Count > 0)
             {
-                _notificationService.UpdateContentAfterSending(content, followers);
+                //_notificationService.UpdateContentAfterSending(content, followers);
             }
         }
 

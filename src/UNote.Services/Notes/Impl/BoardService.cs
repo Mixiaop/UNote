@@ -267,6 +267,36 @@ namespace UNote.Services.Notes.Impl
         }
 
         /// <summary>
+        /// 搜索已归档的任务列表并分页返回
+        /// </summary>
+        /// <param name="nodeId"></param>
+        /// <param name="keywords"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public PagedResultDto<BoardTaskBriefDto> SearchArchivedTasks(int nodeId, string keywords = "", int pageIndex = 1, int pageSize = 20) {
+            if (nodeId > 0)
+            {
+                var query = _contentRepository.GetAll()
+                                              .Where(x => x.NodeId == nodeId);
+
+                if (keywords.IsNotNullOrEmpty()) {
+                    query = query.Where(x => x.Title.Contains(keywords));
+                }
+
+                query = query.OrderByDescending(x => x.CreationTime);
+                var count = query.Count();
+                var list = query.ToList().MapTo<List<BoardTaskBriefDto>>();
+
+                LoadFollowers(list);
+                return new PagedResultDto<BoardTaskBriefDto>(count, list);
+            }
+            else {
+                return new PagedResultDto<BoardTaskBriefDto>();
+            }
+        }
+
+        /// <summary>
         /// 通过Id获取信息
         /// </summary>
         /// <param name="id"></param>
