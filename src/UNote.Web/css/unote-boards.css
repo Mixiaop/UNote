@@ -252,7 +252,7 @@ body {
         margin-top: 2px;
         margin-right: 5px;
         margin-bottom: 2px;
-        background: #42AA8B;
+        background: #ccc;
         color: #fff;
         overflow: hidden;
     }
@@ -634,7 +634,7 @@ body {
             float: left;
             margin-right: 5px;
             margin-top: -2px;
-            background: #42AA8B;
+            background: #ccc;
             color: #fff;
             overflow: hidden;
         }
@@ -680,7 +680,7 @@ body {
                 height: 30px;
                 font-size: 15px;
                 line-height: 30px;
-                background: #42AA8B;
+                background: #ccc;
                 color: #fff;
                 overflow: hidden;
                 vertical-align: middle;
