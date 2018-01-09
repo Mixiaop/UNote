@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1017,6 +1018,12 @@
   <ItemGroup>
     <Folder Include="img\" />
     <Folder Include="js\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UNote.Core\UNote.Core.csproj">
+      <Project>{c578bbb2-0945-4ff0-b91a-587e8cbd6053}</Project>
+      <Name>UNote.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
