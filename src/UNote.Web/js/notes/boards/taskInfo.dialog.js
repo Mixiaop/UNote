@@ -4,6 +4,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
     //-----------------------------------------------------------------
     //---------------properties-------------------------------------------
     var $container;
+    var initDataPicker = false;
 
     //context
     var vc = {
@@ -686,29 +687,34 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
             //expiration date
             var datePicker = $block.find('.js-setExpirationDate').next().datepicker();
+            var dateChoosed = false;
             datePicker.on('changeDate', function (e) {
-                vc.task.ColumnTaskExpirationDate = date;
-                var date = $block.find('.js-setExpirationDate').next().val();
-                _renderDate(date);
-                if (vc.options.resExpirationDate != undefined)
-                    vc.options.resExpirationDate(vc.task.Id, date);
+                if (!dateChoosed) {
+                    vc.task.ColumnTaskExpirationDate = date;
+                    var date = $block.find('.js-setExpirationDate').next().val();
+                    _renderDate(date);
+                    if (vc.options.resExpirationDate != undefined)
+                        vc.options.resExpirationDate(vc.task.Id, date);
 
-                //post
-                BoardService.UpdateTaskExpirationDate(vc.task.Id, date, function (res) {
-                    if (!res.value.Success) {
-                        console.log('error: BoardService.UpdateTaskExpirationDate');
-                    } else {
-                        vc.modules.logs.initialize();
-                    }
-                });
-                datePicker.datepicker('hide');
+                    //post
+                    BoardService.UpdateTaskExpirationDate(vc.task.Id, date, function (res) {
+                        if (!res.value.Success) {
+                            console.log('error: BoardService.UpdateTaskExpirationDate');
+                        } else {
+                            dateChoosed = true;
+                            vc.modules.logs.initialize();
+                        }
+                    });
+                    datePicker.datepicker('hide');
+                }
             });
+            initDataPicker = true;
 
             $block.find('.js-setExpirationDate').unbind('click');
             $block.find('.js-setExpirationDate').bind('click', function () {
                 datePicker.datepicker('show');
-                
-                $('.datepicker').css('left', ($(this).offset().left  + 'px'));
+
+                $('.datepicker').css('left', ($(this).offset().left + 'px'));
                 $('.datepicker').css('top', ($(this).offset().top - 50 + 'px'));
             });
 
