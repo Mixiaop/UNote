@@ -571,7 +571,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                 _.each(vc.task.Followers, function (user) {
                     var nickName = user.NickName.substring(0, 1);
                     $selectedList.append('<div class="item item-circle bg-info-light text-info js-tooltip" data-userid="' + user.UserId +
-                                         '" title="' + user.NickName + '">' + nickName + '</div>');
+                                         '" title="' + user.NickName + '">' + user.NickName + '</div>');
                 });
             }
             _bindJQueryEvents();

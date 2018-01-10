@@ -269,6 +269,11 @@
                                                 </a>
                                             </li>
                                              <li>
+                                                <a tabindex="-1" href="/Users/UpdateProfile.aspx" title="个人资料">
+                                                    <i class="si si-user pull-right"></i>个人资料
+                                                </a>
+                                            </li>
+                                             <li>
                                                 <a tabindex="-1" href="/Users/ChangePassword.aspx" title="修改密码">
                                                     <i class="si si-lock pull-right"></i>修改密码
                                                 </a>
