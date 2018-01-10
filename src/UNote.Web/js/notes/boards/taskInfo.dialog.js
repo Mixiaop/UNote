@@ -91,6 +91,8 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
         BoardService.UpdateTaskTags(vc.task.Id, tags, function (res) {
             if (!res.value.Success) {
                 console.log('error: BoardService.UpdateTaskTitle');
+            } else {
+                vc.modules.logs.initialize();
             }
         });
     }
@@ -539,7 +541,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                 var index = 1;
                 if (index <= 6) {
                     _.each(vc.users, function (user) {
-                        if (user != undefined && user.Id != undefined && user.NickName != null && user.NickName.indexOf(w) != -1) {
+                        if (user != undefined && user.Id != undefined && user.NickName != null && (user.NickName.indexOf(w) != -1 || user.PinYin.indexOf(w) != -1)) {
                             searchUsers.push(user);
                         }
                     });

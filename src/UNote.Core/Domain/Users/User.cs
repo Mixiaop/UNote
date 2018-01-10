@@ -12,6 +12,7 @@ namespace UNote.Domain.Users
             Username = "";
             Password = "";
             NickName = "";
+            PinYin = "";
             UserType = UserType.General;
             ContentTotal = 0;
             AvatarId = 0;
@@ -37,6 +38,11 @@ namespace UNote.Domain.Users
         /// 昵称
         /// </summary>
         public string NickName { get; set; }
+
+        /// <summary>
+        /// 拼音名称
+        /// </summary>
+        public string PinYin { get; set; }
 
         /// <summary>
         /// 用户类型Id

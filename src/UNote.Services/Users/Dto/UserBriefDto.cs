@@ -14,6 +14,11 @@
         public string NickName { get; set; }
 
         /// <summary>
+        /// 拼音名称
+        /// </summary>
+        public string PinYin { get; set; }
+
+        /// <summary>
         /// 头像Id
         /// </summary>
         public int AvatarId { get; set; }

@@ -532,6 +532,7 @@ namespace UNote.Services.Notes.Impl
             task.Tag = tags;
             _contentService.Update(task);
 
+            AddTaskLog(task.Id, GetLoginedUserId(), "设置了标签【" + tags + "】");
             return res;
         }
 
@@ -713,7 +714,7 @@ namespace UNote.Services.Notes.Impl
                             {
                                 if (f != null && f.UserId > 0)
                                 {
-                                    task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName });
+                                    task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName, PinYin = f.User.PinYin });
                                 }
                             });
                         }
@@ -743,7 +744,7 @@ namespace UNote.Services.Notes.Impl
                         {
                             if (f != null && f.UserId > 0)
                             {
-                                task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName });
+                                task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName, PinYin = f.User.PinYin });
                             }
                         });
                     }

@@ -433,7 +433,7 @@
 
                     if (followers != undefined && followers.length > 0) {
                         _.each(followers, function (user) {
-                            var nickName = user.NickName.substring(0, 1);
+                            var nickName = user.NickName.charAt(user.NickName.length - 1);
                             $div.append('<div class="item item-circle bg-info-light text-info js-tooltip" title="' + user.NickName + '">' + nickName + '</div>');
                         });
                     }

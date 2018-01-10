@@ -8,5 +8,7 @@
         public int UserId { get; set; }
 
         public string NickName { get; set; }
+
+        public string PinYin { get; set; }
     }
 }
