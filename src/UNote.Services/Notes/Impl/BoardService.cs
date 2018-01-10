@@ -427,13 +427,15 @@ namespace UNote.Services.Notes.Impl
                 res.AddError("task not found");
                 return res;
             }
+            if (!task.ColumnTaskFinished)
+            {
+                task.ColumnTaskFinished = true;
+                task.ColumnTaskFinishedUserId = finishUserId;
+                task.ColumnTaskFinishedTime = DateTime.Now;
+                _contentService.Update(task);
 
-            task.ColumnTaskFinished = true;
-            task.ColumnTaskFinishedUserId = finishUserId;
-            task.ColumnTaskFinishedTime = DateTime.Now;
-            _contentService.Update(task);
-
-            AddTaskLog(task.Id, GetLoginedUserId(), "完成了任务");
+                AddTaskLog(task.Id, GetLoginedUserId(), "完成了任务");
+            }
             return res;
         }
 
@@ -453,12 +455,15 @@ namespace UNote.Services.Notes.Impl
                 return res;
             }
 
-            task.ColumnTaskFinished = false;
-            task.ColumnTaskFinishedUserId = 0;
-            task.ColumnTaskFinishedTime = null;
-            _contentService.Update(task);
+            if (task.ColumnTaskFinished)
+            {
+                task.ColumnTaskFinished = false;
+                task.ColumnTaskFinishedUserId = 0;
+                task.ColumnTaskFinishedTime = null;
+                _contentService.Update(task);
 
-            AddTaskLog(task.Id, GetLoginedUserId(), "重做了任务");
+                AddTaskLog(task.Id, GetLoginedUserId(), "重做了任务");
+            }
             return res;
         }
 
