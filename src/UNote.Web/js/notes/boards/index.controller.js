@@ -441,13 +441,23 @@
                 //任务项 - 截止日期
                 taskExpirationDate: function (taskId, date) {
                     var $html = $task(taskId).find('.js-expirationDate');
+                   
 
                     if (date == '' || date == undefined) {
                         $html.addClass('hidden');
                     } else {
                         $html.html('<i class="fa fa-clock-o"></i> ' + date);
                         $html.removeClass('hidden');
+                        var now = new Date();
+                        var expirationDate = new Date(date + ' 00:00:00');
+
+                        if (now > expirationDate) {
+                            $html.css({ 'padding-left': '5px', 'padding-right': '5px' });
+                            $html.css({ 'background': '#FF4747', 'color': '#fff' });
+                            $html.find('i').css({ 'color': '#fff' });
+                        }
                     }
+
                 }
             }
         }();

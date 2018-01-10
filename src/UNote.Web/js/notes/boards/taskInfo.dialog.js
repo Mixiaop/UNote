@@ -1,4 +1,7 @@
-﻿//Board模式 - 任务弹出详情
+﻿//
+//-----------------------------------------------------------------
+//Board模式 - 任务弹出详情
+//-----------------------------------------------------------------
 define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jquery.confirm', 'bootstrap.datepicker'], function ($, notify, _) {
 
     //-----------------------------------------------------------------
@@ -498,6 +501,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
         //first render设置参与者的列表
 
         var _renderFormUsers = function (users) {
+            
             var index = 1;
             $formUserList.html('');
             _.each(users, function (u) {
@@ -508,6 +512,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                     if (_existsUser(u.Id)) {
                         $user += '<span class="selected"></span>';
                     }
+
                     $user += '</li>';
 
                     $formUserList.append($user);
@@ -601,6 +606,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                     }
                 });
             } else {
+                _renderFormUsers(vc.users);
                 _renderSelectedList();
             }
 
@@ -610,6 +616,8 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                 $form.removeClass('hidden');
                 $form.css('left', ($(this).position().left + 5) + 'px');
                 $form.css('top', ($(this).position().top + 25) + 'px');
+                $container.find('.users .form-chooseusers input').val('');
+                $container.find('.users .form-chooseusers input').focus();
 
                 $(document).one('click', function () {
                     $form.addClass('hidden');
@@ -687,7 +695,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
             //expiration date
             var datePicker = $block.find('.js-setExpirationDate').next().datepicker();
-            var dateChoosed = false;
+            var dateChoosed = false; //prevent repeat trigger
             datePicker.on('changeDate', function (e) {
                 if (!dateChoosed) {
                     vc.task.ColumnTaskExpirationDate = date;
