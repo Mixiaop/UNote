@@ -278,7 +278,7 @@ namespace UNote.Services.Notes.Impl
             if (nodeId > 0)
             {
                 var query = _contentRepository.GetAll()
-                                              .Where(x => x.NodeId == nodeId);
+                                              .Where(x => x.NodeId == nodeId && x.Archived == true);
 
                 if (keywords.IsNotNullOrEmpty()) {
                     query = query.Where(x => x.Title.Contains(keywords));
