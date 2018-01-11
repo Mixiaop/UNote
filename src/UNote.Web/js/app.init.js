@@ -4,6 +4,7 @@
     paths: {
         //lib
         'jquery': '/lib/core/jquery.min',
+        'jquery.signalR': '/lib/core/jquery.signalR-2.2.2',
         'bootstrap': '/lib/core/bootstrap.min',
         'bootstrap.colorpicker': '/lib/plugins/bootstrap-colorpicker/bootstrap-colorpicker.min',
         'bootstrap.datepicker': '/lib/plugins/bootstrap-datepicker/bootstrap-datepicker',
@@ -24,6 +25,7 @@
         'bs.notify': '/lib/plugins/bootstrap-notify/bootstrap-notify.min',
         'kindeditor': '/editors/kindeditor/kindeditor',
         'kindeditor/zh_CN': '/editors/kindeditor/lang/zh_CN',
+        'signalR.hubs': '/js/signalR.hubs',
         //utilities
         'utils/notify': '/js/utils/notify.util',
         //notes
@@ -39,6 +41,7 @@
 
     },
     shim: {
+        'jquery.signalR': { deps: ['jquery'] },
         'bootstrap': { deps: ['jquery'] },
         'bootstrap.colorpicker': { deps: ['jquery', 'bootstrap'] },
         'bootstrap.datepicker': { deps: ['jquery', 'bootstrap'] },
@@ -50,8 +53,9 @@
         'jquery.tagsinput': { deps: ['jquery'] },
         'jquery.ui': { deps: ['jquery'] },
         'jquery.confirm': { deps: ['jquery'] },
-        'kindeditor/zh_CN': { deps: ['kindeditor'] }//, 'css!./editors/kindeditor/css/default.css'
+        'kindeditor/zh_CN': { deps: ['kindeditor'] },//, 'css!./editors/kindeditor/css/default.css'
         // 'handlebars': { exports: 'Handlebars' },
+        'signalR.hubs': { deps: ['jquery.signalR'] }
     }
 });
 
