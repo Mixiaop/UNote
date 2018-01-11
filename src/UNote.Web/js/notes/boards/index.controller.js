@@ -1,4 +1,4 @@
-﻿require(['jquery', 'underscore', 'handlebars', 'notes/boards/taskInfoDialog', 'notes/boards/tagSettingsDialog', 'bootstrap.colorpicker', 'jquery.ui', 'jquery.slimscroll', 'jquery.confirm'],
+﻿require(['jquery', 'underscore', 'handlebars', 'notes/boards/taskInfoDialog', 'notes/boards/tagSettingsDialog', 'bootstrap.colorpicker', 'jquery.ui', 'jquery.slimscroll', 'jquery.confirm', 'jquery.signalR', 'signalR.hubs'],
     function ($, _, handlebars, taskInfoDialog, tagSettingsDialog, bsColor, jqueryUI, jquerySlimScroll, jqueryConfirm) {
         var vc = {};
         vc.nodeId = parseInt($('#hidNodeId').val());
@@ -230,7 +230,7 @@
                                 id: id,
                                 resTitle: vc.modules.renders.taskTitle,
                                 resFinishd: vc.modules.renders.taskFinishd,
-                                resDelete: vc.modules.renders.taskRemove,
+                                resDelete: vc.modules.broadcast.deleteTask,
                                 resBody: vc.modules.renders.taskTagBody,
                                 resTags: vc.modules.renders.taskTags,
                                 resUsers: vc.modules.renders.taskUsers,
@@ -334,6 +334,13 @@
                 },
                 columnNewTaskFormCommitting: function (columnId, text) {
                     $column(columnId).find('.board-new-form .btn-success').text(text);
+                },
+                columnResetOrders: function (columnIds) {
+                    if (columnIds != undefined && columnIds.length > 0) {
+                        _.each(columnIds, function (id) {
+                            $column(id).insertBefore($('.board-new-column'));
+                        });
+                    }
                 },
                 //-------------------Tasks
                 //任务项 - 添加
@@ -441,7 +448,7 @@
                 //任务项 - 截止日期
                 taskExpirationDate: function (taskId, date) {
                     var $html = $task(taskId).find('.js-expirationDate');
-                   
+
 
                     if (date == '' || date == undefined) {
                         $html.addClass('hidden');
@@ -522,6 +529,8 @@
                         var json = res.value;
                         if (!json.Success) {
                             console.log('BoardService.ResetColumnOrders error: ' + JSON.stringify(json));
+                        } else {
+                            vc.modules.broadcast.resetColumnOrders(columnIds);
                         }
                     });
                 },
@@ -535,7 +544,8 @@
                             BoardService.DeleteColumn(columnId, function (res) {
                                 var json = res.value;
                                 if (json.Success) {
-                                    vc.modules.renders.columnRemove(columnId);
+                                    //vc.modules.renders.columnRemove(columnId);
+                                    vc.modules.broadcast.deleteColumn(columnId);
                                 } else {
                                     $.alert({
                                         title: '删除失败',
@@ -604,7 +614,8 @@
                             if (json != null && res != null && json.Success) {
                                 vc.modules.renders.columnNewTaskFormReset(columnId);
                                 //add new column
-                                vc.modules.service.taskItemAdd(json.Result);
+                                //vc.modules.service.taskItemAdd(json.Result);
+                                vc.modules.broadcast.addTask(json.Result);
                             } else {
                                 console.log('error: ' + json.Error.Message);
                             }
@@ -691,7 +702,8 @@
                             if (json != null && res != null && json.Success) {
                                 _resetForm();
                                 //add new column
-                                vc.modules.service.columnItemAdd(json.Result);
+                                var column = json.Result;
+                                vc.modules.broadcast.createColumn(column);
                             } else {
                                 console.log('error: ' + json.Error.Message);
                             }
@@ -738,6 +750,58 @@
             }
         }();
 
+        vc.modules.broadcast = function () {
+            var notifier = $.connection.TaskBoardNotifier;
+
+            function _initialize() {
+                //clients 
+                $.extend(notifier.client, {
+                    //columns
+                    createColumn: function (column) {
+                        vc.modules.service.columnItemAdd(column);
+                    },
+                    resetColumnOrders: function (columnIds) {
+                        vc.modules.renders.columnResetOrders(columnIds);
+                    },
+                    deleteColumn: function (columnId) {
+                        vc.modules.renders.columnRemove(columnId);
+                    },
+                    //tasks
+                    addTask: function (task) {
+                        vc.modules.service.taskItemAdd(task);
+                    },
+                    deleteTask: function (taskId) {
+                        vc.modules.renders.taskRemove(taskId);
+                    }
+                });
+
+                $.connection.hub.start()
+                                .done(function () {
+                                    console.log('SingalR connect successfully');
+                                });
+            }
+
+            return {
+                initialize: _initialize,
+                //columns
+                createColumn: function (column) {
+                    notifier.server.createColumn(column);
+                },
+                resetColumnOrders: function (columnIds) {
+                    notifier.server.resetColumnOrders(columnIds);
+                },
+                deleteColumn: function (columnId) {
+                    notifier.server.deleteColumn(columnId);
+                },
+                //tasks
+                addTask: function (task) {
+                    notifier.server.addTask(task);
+                },
+                deleteTask: function (taskId) {
+                    notifier.server.deleteTask(taskId);
+                }
+            }
+        }();
         //|--------------------------------------|
         //|---------------end modules------------|
 
@@ -763,6 +827,7 @@
             });
 
             vc.modules.$.initialize();
+            vc.modules.broadcast.initialize();
         }
 
         _initialize();

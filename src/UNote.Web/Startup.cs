@@ -1,9 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
 using Hangfire;
 using Hangfire.Dashboard;
+
 [assembly: OwinStartup(typeof(UNote.Web.Startup))]
 
 namespace UNote.Web
@@ -15,6 +14,8 @@ namespace UNote.Web
             // 有关如何配置应用程序的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=316888
             var option = new DashboardOptions();
             app.UseHangfireDashboard("/hangfire", option);
+
+            UNote.Web.Infrastructure.SignalR.Startup.ConfigurationSignalR(app);
         }
     }
 }
