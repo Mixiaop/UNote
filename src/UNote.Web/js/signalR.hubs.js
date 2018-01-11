@@ -80,24 +80,64 @@
         proxies['TaskBoardNotifier'] = this.createHubProxy('TaskBoardNotifier');
         proxies['TaskBoardNotifier'].client = {};
         proxies['TaskBoardNotifier'].server = {
-            addTask: function (task) {
+            addTask: function (nodeRoomId, task) {
                 return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["AddTask"], $.makeArray(arguments)));
             },
 
-            createColumn: function (column) {
+            cancelTask: function (nodeRoomId, taskId) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["CancelTask"], $.makeArray(arguments)));
+            },
+
+            createColumn: function (nodeRoomId, column) {
                 return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["CreateColumn"], $.makeArray(arguments)));
             },
 
-            deleteColumn: function (columnId) {
+            deleteColumn: function (nodeRoomId, columnId) {
                 return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["DeleteColumn"], $.makeArray(arguments)));
             },
 
-            deleteTask: function (taskId) {
+            deleteTask: function (nodeRoomId, taskId) {
                 return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["DeleteTask"], $.makeArray(arguments)));
             },
 
-            resetColumnOrders: function (columnIds) {
+            finishTask: function (nodeRoomId, taskId) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["FinishTask"], $.makeArray(arguments)));
+            },
+
+            joinBoardRoom: function (nodeRoomId) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["JoinBoardRoom"], $.makeArray(arguments)));
+            },
+
+            leaveBoardRoom: function (nodeRoomId) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["LeaveBoardRoom"], $.makeArray(arguments)));
+            },
+
+            resetColumnOrders: function (nodeRoomId, columnIds) {
                 return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["ResetColumnOrders"], $.makeArray(arguments)));
+            },
+
+            resetTaskOrders: function (nodeRoomId, columnId, taskIds) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["ResetTaskOrders"], $.makeArray(arguments)));
+            },
+
+            updateTaskBody: function (nodeRoomId, taskId, haveBody) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["UpdateTaskBody"], $.makeArray(arguments)));
+            },
+
+            updateTaskExpirationDate: function (nodeRoomId, taskId, date) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["UpdateTaskExpirationDate"], $.makeArray(arguments)));
+            },
+
+            updateTaskFollowers: function (nodeRoomId, taskId, users) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["UpdateTaskFollowers"], $.makeArray(arguments)));
+            },
+
+            updateTaskTags: function (nodeRoomId, taskId, tagList) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["UpdateTaskTags"], $.makeArray(arguments)));
+            },
+
+            updateTaskTitle: function (nodeRoomId, taskId, newTitle) {
+                return proxies['TaskBoardNotifier'].invoke.apply(proxies['TaskBoardNotifier'], $.merge(["UpdateTaskTitle"], $.makeArray(arguments)));
             }
         };
 

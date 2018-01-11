@@ -228,13 +228,19 @@
                             var id = parseInt($(this).data('id'));
                             taskInfoDialog.open({
                                 id: id,
-                                resTitle: vc.modules.renders.taskTitle,
-                                resFinishd: vc.modules.renders.taskFinishd,
+                                resTitle: vc.modules.broadcast.updateTaskTitle,
+                                resFinishd: function (taskId, finished) {
+                                    if (finished) {
+                                        vc.modules.broadcast.finishTask(taskId);
+                                    } else {
+                                        vc.modules.broadcast.cancelTask(taskId);
+                                    }
+                                },
                                 resDelete: vc.modules.broadcast.deleteTask,
-                                resBody: vc.modules.renders.taskTagBody,
-                                resTags: vc.modules.renders.taskTags,
-                                resUsers: vc.modules.renders.taskUsers,
-                                resExpirationDate: vc.modules.renders.taskExpirationDate,
+                                resBody: vc.modules.broadcast.updateTaskBody,
+                                resTags: vc.modules.broadcast.updateTaskTags,
+                                resUsers: vc.modules.broadcast.updateTaskFollowers,
+                                resExpirationDate: vc.modules.broadcast.updateTaskExpirationDate
                             });
                             return false;
                         });
@@ -465,6 +471,14 @@
                         }
                     }
 
+                },
+                taskResetOrders: function (columnId, taskIds) {
+                    if (taskIds != undefined && taskIds.length > 0) {
+                        var $ul = $column(columnId).find('.board-content-list');
+                        _.each(taskIds, function (id) {
+                            $ul.append($task(id));
+                        });
+                    }
                 }
             }
         }();
@@ -628,6 +642,8 @@
                         var json = res.value;
                         if (!json.Success) {
                             console.log('BoardService.ResetTaskOrders error: ' + JSON.stringify(json));
+                        } else {
+                            vc.modules.broadcast.resetTaskOrders(targetColumnId, taskIds);
                         }
                     });
                 },
@@ -639,6 +655,8 @@
                         var json = res.value;
                         if (!json.Success) {
                             console.log('BoardService.FinishTask error: ' + JSON.stringify(json));
+                        } else {
+                            vc.modules.broadcast.finishTask(taskId);
                         }
                     });
                 },
@@ -650,6 +668,8 @@
                         var json = res.value;
                         if (!json.Success) {
                             console.log('BoardService.CancelFinishTask error: ' + JSON.stringify(json));
+                        } else {
+                            vc.modules.broadcast.cancelTask(taskId);
                         }
                     });
                 }
@@ -770,6 +790,30 @@
                     addTask: function (task) {
                         vc.modules.service.taskItemAdd(task);
                     },
+                    updateTaskTitle: function (taskId, newTitle) {
+                        vc.modules.renders.taskTitle(taskId, newTitle);
+                    },
+                    updateTaskBody: function (taskId, haveBody) {
+                        vc.modules.renders.taskTagBody(taskId, haveBody != '');
+                    },
+                    updateTaskExpirationDate: function (taskId, date) {
+                        vc.modules.renders.taskExpirationDate(taskId, date);
+                    },
+                    finishTask: function (taskId) {
+                        vc.modules.renders.taskFinish(taskId);
+                    },
+                    cancelTask: function (taskId) {
+                        vc.modules.renders.taskCancel(taskId);
+                    },
+                    updateTaskTags: function (taskId, tagList) {
+                        vc.modules.renders.taskTags(taskId, tagList);
+                    },
+                    updateTaskFollowers: function (taskId, users) {
+                        vc.modules.renders.taskUsers(taskId, users);
+                    },
+                    resetTaskOrders: function (columnId, taskIds) {
+                        vc.modules.renders.taskResetOrders(columnId, taskIds);
+                    },
                     deleteTask: function (taskId) {
                         vc.modules.renders.taskRemove(taskId);
                     }
@@ -777,7 +821,8 @@
 
                 $.connection.hub.start()
                                 .done(function () {
-                                    console.log('SingalR connect successfully');
+                                    notifier.server.joinBoardRoom(vc.nodeId);
+                                    console.log('connect successfully');
                                 });
             }
 
@@ -785,20 +830,44 @@
                 initialize: _initialize,
                 //columns
                 createColumn: function (column) {
-                    notifier.server.createColumn(column);
+                    notifier.server.createColumn(vc.nodeId, column);
                 },
                 resetColumnOrders: function (columnIds) {
-                    notifier.server.resetColumnOrders(columnIds);
+                    notifier.server.resetColumnOrders(vc.nodeId, columnIds);
                 },
                 deleteColumn: function (columnId) {
-                    notifier.server.deleteColumn(columnId);
+                    notifier.server.deleteColumn(vc.nodeId, columnId);
                 },
                 //tasks
                 addTask: function (task) {
-                    notifier.server.addTask(task);
+                    notifier.server.addTask(vc.nodeId, task);
+                },
+                updateTaskTitle: function (taskId, newTitle) {
+                    notifier.server.updateTaskTitle(vc.nodeId, taskId, newTitle);
+                },
+                updateTaskBody: function (taskId, haveBody) {
+                    notifier.server.updateTaskBody(vc.nodeId, taskId, haveBody);
+                },
+                updateTaskExpirationDate: function (taskId, date) {
+                    notifier.server.updateTaskExpirationDate(vc.nodeId, taskId, date);
+                },
+                finishTask: function (taskId) {
+                    notifier.server.finishTask(vc.nodeId, taskId);
+                },
+                cancelTask: function (taskId) {
+                    notifier.server.cancelTask(vc.nodeId, taskId);
+                },
+                updateTaskTags: function (taskId, tagList) {
+                    notifier.server.updateTaskTags(vc.nodeId, taskId, tagList);
+                },
+                updateTaskFollowers: function (taskId, users) {
+                    notifier.server.updateTaskFollowers(vc.nodeId, taskId, users);
+                },
+                resetTaskOrders: function (columnId, taskIds) {
+                    notifier.server.resetTaskOrders(vc.nodeId, columnId, taskIds);
                 },
                 deleteTask: function (taskId) {
-                    notifier.server.deleteTask(taskId);
+                    notifier.server.deleteTask(vc.nodeId, taskId);
                 }
             }
         }();
