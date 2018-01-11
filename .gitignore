@@ -6,3 +6,4 @@ _temp/
 src/UNote.v12.suo
 src/.vs/config/applicationhost.config
 *.suo
+*.log
