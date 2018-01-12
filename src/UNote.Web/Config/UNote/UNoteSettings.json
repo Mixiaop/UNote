@@ -7,5 +7,6 @@
   "OnlineUserTime": 60,
   "NodeHtmlFilePath": "/html",
   "TempPath": "/_temp",
-  "UZeroMediaHost": "http://imgnote.youzy.cn"
+  "UZeroMediaHost": "http://imgnote.youzy.cn",
+  "CorpWeixinOpend": true
 }

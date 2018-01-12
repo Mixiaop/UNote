@@ -22,6 +22,7 @@ namespace UNote.Domain.Users
             LastIpAddress = "";
             LastLoginTime = "";
             CurrentUsedTeamId = 0;
+            CorpWeixinUserId = "";
         }
 
         /// <summary>
@@ -98,6 +99,11 @@ namespace UNote.Domain.Users
         /// 当前使用的小组（0或-1 = 我的笔记）
         /// </summary>
         public int CurrentUsedTeamId { get; set; }
+
+        /// <summary>
+        /// 企业微信UserId
+        /// </summary>
+        public string CorpWeixinUserId { get; set; }
 
         #region Custom Properties
         /// <summary>

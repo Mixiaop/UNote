@@ -1402,6 +1402,7 @@
     <Content Include="Notes\Files.aspx" />
     <Content Include="Notes\ManageNode.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="Config\UNote\CorpWeixinSettings.json" />
     <None Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -1417,6 +1418,7 @@
     <Content Include="Youzy\H5AgentLive.aspx" />
     <Content Include="Youzy\PCAgentLive.aspx" />
     <Content Include="Masters\User.master" />
+    <Content Include="_Test\CorpWeixinNotifyTests.aspx" />
     <Content Include="_Test\downpdf.aspx" />
     <Content Include="_Test\downword.aspx" />
     <Content Include="_Test\DragTests.aspx" />
@@ -1898,6 +1900,13 @@
     </Compile>
     <Compile Include="Youzy\PCAgentLive.aspx.designer.cs">
       <DependentUpon>PCAgentLive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_Test\CorpWeixinNotifyTests.aspx.cs">
+      <DependentUpon>CorpWeixinNotifyTests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Test\CorpWeixinNotifyTests.aspx.designer.cs">
+      <DependentUpon>CorpWeixinNotifyTests.aspx</DependentUpon>
     </Compile>
     <Compile Include="_Test\downpdf.aspx.cs">
       <DependentUpon>downpdf.aspx</DependentUpon>

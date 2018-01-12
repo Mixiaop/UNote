@@ -5,9 +5,9 @@ using U.AutoMapper;
 using U.UI;
 using U.Application.Services.Dto;
 using UNote.Domain.Notes;
+using UNote.Services.Events;
 using UNote.Services.Users;
 using UNote.Services.Notes.Dto;
-
 
 namespace UNote.Services.Notes.Impl
 {
@@ -137,7 +137,8 @@ namespace UNote.Services.Notes.Impl
             return res;
         }
 
-        public StateOutput UpdateColumnTitle(int columnId, string title) {
+        public StateOutput UpdateColumnTitle(int columnId, string title)
+        {
             var res = new StateOutput();
             try
             {
@@ -274,13 +275,15 @@ namespace UNote.Services.Notes.Impl
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public PagedResultDto<BoardTaskBriefDto> SearchArchivedTasks(int nodeId, string keywords = "", int pageIndex = 1, int pageSize = 20) {
+        public PagedResultDto<BoardTaskBriefDto> SearchArchivedTasks(int nodeId, string keywords = "", int pageIndex = 1, int pageSize = 20)
+        {
             if (nodeId > 0)
             {
                 var query = _contentRepository.GetAll()
                                               .Where(x => x.NodeId == nodeId && x.Archived == true);
 
-                if (keywords.IsNotNullOrEmpty()) {
+                if (keywords.IsNotNullOrEmpty())
+                {
                     query = query.Where(x => x.Title.Contains(keywords));
                 }
 
@@ -291,7 +294,8 @@ namespace UNote.Services.Notes.Impl
                 LoadFollowers(list);
                 return new PagedResultDto<BoardTaskBriefDto>(count, list);
             }
-            else {
+            else
+            {
                 return new PagedResultDto<BoardTaskBriefDto>();
             }
         }
@@ -390,8 +394,8 @@ namespace UNote.Services.Notes.Impl
             StateOutput res = new StateOutput();
             if (itemIds != null && itemIds.Length > 0 && targetColumnId > 0)
             {
-                List<Content> contents = null;
-                contents = _contentRepository.GetAll().Where(x => itemIds.Contains(x.Id)).ToList();
+                ContentColumn oldColumn = new ContentColumn();
+                List<Content> contents = _contentRepository.GetAll().Where(x => itemIds.Contains(x.Id)).ToList();
 
                 if (contents != null && contents.Count > 0)
                 {
@@ -401,12 +405,23 @@ namespace UNote.Services.Notes.Impl
                         var item = contents.Where(x => x.Id == id).FirstOrDefault();
                         if (item != null)
                         {
+                            if (item.ColumnId != targetColumnId)
+                            {
+                                oldColumn = item.Column;
+                            }
+
                             item.ColumnId = targetColumnId;
                             item.ColumnOrder = index;
                             _contentRepository.Update(item);
                             index--;
                         }
                     }
+                }
+
+                if (oldColumn.Id > 0 && oldColumn.Id != targetColumnId)
+                {
+                    //任务列表变动
+                    //var targetColumn = _contentRepository.Get(targetColumnId);
                 }
             }
             return res;
@@ -435,6 +450,10 @@ namespace UNote.Services.Notes.Impl
                 _contentService.Update(task);
 
                 AddTaskLog(task.Id, GetLoginedUserId(), "完成了任务");
+
+                var taskDto = task.MapTo<BoardTaskDto>();
+                LoadFollowers(taskDto);
+                EventPublisher.Publish(new TaskFinishedEvent(taskDto, GetLoginedUserNickName()));
             }
             return res;
         }
@@ -463,6 +482,10 @@ namespace UNote.Services.Notes.Impl
                 _contentService.Update(task);
 
                 AddTaskLog(task.Id, GetLoginedUserId(), "重做了任务");
+
+                var taskDto = task.MapTo<BoardTaskDto>();
+                LoadFollowers(taskDto);
+                EventPublisher.Publish(new TaskCanceledEvent(taskDto, GetLoginedUserNickName()));
             }
             return res;
         }
@@ -497,10 +520,16 @@ namespace UNote.Services.Notes.Impl
             _contentService.Update(task);
 
             AddTaskLog(task.Id, GetLoginedUserId(), "更新了任务内容");
+
+            var taskDto = task.MapTo<BoardTaskDto>();
+            LoadFollowers(taskDto);
+
+            EventPublisher.Publish(new TaskContentUpdatedEvent(taskDto, GetLoginedUserNickName()));
             return res;
         }
 
-        public StateOutput UpdateTaskExpirationDate(int taskId, string date) {
+        public StateOutput UpdateTaskExpirationDate(int taskId, string date)
+        {
             StateOutput res = new StateOutput();
             var task = _contentService.GetById(taskId);
             if (task == null)
@@ -509,7 +538,8 @@ namespace UNote.Services.Notes.Impl
                 return res;
             }
             bool again = false;
-            if (task.ColumnTaskExpirationDate.IsNotNullOrEmpty()) {
+            if (task.ColumnTaskExpirationDate.IsNotNullOrEmpty())
+            {
                 again = true;
             }
             task.ColumnTaskExpirationDate = date;
@@ -549,7 +579,8 @@ namespace UNote.Services.Notes.Impl
         /// <param name="originalTagName"></param>
         /// <param name="newTagName"></param>
         /// <returns></returns>
-        public StateOutput ReplaceAllTaskTags(int nodeId, string originalTagName, string newTagName) {
+        public StateOutput ReplaceAllTaskTags(int nodeId, string originalTagName, string newTagName)
+        {
             StateOutput res = new StateOutput();
             try
             {
@@ -557,27 +588,32 @@ namespace UNote.Services.Notes.Impl
                                               .Where(x => x.NodeId == nodeId && x.Archived == false && x.Tag.Contains(originalTagName))
                                               .OrderByDescending(x => x.CreationTime)
                                               .ToList();
-                tasks.ForEach((t) => {
+                tasks.ForEach((t) =>
+                {
                     var tagList = t.Tag.Split(",");
                     t.Tag = "";
-                    foreach (var s in tagList) {
+                    foreach (var s in tagList)
+                    {
                         if (s.IsNotNullOrEmpty() && s.ToLower() == originalTagName.ToLower())
                         {
                             t.Tag += newTagName + ",";
                         }
-                        else {
+                        else
+                        {
                             t.Tag += s + ",";
                         }
                     }
 
-                    if (t.Tag.IsNotNullOrEmpty()) {
+                    if (t.Tag.IsNotNullOrEmpty())
+                    {
                         t.Tag = t.Tag.TrimEnd(",");
 
                         _contentRepository.Update(t);
                     }
                 });
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 res.AddError(ex.Message);
             }
             return res;
@@ -588,7 +624,8 @@ namespace UNote.Services.Notes.Impl
         /// </summary>
         /// <param name="taskIds"></param>
         /// <returns></returns>
-        public StateOutput ArchiveTasks(List<int> taskIds) {
+        public StateOutput ArchiveTasks(List<int> taskIds)
+        {
             StateOutput res = new StateOutput();
             if (taskIds != null && taskIds.Count > 0)
             {
@@ -596,13 +633,14 @@ namespace UNote.Services.Notes.Impl
                                                        .OrderBy(x => x.CreationTime);
                 var list = query.ToList();
 
-                list.ForEach((task) =>{
+                list.ForEach((task) =>
+                {
                     task.Archived = true;
                     task.ArchivedDate = DateTime.Now;
                     _contentRepository.Update(task);
                 });
             }
-            
+
 
             return res;
         }
@@ -631,6 +669,8 @@ namespace UNote.Services.Notes.Impl
 
             _contentFollowerService.AddFollower(task, user);
             AddTaskLog(task.Id, GetLoginedUserId(), "添加了参与者【" + user.NickName + "】");
+
+            EventPublisher.Publish(new TaskFollowerAddedEvent() { Task = task.MapTo<BoardTaskDto>(), OperatorName = GetLoginedUserNickName(), User = user });
         }
 
         public void DeleteTaskFollower(int taskId, int userId)
@@ -640,6 +680,8 @@ namespace UNote.Services.Notes.Impl
 
             _contentFollowerService.RemoveFollower(task, user);
             AddTaskLog(task.Id, GetLoginedUserId(), "移除了参与者【" + user.NickName + "】");
+
+            EventPublisher.Publish(new TaskFollowerRemovedEvent() { Task = task.MapTo<BoardTaskDto>(), OperatorName = GetLoginedUserNickName(), User = user });
         }
         #endregion
 
@@ -650,30 +692,35 @@ namespace UNote.Services.Notes.Impl
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
-        public IList<BoardTaskLogDto> GetAllTaskLogs(int taskId, int count = 0) {
+        public IList<BoardTaskLogDto> GetAllTaskLogs(int taskId, int count = 0)
+        {
             var query = _contentLogRepository.GetAll();
             if (taskId > 0)
             {
                 query = query.Where(x => x.ContentId == taskId)
                              .OrderByDescending(x => x.CreationTime);
 
-                if (count > 0) {
+                if (count > 0)
+                {
                     query = query.Take(count);
                 }
 
                 var list = query.ToList();
 
                 var logs = list.MapTo<IList<BoardTaskLogDto>>();
-                if (logs != null) {
-                    logs.ForEach((log) => {
+                if (logs != null)
+                {
+                    logs.ForEach((log) =>
+                    {
                         log.FormatCreationTime = CommonHelper.FormatTimeNote(log.CreationTime, log.CreationTime.ToString("yyyy-MM-dd HH:mm"));
                     });
                 }
 
                 return logs;
-                
+
             }
-            else {
+            else
+            {
                 return new List<BoardTaskLogDto>();
             }
         }
@@ -719,7 +766,7 @@ namespace UNote.Services.Notes.Impl
                             {
                                 if (f != null && f.UserId > 0)
                                 {
-                                    task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName, PinYin = f.User.PinYin });
+                                    task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName, PinYin = f.User.PinYin, CorpWeixinUserId = f.User.CorpWeixinUserId });
                                 }
                             });
                         }
@@ -749,7 +796,7 @@ namespace UNote.Services.Notes.Impl
                         {
                             if (f != null && f.UserId > 0)
                             {
-                                task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName, PinYin = f.User.PinYin });
+                                task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName, PinYin = f.User.PinYin, CorpWeixinUserId = f.User.CorpWeixinUserId });
                             }
                         });
                     }

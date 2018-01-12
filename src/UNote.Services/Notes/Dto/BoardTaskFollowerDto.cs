@@ -10,5 +10,7 @@
         public string NickName { get; set; }
 
         public string PinYin { get; set; }
+
+        public string CorpWeixinUserId { get; set; }
     }
 }

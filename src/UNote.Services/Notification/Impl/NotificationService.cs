@@ -6,22 +6,28 @@ using U.BackgroundJobs;
 using UNote.Domain.Notes;
 using UNote.Domain.Users;
 using UNote.Services.Notes;
+using UNote.Services.Notes.Dto;
 using UNote.Services.Users;
+using UNote.Services.External;
 
 namespace UNote.Services.Notification
 {
-    public class NotificationService : INotificationService
+    public class NotificationService : ServiceBase, INotificationService
     {
         private readonly IEmailSender _emailSender;
         private readonly INodeService _nodeService;
         private readonly IUserService _userService;
-        public NotificationService(IEmailSender emailSender, INodeService nodeService, IUserService userService)
+        private readonly ICorpWeixinService _corpWeixinService;
+
+        public NotificationService(IEmailSender emailSender, INodeService nodeService, IUserService userService, ICorpWeixinService corpWeixinService)
         {
             _emailSender = emailSender;
             _nodeService = nodeService;
             _userService = userService;
+            _corpWeixinService = corpWeixinService;
         }
 
+        #region Contents general
         /// <summary>
         /// 添加笔记后发送（如果有关注的人）
         /// </summary>
@@ -112,5 +118,84 @@ namespace UNote.Services.Notification
                 }
             }
         }
+        #endregion
+
+        #region Tasks
+        /// <summary>
+        /// 当（用户）被加入到任务
+        /// </summary>
+        /// <param name="task"></param>
+        /// <param name="operatorName"></param>
+        /// <param name="user"></param>
+        public void TaskAddedFollower(BoardTaskDto task, string operatorName, User user)
+        {
+            if (Settings.CorpWeixinOpend && user.CorpWeixinUserId.IsNotNullOrEmpty())
+            {
+                var userList = new List<string>();
+                userList.Add(user.CorpWeixinUserId);
+                string content = string.Format("你已被【{0}】加入并参与到任务（【{2}】{1}）。", operatorName, task.Title, task.Node.NodeName);
+                _corpWeixinService.SendMessage(userList, content);
+            }
+        }
+
+        public void TaskRemovedFollower(BoardTaskDto task, string operatorName, User user)
+        {
+            if (Settings.CorpWeixinOpend && user.CorpWeixinUserId.IsNotNullOrEmpty())
+            {
+                var userList = new List<string>();
+                userList.Add(user.CorpWeixinUserId);
+                string content = string.Format("你已被【{0}】从任务（【{2}】{1}）参与者中移除了。", operatorName, task.Title, task.Node.NodeName);
+                _corpWeixinService.SendMessage(userList, content);
+            }
+        }
+
+        public void TaskContentUpdated(BoardTaskDto task, string operatorName)
+        {
+            if (Settings.CorpWeixinOpend)
+            {
+                var userList = new List<string>();
+                task.Followers.ForEach((f) => {
+                    if (f.CorpWeixinUserId.IsNotNullOrEmpty()) {
+                        userList.Add(f.CorpWeixinUserId);
+                    }
+                });
+
+                string content = string.Format("【{0}】更新了任务（【{1}】{2}）的内容。", operatorName, task.Node.NodeName, task.Title);
+                _corpWeixinService.SendMessage(userList, content);
+            }
+        }
+
+        public void TaskFinished(BoardTaskDto task, string operatorName) {
+            if (Settings.CorpWeixinOpend)
+            {
+                var userList = new List<string>();
+                task.Followers.ForEach((f) => {
+                    if (f.CorpWeixinUserId.IsNotNullOrEmpty())
+                    {
+                        userList.Add(f.CorpWeixinUserId);
+                    }
+                });
+
+                string content = string.Format("【{0}】完成了任务（【{1}】{2}）。", operatorName, task.Node.NodeName, task.Title);
+                _corpWeixinService.SendMessage(userList, content);
+            }
+        }
+
+        public void TaskCanceled(BoardTaskDto task, string operatorName) {
+            if (Settings.CorpWeixinOpend)
+            {
+                var userList = new List<string>();
+                task.Followers.ForEach((f) => {
+                    if (f.CorpWeixinUserId.IsNotNullOrEmpty())
+                    {
+                        userList.Add(f.CorpWeixinUserId);
+                    }
+                });
+
+                string content = string.Format("【{0}】取消完成了任务（【{1}】{2}）。", operatorName, task.Node.NodeName, task.Title);
+                _corpWeixinService.SendMessage(userList, content);
+            }
+        }
+        #endregion
     }
 }

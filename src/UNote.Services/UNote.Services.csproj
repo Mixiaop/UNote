@@ -98,6 +98,18 @@
     <Compile Include="Authrization\IAuthenticationService.cs" />
     <Compile Include="Events\Consumers\NoteEventConsumer.cs" />
     <Compile Include="Events\TagUpdatedEvent.cs" />
+    <Compile Include="Events\TaskCanceledEvent.cs" />
+    <Compile Include="Events\TaskFinishedEvent.cs" />
+    <Compile Include="Events\TaskFollowerAddedEvent.cs" />
+    <Compile Include="Events\TaskContentUpdatedEvent.cs" />
+    <Compile Include="Events\TaskFollowerRemovedEvent.cs" />
+    <Compile Include="External\Dto\CorpWeixinResponseDto.cs" />
+    <Compile Include="External\Dto\CorpWeixinSendMessageDto.cs" />
+    <Compile Include="External\Dto\GetCorpWeixinUserIdOutput.cs" />
+    <Compile Include="External\Dto\GetCorpWexinAccessTokenOutput.cs" />
+    <Compile Include="External\Dto\CorpWeixinSendMessageOutput.cs" />
+    <Compile Include="External\ICorpWeixinService.cs" />
+    <Compile Include="External\Impl\CorpWeixinService.cs" />
     <Compile Include="IO\ITempFolderService.cs" />
     <Compile Include="IO\TempFolderService.cs" />
     <Compile Include="IService.cs" />
@@ -127,7 +139,7 @@
     <Compile Include="Notes\Impl\NodeService.cs" />
     <Compile Include="Notes\Impl\TagService.cs" />
     <Compile Include="Notification\INotificationService.cs" />
-    <Compile Include="Notification\NotificationService.cs" />
+    <Compile Include="Notification\Impl\NotificationService.cs" />
     <Compile Include="Notification\SendMailJob.cs" />
     <Compile Include="Notification\SendMailJobArgs.cs" />
     <Compile Include="ServiceBase.cs" />

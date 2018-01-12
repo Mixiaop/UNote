@@ -42,6 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CorpWeixinSettings.cs" />
     <Compile Include="DatabaseSettings.cs" />
     <Compile Include="UNoteConfigurationUPrime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

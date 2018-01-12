@@ -46,5 +46,10 @@ namespace UNote.Configuration
         public string TempPath { get; set; }
 
         public string UZeroMediaHost { get; set; }
+
+        /// <summary>
+        /// 企业微信是否开启（通知等功能）
+        /// </summary>
+        public bool CorpWeixinOpend { get; set; }
     }
 }

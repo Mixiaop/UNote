@@ -462,7 +462,7 @@
                         $html.html('<i class="fa fa-clock-o"></i> ' + date);
                         $html.removeClass('hidden');
                         var now = new Date();
-                        var expirationDate = new Date(date + ' 00:00:00');
+                        var expirationDate = new Date(date + ' 23:59:59');
 
                         if (now > expirationDate) {
                             $html.css({ 'padding-left': '5px', 'padding-right': '5px' });
