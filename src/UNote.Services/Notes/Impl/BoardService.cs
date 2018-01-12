@@ -546,6 +546,10 @@ namespace UNote.Services.Notes.Impl
             _contentService.Update(task);
 
             AddTaskLog(task.Id, GetLoginedUserId(), (date.IsNotNullOrEmpty() ? (again ? "重设" : "设置") : "取消") + "了截止时间");
+
+            var taskDto = task.MapTo<BoardTaskDto>();
+            LoadFollowers(taskDto);
+            EventPublisher.Publish(new TaskExpirationDateUpdatedEvent(taskDto, GetLoginedUserNickName()));
             return res;
         }
 

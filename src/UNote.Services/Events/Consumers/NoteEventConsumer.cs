@@ -10,7 +10,8 @@ namespace UNote.Services.Events.Consumers
                                      IConsumer<TaskFollowerRemovedEvent>,
                                      IConsumer<TaskContentUpdatedEvent>,
                                      IConsumer<TaskFinishedEvent>,
-                                     IConsumer<TaskCanceledEvent>
+                                     IConsumer<TaskCanceledEvent>,
+                                     IConsumer<TaskExpirationDateUpdatedEvent>
     {
         private readonly IBoardService _boradService;
         private readonly INotificationService _notificationService;
@@ -63,6 +64,14 @@ namespace UNote.Services.Events.Consumers
             if (eventMessage != null)
             {
                 _notificationService.TaskCanceled(eventMessage.Task, eventMessage.OperatorName);
+            }
+        }
+
+        public void HandleEvent(TaskExpirationDateUpdatedEvent eventMessage)
+        {
+            if (eventMessage != null)
+            {
+                _notificationService.TaskExpirationDateUpdated(eventMessage.Task, eventMessage.OperatorName);
             }
         }
     }

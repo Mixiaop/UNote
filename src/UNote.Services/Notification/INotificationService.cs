@@ -43,6 +43,8 @@ namespace UNote.Services.Notification
 
         void TaskCanceled(BoardTaskDto task, string operatorName);
 
+        void TaskExpirationDateUpdated(BoardTaskDto task, string operatorName);
+
         //void TaskColumnMoveChanged(BoardColumnBriefDto , string operatorName);
         #endregion
     }

@@ -99,6 +99,7 @@
     <Compile Include="Events\Consumers\NoteEventConsumer.cs" />
     <Compile Include="Events\TagUpdatedEvent.cs" />
     <Compile Include="Events\TaskCanceledEvent.cs" />
+    <Compile Include="Events\TaskExpirationDateUpdatedEvent.cs" />
     <Compile Include="Events\TaskFinishedEvent.cs" />
     <Compile Include="Events\TaskFollowerAddedEvent.cs" />
     <Compile Include="Events\TaskContentUpdatedEvent.cs" />

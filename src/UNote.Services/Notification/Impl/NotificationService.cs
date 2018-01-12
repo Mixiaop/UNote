@@ -196,6 +196,26 @@ namespace UNote.Services.Notification
                 _corpWeixinService.SendMessage(userList, content);
             }
         }
+
+        public void TaskExpirationDateUpdated(BoardTaskDto task, string operatorName) {
+            if (Settings.CorpWeixinOpend)
+            {
+                if (task.ColumnTaskExpirationDate.IsNotNullOrEmpty())
+                {
+                    var userList = new List<string>();
+                    task.Followers.ForEach((f) =>
+                    {
+                        if (f.CorpWeixinUserId.IsNotNullOrEmpty())
+                        {
+                            userList.Add(f.CorpWeixinUserId);
+                        }
+                    });
+
+                    string content = string.Format("【{0}】设置了任务（【{1}】{2}）的截止时间【{3}】。", operatorName, task.Node.NodeName, task.Title, task.ColumnTaskExpirationDate);
+                    _corpWeixinService.SendMessage(userList, content);
+                }
+            }
+        }
         #endregion
     }
 }
