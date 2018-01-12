@@ -133,7 +133,7 @@ namespace UNote.Services.Notification
             {
                 var userList = new List<string>();
                 userList.Add(user.CorpWeixinUserId);
-                string content = string.Format("你已被【{0}】加入并参与到任务（【{2}】{1}）。", operatorName, task.Title, task.Node.NodeName);
+                string content = string.Format("你已被【{0}】加入并参与到任务（【{2}】 - {1}）。", operatorName, task.Title, task.Node.NodeName);
                 _corpWeixinService.SendMessage(userList, content);
             }
         }
@@ -144,7 +144,7 @@ namespace UNote.Services.Notification
             {
                 var userList = new List<string>();
                 userList.Add(user.CorpWeixinUserId);
-                string content = string.Format("你已被【{0}】从任务（【{2}】{1}）参与者中移除了。", operatorName, task.Title, task.Node.NodeName);
+                string content = string.Format("你已被【{0}】从任务（【{2}】 - {1}）参与者中移除了。", operatorName, task.Title, task.Node.NodeName);
                 _corpWeixinService.SendMessage(userList, content);
             }
         }
@@ -160,7 +160,7 @@ namespace UNote.Services.Notification
                     }
                 });
 
-                string content = string.Format("【{0}】更新了任务（【{1}】{2}）的内容。", operatorName, task.Node.NodeName, task.Title);
+                string content = string.Format("【{0}】更新了任务（【{1}】 - {2}）的内容。", operatorName, task.Node.NodeName, task.Title);
                 _corpWeixinService.SendMessage(userList, content);
             }
         }
@@ -176,7 +176,7 @@ namespace UNote.Services.Notification
                     }
                 });
 
-                string content = string.Format("【{0}】完成了任务（【{1}】{2}）。", operatorName, task.Node.NodeName, task.Title);
+                string content = string.Format("【{0}】完成了任务（【{1}】 - {2}）。", operatorName, task.Node.NodeName, task.Title);
                 _corpWeixinService.SendMessage(userList, content);
             }
         }
@@ -192,7 +192,7 @@ namespace UNote.Services.Notification
                     }
                 });
 
-                string content = string.Format("【{0}】取消完成了任务（【{1}】{2}）。", operatorName, task.Node.NodeName, task.Title);
+                string content = string.Format("【{0}】取消完成了任务（【{1}】 - {2}）。", operatorName, task.Node.NodeName, task.Title);
                 _corpWeixinService.SendMessage(userList, content);
             }
         }
@@ -211,7 +211,7 @@ namespace UNote.Services.Notification
                         }
                     });
 
-                    string content = string.Format("【{0}】设置了任务（【{1}】{2}）的截止时间【{3}】。", operatorName, task.Node.NodeName, task.Title, task.ColumnTaskExpirationDate);
+                    string content = string.Format("【{0}】设置了任务（【{1}】 - {2}）的截止时间【{3}】。", operatorName, task.Node.NodeName, task.Title, task.ColumnTaskExpirationDate);
                     _corpWeixinService.SendMessage(userList, content);
                 }
             }
