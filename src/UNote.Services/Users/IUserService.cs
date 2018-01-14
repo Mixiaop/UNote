@@ -52,6 +52,10 @@ namespace UNote.Services.Users
         /// <returns></returns>
         bool ExistsUser(string username);
 
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="user"></param>
         void Update(User user);
 
         void UpdateCurrentUsedTeam(int userId, string teamKey);

@@ -16,6 +16,7 @@
         'jquery.appear': '/lib/core/jquery.appear.min',
         'jquery.countTo': '/lib/core/jquery.countTo.min',
         'jquery.fineuploader': '/lib/plugins/jquery.fineuploader/jquery.fineuploader-3.4.1.min',
+        'cropper': '/lib/plugins/cropper/cropper.min',
         'jquery.tagsinput': '/lib/plugins/jquery-tags-input/jquery.tagsinput.min',
         'jquery.ui': '/lib/plugins/jquery-ui/jquery-ui',
         'jquery.slimscroll': '/lib/plugins/jquery-slimscroll/jquery.slimscroll',
@@ -50,6 +51,7 @@
         'jquery.tagsinput': { deps: ['jquery'] },
         'jquery.ui': { deps: ['jquery'] },
         'jquery.confirm': { deps: ['jquery'] },
+        'cropper':{deps:['jquery']},
         'kindeditor/zh_CN': { deps: ['kindeditor'] }//, 'css!./editors/kindeditor/css/default.css'
         // 'handlebars': { exports: 'Handlebars' },
     }

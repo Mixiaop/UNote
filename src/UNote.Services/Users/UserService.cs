@@ -98,6 +98,10 @@ namespace UNote.Services.Users
             return count > 0;
         }
 
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="user"></param>
         public void Update(User user)
         {
             _userRepository.Update(user);

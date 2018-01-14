@@ -999,6 +999,8 @@
     <Content Include="lib\plugins\ckeditor\skins\bootstrapck\sample\js\analytics.js" />
     <Content Include="lib\plugins\ckeditor\skins\bootstrapck\sample\js\jquery-1.11.0.min.js" />
     <Content Include="lib\plugins\ckeditor\styles.js" />
+    <Content Include="lib\plugins\cropper\cropper.min.css" />
+    <Content Include="lib\plugins\cropper\cropper.min.js" />
     <Content Include="lib\plugins\datatables\jquery.dataTables.css" />
     <Content Include="lib\plugins\datatables\jquery.dataTables.js" />
     <Content Include="lib\plugins\datatables\jquery.dataTables.min.css" />
