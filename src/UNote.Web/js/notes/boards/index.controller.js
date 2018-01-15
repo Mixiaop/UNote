@@ -463,8 +463,8 @@
                         $html.removeClass('hidden');
                         var now = new Date();
                         var expirationDate = new Date(date + ' 23:59:59');
-
-                        if (now > expirationDate) {
+                        
+                        if (parseInt($task(taskId).find('span').data('check')) != 1 && now > expirationDate) {
                             $html.css({ 'padding-left': '5px', 'padding-right': '5px' });
                             $html.css({ 'background': '#FF4747', 'color': '#fff' });
                             $html.find('i').css({ 'color': '#fff' });
