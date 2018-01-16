@@ -58,6 +58,18 @@ namespace UNote.Services.Users
         /// <param name="user"></param>
         void Update(User user);
 
+        /// <summary>
+        /// 更新用户头像
+        /// </summary>
+        /// <param name="pictureId"></param>
+        /// <param name="picX"></param>
+        /// <param name="picY"></param>
+        /// <param name="picW"></param>
+        /// <param name="picH"></param>
+        void UpdateAvatar(int pictureId, int picX, int picY, int picW, int picH);
+
+
+      
         void UpdateCurrentUsedTeam(int userId, string teamKey);
 
         /// <summary>

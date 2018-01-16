@@ -49,6 +49,42 @@ namespace UNote.Web.Users {
         protected global::System.Web.UI.WebControls.HiddenField hfPreviewUrl;
         
         /// <summary>
+        /// hfPicX 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfPicX;
+        
+        /// <summary>
+        /// hfPicY 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfPicY;
+        
+        /// <summary>
+        /// hfPicW 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfPicW;
+        
+        /// <summary>
+        /// hfPicH 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfPicH;
+        
+        /// <summary>
         /// LinkButton1 控件。
         /// </summary>
         /// <remarks>

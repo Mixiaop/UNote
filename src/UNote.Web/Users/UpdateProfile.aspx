@@ -55,6 +55,10 @@
                                         <div id="thumbPicture"></div>
                                         <asp:HiddenField runat="server" ID="hfPreviewId" />
                                         <asp:HiddenField runat="server" ID="hfPreviewUrl" />
+                                        <asp:HiddenField runat="server" ID="hfPicX" />
+                                        <asp:HiddenField runat="server" ID="hfPicY" />
+                                        <asp:HiddenField runat="server" ID="hfPicW" />
+                                        <asp:HiddenField runat="server" ID="hfPicH" />
                                     </div>
                                 </div>
 
@@ -104,7 +108,11 @@
                            // You will have to send it to your custom server side script and crop the image there
                            // Since this event is fired each time you set the crop section, you could also use getData()
                            // method on demand. Please check out https://fengyuanchen.github.io/cropperjs/ for more info
-                           console.log(e.detail);
+                           //console.log(e.detail);
+                           $("#<%= hfPicX.ClientID %>").val(parseInt(e.detail.x));
+                           $("#<%= hfPicY.ClientID %>").val(parseInt(e.detail.y));
+                           $("#<%= hfPicW.ClientID %>").val(parseInt(e.detail.width));
+                           $("#<%= hfPicH.ClientID %>").val(parseInt(e.detail.height));
                        }
                    });
 

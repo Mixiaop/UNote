@@ -19,12 +19,19 @@ namespace UNote.Web.Users
             {
                 currentUser = GetLoginedUser();
                 tbNickName.Text = currentUser.NickName;
+                hfPreviewUrl.Value = currentUser.AvatarUrl;
             }
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
             currentUser = GetLoginedUser();
+
+            var _hfPicId = hfPreviewId.Value.ToInt();
+            var _hfPicX = hfPicX.Value.ToInt();
+            var _hfPicY = hfPicY.Value.ToInt();
+            var _hfPicW = hfPicW.Value.ToInt();
+            var _hfPicH = hfPicH.Value.ToInt();
 
             var nickName = tbNickName.Text.Trim();
 
@@ -39,6 +46,10 @@ namespace UNote.Web.Users
             try
             {
                 _userService.Update(currentUser);
+                if (_hfPicId >0)
+                {
+                    _userService.UpdateAvatar(_hfPicId, _hfPicX, _hfPicY, _hfPicW, _hfPicH);
+                }
                 ltlMessage.Text = AlertSuccess("修改成功");
                 this.RedirectByTime("UpdateProfile.aspx", 500);
             }
