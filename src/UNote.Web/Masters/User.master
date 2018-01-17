@@ -253,7 +253,7 @@
                                 <li>
                                     <div class="btn-group">
                                         <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-                                            <img src="<%= Model.LoginedUser.AvatarUrl %>" alt="Avatar">
+                                            <img src="<%= Model.LoginedUser.AvatarUrl.IsNotNullOrEmpty()? Model.LoginedUser.AvatarUrl: "/img/avatars/avatar1.jpg" %>" alt="Avatar">
                                             <%--<%= Model.LoginedUser.NickName %>--%>
                                             <span class="caret"></span>
                                         </button>

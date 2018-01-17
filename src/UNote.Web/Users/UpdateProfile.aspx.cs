@@ -15,8 +15,10 @@ namespace UNote.Web.Users
             if (!IsPostBack)
             {
                 var user = GetLoginedUser();
-                tbNickName.Text = user.NickName;
-                hfPreviewUrl.Value = user.AvatarUrl;
+                if (user.NickName.IsNotNullOrEmpty())
+                    tbNickName.Text = user.NickName;
+                if (user.AvatarUrl.IsNotNullOrEmpty())
+                    hfPreviewUrl.Value = user.AvatarUrl;
             }
         }
 
@@ -30,7 +32,7 @@ namespace UNote.Web.Users
             input.PicY = hfPicY.Value.ToInt();
             input.PicW = hfPicW.Value.ToInt();
             input.PicH = hfPicH.Value.ToInt();
-            
+
             if (input.NickName.IsNullOrEmpty())
             {
                 ltlMessage.Text = AlertError("请至少输个昵称吧");
@@ -45,7 +47,8 @@ namespace UNote.Web.Users
                     ltlMessage.Text = AlertError(res.Errors[0]);
                     return;
                 }
-                else {
+                else
+                {
                     ltlMessage.Text = AlertSuccess("修改成功");
                     this.RedirectByTime("UpdateProfile.aspx", 500);
                 }
@@ -57,6 +60,6 @@ namespace UNote.Web.Users
             }
         }
 
-       
+
     }
 }
