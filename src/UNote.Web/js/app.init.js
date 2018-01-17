@@ -56,7 +56,7 @@
         'jquery.confirm': { deps: ['jquery'] },
         'kindeditor/zh_CN': { deps: ['kindeditor'] },//, 'css!./editors/kindeditor/css/default.css',
         'cropper':{deps:['jquery']},
-        'kindeditor/zh_CN': { deps: ['kindeditor'] }//, 'css!./editors/kindeditor/css/default.css',
+        'kindeditor/zh_CN': { deps: ['kindeditor'] },//, 'css!./editors/kindeditor/css/default.css',
         // 'handlebars': { exports: 'Handlebars' },
         'signalR.hubs': { deps: ['jquery.signalR'] }
     }
