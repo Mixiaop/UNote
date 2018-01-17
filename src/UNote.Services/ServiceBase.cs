@@ -12,20 +12,30 @@ namespace UNote.Services
     public abstract class ServiceBase : U.Application.Services.ApplicationService
     {
         public IEventPublisher EventPublisher;
-        public IAuthenticationService AuthService;
         public UNoteSettings Settings;
         public ServiceBase() {
             EventPublisher = UPrimeEngine.Instance.Resolve<IEventPublisher>();
-            AuthService = UPrimeEngine.Instance.Resolve<IAuthenticationService>();
             Settings = UPrimeEngine.Instance.Resolve<UNoteSettings>();
         }
 
-        public int GetLoginedUserId() {
+       
+    }
+
+    public abstract class AuthServiceBase : ServiceBase {
+        public IAuthenticationService AuthService;
+        public AuthServiceBase()
+        {
+            AuthService = UPrimeEngine.Instance.Resolve<IAuthenticationService>();
+        }
+
+        public int GetLoginedUserId()
+        {
             var user = AuthService.GetAuthenticatedUser();
             return user != null ? user.Id : 0;
         }
 
-        public string GetLoginedUserNickName() {
+        public string GetLoginedUserNickName()
+        {
             var user = AuthService.GetAuthenticatedUser();
             return user != null ? user.NickName : "";
         }

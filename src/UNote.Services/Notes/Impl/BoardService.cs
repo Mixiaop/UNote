@@ -11,7 +11,7 @@ using UNote.Services.Notes.Dto;
 
 namespace UNote.Services.Notes.Impl
 {
-    public class BoardService : ServiceBase, IBoardService
+    public class BoardService : AuthServiceBase, IBoardService
     {
         #region Fields & Ctor
         private readonly IContentColumnRepository _columnRepository;

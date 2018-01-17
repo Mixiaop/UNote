@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using U.Application.Services.Dto;
 using UNote.Domain.Users;
 using UNote.Services.Users.Dto;
@@ -12,8 +8,9 @@ namespace UNote.Services.Users
     /// <summary>
     /// “用户信息” 应用服务
     /// </summary>
-    public interface IUserService : U.Application.Services.IApplicationService
+    public interface IUserService : IService
     {
+        #region Query / Getts
         /// <summary>
         /// 查询用户
         /// </summary>
@@ -51,7 +48,13 @@ namespace UNote.Services.Users
         /// <param name="username"></param>
         /// <returns></returns>
         bool ExistsUser(string username);
+        #endregion
 
+        void UpdateCurrentUsedTeam(int userId, string teamKey);
+
+        StateOutput UpdateProfile(UpdateProfileInput input);
+
+        #region Admin
         /// <summary>
         /// 更新用户信息
         /// </summary>
@@ -59,23 +62,10 @@ namespace UNote.Services.Users
         void Update(User user);
 
         /// <summary>
-        /// 更新用户头像
-        /// </summary>
-        /// <param name="pictureId"></param>
-        /// <param name="picX"></param>
-        /// <param name="picY"></param>
-        /// <param name="picW"></param>
-        /// <param name="picH"></param>
-        void UpdateAvatar(int pictureId, int picX, int picY, int picW, int picH);
-
-
-      
-        void UpdateCurrentUsedTeam(int userId, string teamKey);
-
-        /// <summary>
         /// 删除一个用户
         /// </summary>
         /// <param name="user"></param>
         void Delete(User user);
+        #endregion
     }
 }

@@ -1,24 +1,31 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using U;
 using U.AutoMapper;
 using U.UI;
 using U.Application.Services.Dto;
+using UZeroMedia.Client.Services;
 using UNote.Domain.Users;
 using UNote.Services.Users.Dto;
 using UNote.Services.Teams;
 
 namespace UNote.Services.Users
 {
-    public class UserService : IUserService
+    public class UserService : ServiceBase, IUserService
     {
         private readonly IUserRepository _userRepository;
         private readonly ITeamService _teamService;
-        public UserService(IUserRepository userRepository, ITeamService teamService)
+
+        private readonly PictureClientService _pictureClientService;
+        public UserService(IUserRepository userRepository, ITeamService teamService,
+                           PictureClientService pictureClientService)
         {
+            _pictureClientService = pictureClientService;
             _userRepository = userRepository;
             _teamService = teamService;
         }
 
+        #region Query / Getts
         /// <summary>
         /// 查询用户
         /// </summary>
@@ -97,53 +104,45 @@ namespace UNote.Services.Users
             var count = _userRepository.Count(x => x.Username == username);
             return count > 0;
         }
+        #endregion
 
-        /// <summary>
-        /// 更新用户信息
-        /// </summary>
-        /// <param name="user"></param>
-        public void Update(User user)
+        public StateOutput UpdateProfile(UpdateProfileInput input)
         {
-            if (user != null)
-                _userRepository.Update(user);
-        }
+            StateOutput res = new StateOutput();
 
-        /// <summary>
-        /// 更新用户头像
-        /// </summary>
-        /// <param name="pictureId"></param>
-        /// <param name="picX"></param>
-        /// <param name="picY"></param>
-        /// <param name="picW"></param>
-        /// <param name="picH"></param>
-        public void UpdateAvatar(int pictureId, int picX, int picY, int picW, int picH)
-        {
-            //_userRepository.PictureCut(pictureId, picX, picY, picW, picH);
-        }
+            var user = GetById(input.UserId);
+            if (user == null)
+            {
+                res.AddError(string.Format("未找到用户【UserId：{0}】", input.UserId));
+                return res;
+            }
+            bool needUpdate = false;
+            if (input.NickName.IsNotNullOrEmpty())
+            {
+                user.NickName = input.NickName;
+                needUpdate = true;
+            }
 
-        /// <summary>
-        /// 图片裁切
-        /// </summary>
-        /// <param name="pictureId"></param>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="w"></param>
-        /// <param name="h"></param>
-        /// <returns></returns>
-        public void PictureCut(int pictureId, int x, int y, int w, int h)
-        {
-            SortedDictionary<string, string> parms = new SortedDictionary<string, string>();
-            parms.Add("pictureId", pictureId.ToString());
-            parms.Add("x", x.ToString());
-            parms.Add("y", y.ToString());
-            parms.Add("w", w.ToString());
-            parms.Add("h", h.ToString());
+            if (input.AvatarId > 0)
+            {
+                user.AvatarId = input.AvatarId;
+                if (input.PicW > 0 && input.PicH > 0)
+                {
+                    var picRes = _pictureClientService.Cut(input.AvatarId, input.PicX, input.PicY, input.PicW, input.PicH);
+                    if (picRes.Results != null && picRes.IsSuccess())
+                    {
+                        user.AvatarUrl = picRes.Results.PictureUrl;
+                    }
+                }
+                needUpdate = true;
+            }
 
-            //var message = _webRequest.CreateRequestAsGet(
-            //    GetUrl("pictures/cut"),
-            //    parms, _signKey);
+            if (needUpdate) {
+                Update(user);
+            }
 
-            //return ToObject<PictureDto>(message);
+
+            return res;
         }
 
 
@@ -163,7 +162,8 @@ namespace UNote.Services.Users
                     {
                         user.CurrentUsedTeamId = team.Id;
                     }
-                    else {
+                    else
+                    {
                         user.CurrentUsedTeamId = 0;
                     }
                 }
@@ -172,7 +172,16 @@ namespace UNote.Services.Users
 
         }
 
-
+        #region Admin
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="user"></param>
+        public void Update(User user)
+        {
+            if (user != null)
+                _userRepository.Update(user);
+        }
 
         /// <summary>
         /// 删除一个用户
@@ -185,5 +194,6 @@ namespace UNote.Services.Users
 
             _userRepository.Delete(user);
         }
+        #endregion
     }
 }

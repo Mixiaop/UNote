@@ -1,57 +1,54 @@
 ﻿using System;
 using U;
 using U.UI;
-using UNote.Domain.Users;
 using UNote.Services.Users;
+using UNote.Services.Users.Dto;
 
 namespace UNote.Web.Users
 {
     public partial class UpdateProfile : Infrastructure.UserPage
     {
-
         IUserService _userService = UPrimeEngine.Instance.Resolve<IUserService>();
-
-        protected User currentUser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                currentUser = GetLoginedUser();
-                tbNickName.Text = currentUser.NickName;
-                hfPreviewUrl.Value = currentUser.AvatarUrl;
+                var user = GetLoginedUser();
+                tbNickName.Text = user.NickName;
+                hfPreviewUrl.Value = user.AvatarUrl;
             }
         }
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            currentUser = GetLoginedUser();
-
-            var _hfPicId = hfPreviewId.Value.ToInt();
-            var _hfPicX = hfPicX.Value.ToInt();
-            var _hfPicY = hfPicY.Value.ToInt();
-            var _hfPicW = hfPicW.Value.ToInt();
-            var _hfPicH = hfPicH.Value.ToInt();
-
-            var nickName = tbNickName.Text.Trim();
-
-            if (nickName.IsNullOrEmpty())
+            var input = new UpdateProfileInput();
+            input.UserId = GetLoginedUser().Id;
+            input.NickName = tbNickName.Text.Trim();
+            input.AvatarId = hfPreviewId.Value.ToInt();
+            input.PicX = hfPicX.Value.ToInt();
+            input.PicY = hfPicY.Value.ToInt();
+            input.PicW = hfPicW.Value.ToInt();
+            input.PicH = hfPicH.Value.ToInt();
+            
+            if (input.NickName.IsNullOrEmpty())
             {
                 ltlMessage.Text = AlertError("请至少输个昵称吧");
                 return;
             }
 
-            currentUser.NickName = nickName;
-
             try
             {
-                _userService.Update(currentUser);
-                if (_hfPicId >0)
+                var res = _userService.UpdateProfile(input);
+                if (!res.Success)
                 {
-                    _userService.UpdateAvatar(_hfPicId, _hfPicX, _hfPicY, _hfPicW, _hfPicH);
+                    ltlMessage.Text = AlertError(res.Errors[0]);
+                    return;
                 }
-                ltlMessage.Text = AlertSuccess("修改成功");
-                this.RedirectByTime("UpdateProfile.aspx", 500);
+                else {
+                    ltlMessage.Text = AlertSuccess("修改成功");
+                    this.RedirectByTime("UpdateProfile.aspx", 500);
+                }
             }
             catch (UserFriendlyException ex)
             {

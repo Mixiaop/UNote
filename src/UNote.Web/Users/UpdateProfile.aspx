@@ -48,7 +48,7 @@
                                     <div class="col-xs-4">
                                         <div class="form-material">
                                             <div id="uploadPicture" style="margin-bottom: 10px;"></div>
-                                            <div class="js-img-cropper-preview overflow-hidden" style="height: 200px;"></div>                                            <label>头像</label>
+                                            <div class="js-img-cropper-preview overflow-hidden" ></div>                                            <label>头像</label>
                                         </div>
                                     </div>
                                     <div class="col-xs-8">
@@ -82,6 +82,11 @@
     <script>
 
         require(['jquery', 'cropper', 'jquery.fineuploader'], function ($, cropper) {
+            var previewUrl = $("#<%= hfPreviewUrl.ClientID %>").val();
+            if (previewUrl != '') {
+                $(".js-img-cropper-preview").append('<img src="' + previewUrl + '"  >');
+            }
+
             //上传图片
             $('#uploadPicture').fineUploader({
                 request: { endpoint: "/AjaxServices/JqueryFineUploader/UploadPicture.ashx" },

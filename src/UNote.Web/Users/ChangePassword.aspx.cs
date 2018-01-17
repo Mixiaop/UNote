@@ -19,7 +19,8 @@ namespace UNote.Web.Users
             var password = tbPassword.Text.Trim();
             var password2 = tbPassword2.Text.Trim();
 
-            if (oldPassword.IsNullOrEmpty()) {
+            if (oldPassword.IsNullOrEmpty())
+            {
                 ltlMessage.Text = AlertError("请输入原密码");
                 return;
             }
@@ -30,7 +31,7 @@ namespace UNote.Web.Users
                 return;
             }
 
-            if (password!=password2)
+            if (password != password2)
             {
                 ltlMessage.Text = AlertError("两次输入的密码不一致");
                 return;
@@ -42,7 +43,8 @@ namespace UNote.Web.Users
                 ltlMessage.Text = AlertSuccess("修改成功");
                 this.RedirectByTime("/Logout.aspx?goUrl=/Login.aspx", 500);
             }
-            catch (UserFriendlyException ex) {
+            catch (UserFriendlyException ex)
+            {
                 ltlMessage.Text = AlertError(ex.Message);
                 return;
             }

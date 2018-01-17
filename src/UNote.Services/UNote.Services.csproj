@@ -149,6 +149,7 @@
     <Compile Include="Teams\TeamService.cs" />
     <Compile Include="UNoteServicesUPrime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\Dto\UpdateProfileInput.cs" />
     <Compile Include="Users\Dto\UserBriefDto.cs" />
     <Compile Include="Users\IUserVisitLogService.cs" />
     <Compile Include="Users\OnlineUserService.cs" />
