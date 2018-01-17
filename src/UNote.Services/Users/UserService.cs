@@ -98,10 +98,54 @@ namespace UNote.Services.Users
             return count > 0;
         }
 
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="user"></param>
         public void Update(User user)
         {
-            _userRepository.Update(user);
+            if (user != null)
+                _userRepository.Update(user);
         }
+
+        /// <summary>
+        /// 更新用户头像
+        /// </summary>
+        /// <param name="pictureId"></param>
+        /// <param name="picX"></param>
+        /// <param name="picY"></param>
+        /// <param name="picW"></param>
+        /// <param name="picH"></param>
+        public void UpdateAvatar(int pictureId, int picX, int picY, int picW, int picH)
+        {
+            //_userRepository.PictureCut(pictureId, picX, picY, picW, picH);
+        }
+
+        /// <summary>
+        /// 图片裁切
+        /// </summary>
+        /// <param name="pictureId"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="w"></param>
+        /// <param name="h"></param>
+        /// <returns></returns>
+        public void PictureCut(int pictureId, int x, int y, int w, int h)
+        {
+            SortedDictionary<string, string> parms = new SortedDictionary<string, string>();
+            parms.Add("pictureId", pictureId.ToString());
+            parms.Add("x", x.ToString());
+            parms.Add("y", y.ToString());
+            parms.Add("w", w.ToString());
+            parms.Add("h", h.ToString());
+
+            //var message = _webRequest.CreateRequestAsGet(
+            //    GetUrl("pictures/cut"),
+            //    parms, _signKey);
+
+            //return ToObject<PictureDto>(message);
+        }
+
 
         public void UpdateCurrentUsedTeam(int userId, string teamKey)
         {
@@ -127,6 +171,8 @@ namespace UNote.Services.Users
             }
 
         }
+
+
 
         /// <summary>
         /// 删除一个用户
