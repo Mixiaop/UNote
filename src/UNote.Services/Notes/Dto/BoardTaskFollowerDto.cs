@@ -12,5 +12,7 @@
         public string PinYin { get; set; }
 
         public string CorpWeixinUserId { get; set; }
+
+        public string AvatarUrl { get; set; }
     }
 }
