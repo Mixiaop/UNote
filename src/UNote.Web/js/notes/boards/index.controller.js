@@ -449,7 +449,10 @@
                             var nickName = user.NickName.charAt(user.NickName.length - 1);
                             var avatarUrl = user.AvatarUrl;
                             if (avatarUrl != null && avatarUrl.length > 10) {
-                                $div.append('<div class="item item-circle bg-info-light text-info js-tooltip" title="' + user.NickName + '"><img src="' + avatarUrl + '" width="100%" style="margin-top:-2px;" /></div>');
+                                var $html = $('#tempAvatarPreview').html();
+                                var template = handlebars.compile($html);
+                                var $data = template({ user: user });
+                                $div.append($data);
                             } else {
                                 $div.append('<div class="item item-circle bg-info-light text-info js-tooltip" title="' + user.NickName + '">' + nickName + '</div>');
                             }
@@ -468,7 +471,7 @@
                         $html.removeClass('hidden');
                         var now = new Date();
                         var expirationDate = new Date(date + ' 23:59:59');
-                        
+
                         if (parseInt($task(taskId).find('span').data('check')) != 1 && now > expirationDate) {
                             $html.css({ 'padding-left': '5px', 'padding-right': '5px' });
                             $html.css({ 'background': '#FF4747', 'color': '#fff' });
@@ -767,9 +770,16 @@
                     });
                 },
                 bindEvents: function () {
+                    $('[data-toggle="popover"], .js-popover').popover({
+                        container: 'body',
+                        trigger: 'hover',
+                        html: true,
+                        placement: 'right',
+                        animation: true
+                    });
                     $('[data-toggle="tooltip"], .js-tooltip').tooltip({
                         container: 'body',
-                        animation: false
+                        animation: true
                     });
                 }
             }
@@ -876,10 +886,15 @@
                 }
             }
         }();
+
+
         //|--------------------------------------|
         //|---------------end modules------------|
 
-        function _initialize() {
+        function _initialize(callback) {
+
+            $avatarModal = $('#modalAvatarPreview');
+
             TagService.GetAllTags(vc.nodeId, function (res) {
                 var json = res.value;
                 if (json.Success) {
@@ -902,6 +917,7 @@
 
             vc.modules.$.initialize();
             vc.modules.broadcast.initialize();
+
         }
 
         _initialize();

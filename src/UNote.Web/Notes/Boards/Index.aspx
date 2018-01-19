@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/User.master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="UNote.Web.Notes.Boards.Index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="userHead" runat="server">
-    <link rel="stylesheet" href="/editors/kindeditor/css/default.css"  />
+    <link rel="stylesheet" href="/editors/kindeditor/css/default.css" />
     <link rel="stylesheet" href="/lib/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
     <link rel="stylesheet" href="/lib/plugins/bootstrap-datepicker/bootstrap-datepicker3.css">
     <link rel="stylesheet" href="/css/unote-boards.css" />
     <style>
         .board .dropdown-menu {
-            top:80%;
+            top: 80%;
         }
     </style>
 </asp:Content>
@@ -25,11 +25,11 @@
                     <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp; </li>
                 </ul>
                 <div class="board-menus">
-                     <a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="si si-list"></i> 菜单</a>
-                        <ul class="dropdown-menu dropdown-menu-right push-30-r">
-                                                <li><a tabindex="-1" href="javascript:;" id="btn-tagSettings"><i class="si si-settings pull-right"></i> 标签设置</a></li>
-                            <li><a tabindex="-1" href="<%= RouteContext.GetRouteUrl("Notes.Boards.ArchivedTasks", Model.GetNodeId) %>" ><i class="si si-cloud-download pull-right"></i> 查看归档</a></li>
-                                            </ul>
+                    <a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="si si-list"></i>菜单</a>
+                    <ul class="dropdown-menu dropdown-menu-right push-30-r">
+                        <li><a tabindex="-1" href="javascript:;" id="btn-tagSettings"><i class="si si-settings pull-right"></i>标签设置</a></li>
+                        <li><a tabindex="-1" href="<%= RouteContext.GetRouteUrl("Notes.Boards.ArchivedTasks", Model.GetNodeId) %>"><i class="si si-cloud-download pull-right"></i>查看归档</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -38,11 +38,11 @@
     <div class="content">
         <input type="hidden" id="hidNodeId" value="<%= Model.GetNodeId %>" />
         <input type="hidden" id="hidTeamId" value="<%= Model.Node.TeamId %>" />
-        <div class="board-list" >
+        <div class="board-list">
             <img src="/img/loading.gif" alt="loading" title="loading" id="loadingColumns" />
             <!-- board -->
-            <div class="board board-new-column" >
-                <button class="btn btn-default btn-block" ><i class="fa fa-plus"></i>&nbsp;新建列表</button>
+            <div class="board board-new-column">
+                <button class="btn btn-default btn-block"><i class="fa fa-plus"></i>&nbsp;新建列表</button>
                 <div class="card hidden">
                     <div class="card">
                         <label>
@@ -74,27 +74,27 @@
         <!-- board -->
         <div class="board" id="board-column-{{column.Id}}" data-columnid="{{column.Id}}" data-title="{{column.Title}}">
             <div class="board-inner ">
-                <header class="board-header" >
+                <header class="board-header">
                     <h3 class="board-title">
                         <span class="board-title-text label">{{column.Title}}</span>
-                        <span class="board-title-text-input label hidden" style="background:none;">
-                        <input type="text" class="form-control" />
-                            </span>
+                        <span class="board-title-text-input label hidden" style="background: none;">
+                            <input type="text" class="form-control" />
+                        </span>
                         <button type="button" class="board-delete js-listset" data-toggle="dropdown" data-original-title="列表设置"><i class="fa fa-angle-down"></i></button>
                         <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-header">列表菜单</li>
-                                <li>
-                                    <a tabindex="-1"  href="javascript:void(0)" class="js-archived">
-                                        <i class="si si-cloud-download pull-right"></i>归档已完成任务
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a tabindex="-1" href="javascript:void(0)" class="js-deleteColumn">
-                                        <i class="si si-trash pull-right"></i>删除列表
-                                    </a>
-                                </li>
-                            </ul>
+                            <li class="dropdown-header">列表菜单</li>
+                            <li>
+                                <a tabindex="-1" href="javascript:void(0)" class="js-archived">
+                                    <i class="si si-cloud-download pull-right"></i>归档已完成任务
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a tabindex="-1" href="javascript:void(0)" class="js-deleteColumn">
+                                    <i class="si si-trash pull-right"></i>删除列表
+                                </a>
+                            </li>
+                        </ul>
                         <div class="board-count-badge clearfix">
                             <button type="button" class="board-count-badge-button no-right-border btn btn-sm btn-default hidden" data-toggle="tooltip" data-original-title="编辑列表"><i class="fa fa-pencil"></i></button>
                             <button type="button" class="board-count-badge-button btn btn-sm btn-default board-new" data-toggle="tooltip" data-original-title="新任务"><i class="fa fa-plus"></i></button>
@@ -102,7 +102,7 @@
                     </h3>
                 </header>
                 <div class="board-list-component">
-                    <div class="board-new-form hidden" style="border:0;">
+                    <div class="board-new-form hidden" style="border: 0;">
                         <div class="card">
                             <label>
                                 标题
@@ -135,31 +135,42 @@
     </script>
 
     <script id="tempContent" type="text/x-handlebars-template">
-        <li id="board-content-{{content.Id}}" class="js-block-task" data-id="{{content.Id}}" data-columnid="{{content.ColumnId}}" >
-                            <div class="block">
-                                <div class="block-content">
-                                    <label class="css-input css-checkbox css-checkbox-success"><input type="checkbox" ><span ></span></label> <a href="javascript:;">{{content.Title}}</a>
-                                </div>
-                                <div class="block-tags js-block-tags">
-                                    <ul class="clearfix">
-                                        <li class="js-content hidden js-tooltip" title="任务备注"><i class="fa fa-list"></i></li>
-                                        <li class="time js-expirationDate hidden"><i class="fa fa-clock-o"></i> 2017-12-25</li>
-                                        <%--<li><label class="label" style="background:#000;">111</label></li>
+        <li id="board-content-{{content.Id}}" class="js-block-task" data-id="{{content.Id}}" data-columnid="{{content.ColumnId}}">
+            <div class="block">
+                <div class="block-content">
+                    <label class="css-input css-checkbox css-checkbox-success">
+                        <input type="checkbox"><span></span></label>
+                    <a href="javascript:;">{{content.Title}}</a>
+                </div>
+                <div class="block-tags js-block-tags">
+                    <ul class="clearfix">
+                        <li class="js-content hidden js-tooltip" title="任务备注"><i class="fa fa-list"></i></li>
+                        <li class="time js-expirationDate hidden"><i class="fa fa-clock-o"></i>2017-12-25</li>
+                        <%--<li><label class="label" style="background:#000;">111</label></li>
                                         <li data-type='tag'><label class="label" style="background:#000;">111</label></li>
                                         <li><label class="label" style="background:#000;">111</label></li>
                                         <li><label class="label" style="background:#000;">111</label></li>
                                         <li><label class="label" style="background:#000;">111</label></li>--%>
-                                        <%--<li data-type='tag'><label class="label" style="background:#000;">紧急</label></li>
+                        <%--<li data-type='tag'><label class="label" style="background:#000;">紧急</label></li>
                                         <li data-type='tag'><label class="label" style="background:#000;">紧急中中</label></li>--%>
-                                    </ul>
-                                    </div>
-                                 <div class="block-users js-block-users clearfix">
-                                    <%--<div class="item item-circle bg-info-light text-info">施俊彦</div>
+                    </ul>
+                </div>
+                <div class="block-users js-block-users clearfix">
+                    <%--<div class="item item-circle bg-info-light text-info">施俊彦</div>
                                      <div class="item item-circle bg-info-light text-info">陈三</div>--%>
-                                     </div>
-                            </div>
-                        </li>
+                </div>
+            </div>
+        </li>
     </script>
+
+    <script id="tempAvatarPreview" type="text/x-handlebars-template">
+        <div class='item item-circle bg-info-light text-info js-popover' data-content='<div class="text-center ribbon ribbon-modern ribbon-success"><div style="position:absolute;left:0px;bottom:0px;background:rgba(0,0,0,.5);height:25px;line-height:25px;color:#fff;width:100%;">{{user.NickName}}</div><p><img src="{{user.AvatarUrl}}" width="150" /></p></div>'>
+            <img src="{{user.AvatarUrl}}" width="100%" style="margin-top:-5px;" />
+        </div>
+    </script>
+
+
     <!-- end template -->
+
     <script type="text/javascript" src="/js/notes/boards/index.controller.js"></script>
 </asp:Content>
