@@ -506,10 +506,15 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
             $formUserList.html('');
             _.each(users, function (u) {
                 if (u != undefined && u.Id != undefined && u.NickName != null && index <= 6) {
-                    var nickName = u.NickName.substring(0, 1);
-
-                    var $user = '<li data-userid=' + u.Id + ' data-nickname="' + u.NickName + '"><div class="item item-circle bg-info-light text-info">' +
+                    var nickName = u.NickName.substr(u.NickName.length - 1, 1);
+                    var avatarUrl = u.AvatarUrl;
+                    if (avatarUrl != null && avatarUrl.length > 10) { 
+                        var $user = '<li data-userid=' + u.Id + ' data-nickname="' + u.NickName + '"><div class="item item-circle bg-info-light text-info"><img src="' +
+                            avatarUrl + '" width="100%" style="margin-top:-2px;" /></div>&nbsp;&nbsp;&nbsp;' + u.NickName;
+                    } else {
+                        var $user = '<li data-userid=' + u.Id + ' data-nickname="' + u.NickName + '"><div class="item item-circle bg-info-light text-info">' +
                                 nickName + '</div>&nbsp;&nbsp;&nbsp;' + u.NickName;
+                    }
                     if (_existsUser(u.Id)) {
                         $user += '<span class="selected"></span>';
                     }
@@ -576,9 +581,17 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
             if (vc.task.Followers.length > 0) {
                 _.each(vc.task.Followers, function (user) {
-                    var nickName = user.NickName.substring(0, 1);
-                    $selectedList.append('<div class="item item-circle bg-info-light text-info js-tooltip" data-userid="' + user.UserId +
-                                         '" title="' + user.NickName + '">' + user.NickName + '</div>');
+                    var nickName = user.NickName.substr(user.NickName.length - 1, 1);
+                    var avatarUrl = user.AvatarUrl;
+                    if (avatarUrl != null && avatarUrl.length > 10) {
+                        $selectedList.append('<div class="item item-circle bg-info-light text-info js-tooltip" data-userid="' + user.UserId +
+                                         '" title="' + user.NickName + '"><img src="' +
+                            avatarUrl + '" width="100%" style="margin-top:-2px;" /></div>');
+                    } else {
+                        $selectedList.append('<div class="item item-circle bg-info-light text-info js-tooltip" data-userid="' + user.UserId +
+                                         '" title="' + user.NickName + '">' + nickName + '</div>');
+                    }
+                    
                 });
             }
             _bindJQueryEvents();

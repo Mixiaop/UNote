@@ -770,7 +770,15 @@ namespace UNote.Services.Notes.Impl
                             {
                                 if (f != null && f.UserId > 0)
                                 {
-                                    task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName, PinYin = f.User.PinYin, CorpWeixinUserId = f.User.CorpWeixinUserId });
+                                    task.Followers.Add(new BoardTaskFollowerDto()
+                                    {
+                                        UserId = f.UserId,
+                                        NickName = f.User.NickName,
+                                        PinYin = f.User.PinYin,
+                                        CorpWeixinUserId = f.User.CorpWeixinUserId,
+                                        AvatarUrl = f.User.AvatarUrl
+                                    });
+
                                 }
                             });
                         }
@@ -800,7 +808,14 @@ namespace UNote.Services.Notes.Impl
                         {
                             if (f != null && f.UserId > 0)
                             {
-                                task.Followers.Add(new BoardTaskFollowerDto() { UserId = f.UserId, NickName = f.User.NickName, PinYin = f.User.PinYin, CorpWeixinUserId = f.User.CorpWeixinUserId });
+                                task.Followers.Add(new BoardTaskFollowerDto() 
+                                { 
+                                    UserId = f.UserId, 
+                                    NickName = f.User.NickName, 
+                                    PinYin = f.User.PinYin, 
+                                    CorpWeixinUserId = f.User.CorpWeixinUserId,
+                                    AvatarUrl=f.User.AvatarUrl
+                                });
                             }
                         });
                     }
