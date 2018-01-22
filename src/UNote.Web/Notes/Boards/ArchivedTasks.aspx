@@ -39,7 +39,7 @@
                             <div class="row items-push">
                                 <div class="col-md-12">
                                     <!-- options -->
-                                    <div class="block-options-simple btn-group btn-group-xs">
+                                    <div class="block-options-simple btn-group btn-group-xs hidden">
                                         <div class="btn-group btn-group-xs">
                                             <button class="btn btn-default btn-more" type="button" data-toggle="dropdown" title="更多操作">...</button>
                                             <%--<ul class="dropdown-menu dropdown-menu-right">
@@ -80,8 +80,15 @@
                                                 {
                                                     if (follower != null )
                                                     { %>
-                                        <div class="item item-circle bg-info-light text-info unote-avatar unote-avatar">
+                                        <div class="item item-circle bg-info-light text-info unote-avatar unote-avatar"  title="<%= follower.NickName %>">
+                                            <% if (follower.AvatarUrl.IsNotNullOrEmpty())
+                                                { %>
+                                            <img src="<%= follower.AvatarUrl %>" width="100%"  />
+                                            <%}
+    else
+    { %>
                                             <%= follower.NickName %>
+                                            <%} %>
                                         </div>
                                         <%}
         }
