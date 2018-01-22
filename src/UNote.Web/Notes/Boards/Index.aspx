@@ -25,7 +25,7 @@
                     <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp; </li>
                 </ul>
                 <div class="board-menus">
-                    <a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="si si-list"></i>菜单</a>
+                    <a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="si si-list"></i> 菜单</a>
                     <ul class="dropdown-menu dropdown-menu-right push-30-r">
                         <li><a tabindex="-1" href="javascript:;" id="btn-tagSettings"><i class="si si-settings pull-right"></i>标签设置</a></li>
                         <li><a tabindex="-1" href="<%= RouteContext.GetRouteUrl("Notes.Boards.ArchivedTasks", Model.GetNodeId) %>"><i class="si si-cloud-download pull-right"></i>查看归档</a></li>
