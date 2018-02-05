@@ -5,6 +5,9 @@
         vc.teamId = parseInt($('#hidTeamId').val());
         vc.tags = [];                                //标签列表
         vc.users = [];                               //Team所有用户列表
+        vc.currentUser = {
+            nickName: $('#hidLoginedNickName').val()
+        };
 
         //|--------------------------------------|
         //|---------------modules----------------|
@@ -22,6 +25,15 @@
 
             var events = function () {
                 return {
+                    //其他事件初始化 - 如菜单按钮
+                    otherBind: function () {
+                        //只看自己
+                        $('.js-filterOneself').unbind('click');
+                        $('.js-filterOneself').bind('click', function () {
+                            $(this).addClass('selected');
+                            vc.modules.service.filterOneself();
+                        });
+                    },
                     //列表 - 所有事件初始化
                     columnsBind: function () {
                         var $boards = $('.board');
@@ -265,6 +277,9 @@
 
             //all column/task renders
             return {
+                initialize: function () {
+                    events.otherBind();
+                },
                 //布局发生变化更新列高度
                 resizeColumns: function () {
                     var $boards = $('.board');
@@ -680,6 +695,35 @@
                             vc.modules.broadcast.cancelTask(taskId);
                         }
                     });
+                },
+                //筛选 - 只看自己
+                filterOneself: function () {
+                    var $boards = $('.board');
+                    $.each($boards, function () {
+                        var $this = $(this);
+                        var $itemList = $this.find('.board-content-list>li');
+                        if ($itemList.length > 0) {
+                            $.each($itemList, function () {
+                                var $task = $(this);
+                                var $users = $task.find('.item-circle');
+                                var exists = false;
+                                $.each($users, function () {
+                                    var nickName = $.trim($(this).attr('data-original-title'));
+                                    if (nickName == '') {
+                                        nickName = $.trim($(this).data('nickname'))
+                                    }
+                                    if (vc.currentUser.nickName == nickName) {
+                                        exists = true;
+                                    }
+                                });
+
+                                if (!exists) {
+                                    vc.modules.renders.taskRemove(parseInt($task.data('id')));
+                                }
+                            });
+                        }
+
+                    });
                 }
             }
         }();
@@ -835,10 +879,10 @@
                 });
 
                 $.connection.hub.start()
-                                .done(function () {
-                                    notifier.server.joinBoardRoom(vc.nodeId);
-                                    console.log('connect successfully');
-                                });
+                    .done(function () {
+                        notifier.server.joinBoardRoom(vc.nodeId);
+                        console.log('connect successfully');
+                    });
             }
 
             return {
@@ -917,7 +961,7 @@
 
             vc.modules.$.initialize();
             vc.modules.broadcast.initialize();
-
+            vc.modules.renders.initialize();
         }
 
         _initialize();

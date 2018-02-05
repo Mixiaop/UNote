@@ -25,6 +25,7 @@
                     <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp; </li>
                 </ul>
                 <div class="board-menus">
+                    <a href="javascript:;" class="js-filterOneself"><i class="si si-eye"></i> 只看自己</a>
                     <a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="si si-list"></i> 菜单</a>
                     <ul class="dropdown-menu dropdown-menu-right push-30-r">
                         <li><a tabindex="-1" href="javascript:;" id="btn-tagSettings"><i class="si si-settings pull-right"></i>标签设置</a></li>
@@ -38,6 +39,7 @@
     <div class="content">
         <input type="hidden" id="hidNodeId" value="<%= Model.GetNodeId %>" />
         <input type="hidden" id="hidTeamId" value="<%= Model.Node.TeamId %>" />
+        <input type="hidden" id="hidLoginedNickName" value="<%= GetLoginedUser().NickName %>" />
         <div class="board-list">
             <img src="/img/loading.gif" alt="loading" title="loading" id="loadingColumns" />
             <!-- board -->
@@ -164,7 +166,7 @@
     </script>
 
     <script id="tempAvatarPreview" type="text/x-handlebars-template">
-        <div class='item item-circle bg-info-light text-info js-popover' data-content='<div class="text-center ribbon ribbon-modern ribbon-success"><div style="position:absolute;left:0px;bottom:0px;background:rgba(0,0,0,.5);height:25px;line-height:25px;color:#fff;width:100%;">{{user.NickName}}</div><p><img src="{{user.AvatarUrl}}" width="150" /></p></div>'>
+        <div class='item item-circle bg-info-light text-info js-popover' data-nickname="{{user.NickName}}" data-content='<div class="text-center ribbon ribbon-modern ribbon-success"><div style="position:absolute;left:0px;bottom:0px;background:rgba(0,0,0,.5);height:25px;line-height:25px;color:#fff;width:100%;">{{user.NickName}}</div><p><img src="{{user.AvatarUrl}}" width="150" /></p></div>'>
             <img src="{{user.AvatarUrl}}" width="100%" style="margin-top:-5px;" />
         </div>
     </script>
