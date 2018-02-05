@@ -722,7 +722,12 @@
                                 }
                             });
                         }
+                    });
 
+                    $.each($boards, function () {
+                        if ($(this).find('.board-content-list>li').length == 0) {
+                            vc.modules.renders.columnRemove($(this).data('columnid'));
+                        }
                     });
                 }
             }
