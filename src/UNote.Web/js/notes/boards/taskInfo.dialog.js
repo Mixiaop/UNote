@@ -169,7 +169,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
             }
 
             //-----------title
-            $title = $container.find('.block-title .title a');
+            $title = $container.find('.block-title .title a:first');
             $input = $container.find('.block-title .title input');
             $choose = $('.block-title .choose');
 
@@ -670,7 +670,8 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
         }
 
         function _initialize() {
-            $block = $('.block-options');
+            //$block = $('.block-options');
+            $block = $('.block-header');
             $btnAction = $block.find('.btn-actions');
             $btnDeleteTask = $block.find('.js-deletetask');
 
