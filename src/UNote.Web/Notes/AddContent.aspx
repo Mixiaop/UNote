@@ -140,7 +140,7 @@
                                             <label></label>
                                         </div>
                                         <div class="help-block">
-                                            需要上传的HTML压缩包（必须为 zip、gz 后缀）
+                                            需要上传的HTML压缩包（必须为 zip、gz、7z 后缀）
                                         </div>
                                     </div>
                                 </div>

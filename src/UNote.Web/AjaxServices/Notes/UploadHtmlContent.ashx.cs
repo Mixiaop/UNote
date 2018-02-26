@@ -27,7 +27,7 @@ namespace UNote.Web.AjaxServices.Notes
                     context.Response.End();
 
                 bool error = false;
-                if (!qqfile.FileName.ToLowerInvariant().Contains(".zip") && !qqfile.FileName.ToLowerInvariant().Contains(".gz"))
+                if (!qqfile.FileName.ToLowerInvariant().Contains(".zip") && !qqfile.FileName.ToLowerInvariant().Contains(".gz") && !qqfile.FileName.ToLowerInvariant().Contains(".7z"))
                 {
                     w.WritePropertyName("error");
                     w.WriteValue("压缩包格式必须为 .zip .gz");

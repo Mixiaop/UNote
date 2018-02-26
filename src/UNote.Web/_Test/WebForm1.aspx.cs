@@ -16,6 +16,7 @@ using UNote.Services.Authrization;
 using UNote.Services.IO;
 using U.Net.Mail;
 using U.Net.Mail.Smtp;
+using SevenZip;
 
 namespace UNote.Web._Test
 {
@@ -68,10 +69,33 @@ namespace UNote.Web._Test
 
             //Response.Write(_tempFolderService.GetTempFileFolder());
 
-            var emailSender = UPrimeEngine.Instance.Resolve<IEmailSender>();
-            emailSender.Send("zhanghp@eagersoft.cn", "【需求&BUG跟踪】【B端PC、H5】【测评、第三方登录】跟踪", "笔记更新 => <a href='http://note.youzy.cn/Notes/ContentInfo.aspx?contentid=682' target='_blank'>【B端PC、H5】【测评、第三方登录】跟踪】</a>");
-            Response.Write("成功了");
+            //var emailSender = UPrimeEngine.Instance.Resolve<IEmailSender>();
+            //emailSender.Send("zhanghp@eagersoft.cn", "【需求&BUG跟踪】【B端PC、H5】【测评、第三方登录】跟踪", "笔记更新 => <a href='http://note.youzy.cn/Notes/ContentInfo.aspx?contentid=682' target='_blank'>【B端PC、H5】【测评、第三方登录】跟踪】</a>");
+            //Response.Write("成功了");
+            //CommonHelper.UnZip(WebHelper.MapPath("/_Test/pic.7z"), WebHelper.MapPath("/_Test/pic/"));
 
+            //   SevenZipCompressor compressor = new SevenZipCompressor();
+            //if (IntPtr.Size == 4)
+            //{
+            //    SevenZipCompressor.SetLibraryPath(@"7z.dll");
+            //}
+            //else
+            //{
+            //SevenZipCompressor.SetLibraryPath(WebHelper.MapPath("/bin/x64/7z.dll"));
+            //}
+
+            if (IntPtr.Size == 4)
+            {
+                SevenZipCompressor.SetLibraryPath(WebHelper.MapPath("/bin/x86/7z.dll"));
+            }
+            else
+            {
+                SevenZipCompressor.SetLibraryPath(WebHelper.MapPath("/bin/x64/7z.dll"));
+            }
+            SevenZipExtractor extractor = new SevenZipExtractor(WebHelper.MapPath("/_Test/pic.7z"));
+            //extractor.ExtractFiles()
+            //extractor.ExtractArchive(WebHelper.MapPath("/_test/pic/"));
+            //extractor.ExtractFiles(WebHelper.MapPath("/_Test/pic.7z"), WebHelper.MapPath("/_test/pic/"));
         }
     }
 }

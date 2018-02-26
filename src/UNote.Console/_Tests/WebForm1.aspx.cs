@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Newtonsoft.Json;
 using U;
+using U.Utilities.Web;
 using UZeroMedia.Client.Services;
 
 namespace UNote.Console._Tests
@@ -18,9 +19,11 @@ namespace UNote.Console._Tests
             //var mediaSettings = UPrimeEngine.Instance.Resolve<DatabaseSettings>();
             //var pictureService = UPrimeEngine.Instance.Resolve<UZeroMedia.Domain.IPictureRepository>();
             //pictureService.Insert(new Domain.Picture());
-            Response.Write(System.Web.HttpUtility.UrlEncode("你好"));
-            btnUpload.Click += BtnUpload_Click;
-            Response.Write(CommonHelper.FormatFileSize(481512));
+            //Response.Write(System.Web.HttpUtility.UrlEncode("你好"));
+            //btnUpload.Click += BtnUpload_Click;
+            //Response.Write(CommonHelper.FormatFileSize(481512));
+
+            CommonHelper.UnZip(WebHelper.MapPath("/_Tests/pic.7z"), WebHelper.MapPath("/_Tests/pic/"));
         }
 
         private void BtnUpload_Click(object sender, EventArgs e)

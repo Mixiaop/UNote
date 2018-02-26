@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
+using SevenZip;
 using Aspose.Words;
 using Aspose.Words.Saving;
 using U.Utilities.Web;
@@ -49,9 +50,28 @@ namespace UNote.Services.Notes
             string tempPkgPath = result.RelativePath + "/" + GetPkgTempName(postedFile.FileName);
             postedFile.SaveAs(WebHelper.MapPath(tempPkgPath));
 
-            //解压文件
-            CommonHelper.UnZip(WebHelper.MapPath(tempPkgPath), WebHelper.MapPath(result.RelativePath));
-
+            #region 解压文件
+            if (tempPkgPath.Contains("7z"))
+            {
+                //7z
+                if (IntPtr.Size == 4)
+                {
+                    SevenZipCompressor.SetLibraryPath(WebHelper.MapPath("/bin/x86/7z.dll"));
+                }
+                else
+                {
+                    SevenZipCompressor.SetLibraryPath(WebHelper.MapPath("/bin/x64/7z.dll"));
+                }
+                SevenZipExtractor extractor = new SevenZipExtractor(WebHelper.MapPath(tempPkgPath));
+                extractor.ExtractArchive(WebHelper.MapPath(result.RelativePath));
+            }
+            else
+            {
+                //zip gz
+                CommonHelper.UnZip(WebHelper.MapPath(tempPkgPath), WebHelper.MapPath(result.RelativePath));
+            }
+            
+            #endregion
             //删除默认文件
             File.Delete(WebHelper.MapPath(tempPkgPath));
             #endregion
@@ -222,6 +242,9 @@ namespace UNote.Services.Notes
             else if (fileName.ToLower().Contains(".gz"))
             {
                 tempName += ".gz";
+            }
+            else if (fileName.ToLower().Contains(".7z")) {
+                tempName += ".7z";
             }
             else
             {
