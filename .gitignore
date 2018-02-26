@@ -9,3 +9,4 @@ src/.vs/config/applicationhost.config
 *.log
 src/UNote.v12.suo
 src/UNote.v12.suo
+*.ide
