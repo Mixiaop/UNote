@@ -1426,8 +1426,6 @@
     <Content Include="Youzy\H5AgentLive.aspx" />
     <Content Include="Youzy\PCAgentLive.aspx" />
     <Content Include="Masters\User.master" />
-    <Content Include="7z.dll" />
-    <Content Include="7z64.dll" />
     <Content Include="_Test\CorpWeixinNotifyTests.aspx" />
     <Content Include="_Test\downpdf.aspx" />
     <Content Include="_Test\downword.aspx" />

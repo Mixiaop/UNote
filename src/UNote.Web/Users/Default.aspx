@@ -9,7 +9,7 @@
     <div class="content bg-image" style="background-image: url('/img/various/promo-code.png');">
         <div class="push-50-t push-15 clearfix">
             <div class="push-15-r pull-left animated fadeIn">
-                <img class="img-avatar img-avatar-thumb" src="/img/avatars/avatar13.jpg" alt="">
+                <img class="img-avatar img-avatar-thumb" src="<%= Model.LoginedUser.AvatarUrl.IsNotNullOrEmpty()?Model.LoginedUser.AvatarUrl:"/img/avatars/avatar13.jpg" %>" alt="">
             </div>
             <h1 class="h2 text-white push-5-t animated zoomIn"><%= Model.LoginedUser.FormatNickName %></h1>
             <h2 class="h5 text-white-op animated zoomIn"><%= Model.LoginedUser.Username %></h2>
@@ -19,22 +19,25 @@
     <!-- Stats -->
     <div class="content bg-white border-b">
         <div class="row items-push text-uppercase">
-            <div class="col-xs-6 col-sm-3">
+            <div class="col-xs-3 col-sm-3">
                 <div class="font-w700 text-gray-darker animated fadeIn">Notes</div>
                 <a class="h2 font-w300 text-primary animated flipInX"><%= Model.NotesCount %></a>
             </div>
-            <div class="col-xs-6 col-sm-3">
+            <div class="col-xs-3 col-sm-3">
                 <div class="font-w700 text-gray-darker animated fadeIn">FOLLOWERS</div>
                 <a class="h2 font-w300 text-primary animated flipInX"><%= Model.FollowersCount %></a>
             </div>
-
+            <div class="col-xs-3 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Movies</div>
+                <a href="http://www.mbjuan.com" target="_blank" class="h3 font-w300 text-primary animated flipInX">M</a>
+            </div>
         </div>
     </div>
     <!-- END Stats -->
     <!-- Page Content -->
     <div class="content content-boxed">
         <div class="row">
-            <div class="col-sm-7 col-lg-8">
+            <div class="col-sm-12 col-lg-12">
                 <!-- Timeline -->
                 <div class="block">
                     <div class="block-header bg-gray-lighter">
@@ -48,24 +51,30 @@
                                {
                                    foreach (var log in Model.VisitLogs)
                                    {
-                                       if (log.Content != null) { 
+                                       //if (log.Content != null) { 
                             %>
                             <!-- Node -->
                             <li>
                                 <div class="list-timeline-time"><%= log.FormatLastVisitTime %></div>
                                 <i class="fa <%= log.TypeId==1?"fa-folder-o":"fa-file-o" %> list-timeline-icon <%= log.TypeId==1?"bg-modern":"bg-success" %>"></i>
                                 <div class="list-timeline-content">
-                                    <% if(log.TypeId==1){ %>
+                                    <% if (log.TypeId == 1)
+                                             { %>
                                     <p class="font-s13">看了目录 <a href="<%= RouteContext.GetRouteUrl("Notes.Contents", log.NodeId) %>" data-toggle="tooltip" title="所属目录" class="node"><%= log.Node.NodeName %></a></p>
                                     <p class="font-w600"></p>
-                                    <%}else{ %>
+                                    <%}
+                                             else
+                                             {
+                                                 if (log.Content != null)
+                                                 { %>
                                     <p class="font-w600"></p>
                                     <p class="font-s13">看了笔记 <a href="<%= RouteContext.GetRouteUrl("Notes.ContentInfo", log.ContentId) %>" title="<%= log.Content.Title %>" target="_blank" ><%= log.Content.Title %></a></p>
-                                    <%} %>
+                                    <%}
+                                             } %>
                                 </div>
                             </li>
                             <!-- END Node -->
-                            <%}
+                            <%//}
 
                               } }%>
                             <!-- System Notification -->
@@ -77,7 +86,7 @@
                 </div>
                 <!-- END Timeline -->
             </div>
-            <div class="col-sm-5 col-lg-4">
+            <div class="col-sm-5 col-lg-4 hidden">
                 <!-- Followers -->
                 <div class="block">
                     <div class="block-header bg-gray-lighter">

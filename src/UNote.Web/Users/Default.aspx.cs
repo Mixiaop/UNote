@@ -42,7 +42,7 @@ namespace UNote.Web.Users
             Model.FollowersCount = _contentFollowerService.Count(Model.LoginedUser.Id);
 
             Model.Followers = _contentFollowerService.GetLastFollowers(Model.LoginedUser.Id, 10);
-            Model.VisitLogs = _userVisitLogService.QueryLastVisitLogs(Model.LoginedUser, 10);
+            Model.VisitLogs = _userVisitLogService.QueryLastVisitLogs(Model.LoginedUser, 20);
         }
 
     }

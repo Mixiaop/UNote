@@ -74,7 +74,7 @@ namespace UNote.Services.Users
             else
                 list = query.ToList();
 
-            return query.ToList();
+            return list.ToList();
         }
     }
 }
