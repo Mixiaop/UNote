@@ -10,3 +10,4 @@ src/.vs/config/applicationhost.config
 src/UNote.v12.suo
 src/UNote.v12.suo
 *.ide
+*.ide-journal
