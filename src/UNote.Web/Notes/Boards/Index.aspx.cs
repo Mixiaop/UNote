@@ -21,6 +21,7 @@ namespace UNote.Web.Notes.Boards
         protected BoardsIndexModel Model = new BoardsIndexModel();
         protected void Page_Load(object sender, EventArgs e)
         {
+            HiddenHeader = true;
             CurrentNav = Infrastructure.Navigation.Contents;
             CurrentNavNodeId = Model.GetNodeId;
             Model.Node = _nodeService.GetById(Model.GetNodeId);

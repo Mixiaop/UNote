@@ -212,6 +212,8 @@
             </nav>
             <!-- END Sidebar -->
 
+        <% if (!Model.CurrentPage.HiddenHeader)
+                 { %>
             <!-- Header -->
             <header id="header-navbar" class="content-mini content-mini-full"  >
                 <div class="row" >
@@ -253,7 +255,7 @@
                                 <li>
                                     <div class="btn-group">
                                         <button class="btn btn-default btn-image dropdown-toggle" data-toggle="dropdown" type="button">
-                                            <img src="<%= Model.LoginedUser.AvatarUrl.IsNotNullOrEmpty()? Model.LoginedUser.AvatarUrl: "/img/avatars/avatar1.jpg" %>" alt="Avatar">
+                                            <img src="<%= Model.LoginedUser.AvatarUrl.IsNotNullOrEmpty() ? Model.LoginedUser.AvatarUrl : "/img/avatars/avatar1.jpg" %>" alt="Avatar">
                                             <%--<%= Model.LoginedUser.NickName %>--%>
                                             <span class="caret"></span>
                                         </button>
@@ -298,6 +300,7 @@
                 </div>
             </header>
             <!-- END Header -->
+        <%} %>
         <%} %>
             <!-- Main Container -->
             <main id="main-container" >

@@ -7,6 +7,10 @@
 body {
 }
 
+#main-container {
+    padding-top:0 !important;
+    background:#fff;
+}
 /* 面包屑*/
 .board-task-dialog .btn {
     font-weight: normal;
@@ -14,6 +18,8 @@ body {
 
 .page-header {
     padding-bottom: 35px;
+    background:#fff;
+    border-bottom:1px solid #eee;
 }
 
     .page-header .dropdown-menu {

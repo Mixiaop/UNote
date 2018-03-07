@@ -29,6 +29,8 @@ namespace UNote.Web.Infrastructure
 
         public Navigation CurrentNav = Navigation.None;
 
+        public bool HiddenHeader { get; set; } = false;
+
         public int CurrentNavNodeId = 0;
 
         public string CurrentNavTeamKey = "";
@@ -44,5 +46,6 @@ namespace UNote.Web.Infrastructure
         CreateNewTeam,
         Team,
         None
+        
     }
 }
