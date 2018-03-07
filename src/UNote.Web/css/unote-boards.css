@@ -206,8 +206,8 @@ body {
     }
 
     .board-content-list .block.over {
-        background: #fefefe;
-        border-bottom: 1px dashed #f9f9f9;
+        background: #F3F3F3;
+        border-bottom: 1px dashed #F3F3F3;
         border-top: 0;
     }
 
