@@ -25,7 +25,7 @@
                     <li class="current"><span>/</span> <%= Model.Node.NodeName %>&nbsp;&nbsp; </li>
                 </ul>
                 <div class="board-menus">
-                    <a href="javascript:;" class="js-filterOneself"><i class="si si-eye"></i> 只看自己</a>
+                    <a href="javascript:;" class="js-filterOneself" data-status="0"><i class="si si-eye"></i> <span>只看自己</span></a>
                     <a href="javascript:;" class="btn-options" data-toggle="dropdown"><i class="si si-list"></i> 菜单</a>
                     <ul class="dropdown-menu dropdown-menu-right push-30-r">
                         <li><a tabindex="-1" href="javascript:;" id="btn-tagSettings"><i class="si si-settings pull-right"></i>标签设置</a></li>
@@ -174,5 +174,5 @@
 
     <!-- end template -->
 
-    <script type="text/javascript" src="/js/notes/boards/index.controller.js"></script>
+    <script type="text/javascript" src="/js/notes/boards/index.controller.js?v=<%=DateTime.Now.Hour %><%=DateTime.Now.Minute %>"></script>
 </asp:Content>

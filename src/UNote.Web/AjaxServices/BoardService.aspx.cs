@@ -278,13 +278,13 @@ namespace UNote.Web.AjaxServices
         }
 
         [AjaxMethod]
-        public AjaxResponse UpdateTaskBody(int taskId, string newBody)
+        public AjaxResponse UpdateTaskBody(int taskId, string newBody,string newBodyPersons)
         {
             AjaxResponse res = new AjaxResponse();
 
             try
             {
-                var result = _boardService.UpdateTaskBody(taskId, newBody);
+                var result = _boardService.UpdateTaskBody(taskId, newBody, newBodyPersons);
                 if (!result.Success)
                 {
                     res.Success = false;

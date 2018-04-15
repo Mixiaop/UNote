@@ -16,6 +16,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
             TeamId: 0,                 //TeamId
             Title: '',                 //标题
             Body: '',                  //内容
+            BodyPersons: '',           //任务相关人员内容
             ColumnTaskFinished: false, //任务是否已完成
             FormatCreationTime: '',   //创建任务的时间
             Tag: '',                   //已选中的标签, 逗号分割
@@ -271,9 +272,13 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
         function _bindEvents() {
             var $editorBlock = $container.find('.js-bodyEditor');
-            var $bodyBlock = $container.find('.js-body');
-            var $bodyText = $bodyBlock.find('.js-bodyText');
+            var $bodyBlock = $container.find('.js-bodyText');
+            //var $bodyText = $bodyBlock.find('.js-bodyText');
 
+            var $editorBlockPersons = $container.find('.js-bodyEditorPersons');
+            var $bodyBlockPersons = $container.find('.js-bodyPersons');
+            var $bodyTextPersons = $bodyBlockPersons.find('.js-bodyTextPersons');
+            
             //##events
             //##event body click
             $bodyBlock.unbind('click');
@@ -291,27 +296,44 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                 }
             });
 
+            $bodyBlockPersons.unbind('click');
+            $bodyBlockPersons.bind('click', function (e) {
+                var obj = e.srcElement || e.target;
+                if (obj != undefined) {
+                    var $element = $(obj);
+                    if ($element.prop("tagName") != 'A') {
+                        $editorBlockPersons.removeClass('hidden');
+                        $bodyBlockPersons.addClass('hidden');
+                    }
+                } else {
+                    $editorBlockPersons.removeClass('hidden');
+                    $bodyBlockPersons.addClass('hidden');
+                }
+            });
+
             //##event editor commit click
             $editorBlock.find('.btn-success').unbind('click');
             $editorBlock.find('.btn-success').bind('click', function () {
                 editor.sync();
                 var value = $.trim($editor.val());
+                var valuePersons = vc.task.BodyPersons;
                 vc.task.Body = value;
                 if (vc.task.Body != '') {
-                    $bodyBlock.find('.js-none').addClass('hidden');
-                    $bodyText.removeClass('hidden');
-                    $bodyText.html(vc.task.Body);
+                    //$bodyBlock.find('.js-none').addClass('hidden');
+                    $bodyBlock.removeClass('hidden');
+                    $bodyBlock.html(vc.task.Body);
                     $editor.val(vc.task.Body);
                 } else {
-                    $bodyBlock.find('.js-none').removeClass('hidden');
-                    $bodyText.addClass('hidden');
+                    //$bodyBlock.find('.js-none').removeClass('hidden');
+                    $bodyBlock.addClass('hidden');
                 }
 
                 //回调
                 vc.options.resBody(vc.task.Id, vc.task.Body);
 
                 //post
-                BoardService.UpdateTaskBody(vc.task.Id, value, function (res) {
+                BoardService.UpdateTaskBody(vc.task.Id, value, valuePersons, function (res) {
+                    console.log(5)
                     vc.modules.logs.initialize();
                     if (!res.value.Success) {
                         console.log('error: BoardService.UpdateTaskBody');
@@ -322,11 +344,47 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                 $bodyBlock.removeClass('hidden');
             });
 
+            //$editorBlockPersons.find('.btn-success').unbind('click');
+            //$editorBlockPersons.find('.btn-success').bind('click', function () {
+            //    editorPersons.sync();
+            //    var valuePersons = $.trim($editorPersons.val());
+            //    vc.task.BodyPersons = value;
+            //    if (vc.task.BodyPersons != '') {
+            //        $bodyBlockPersons.find('.js-none').addClass('hidden');
+            //        $bodyTextPersons.removeClass('hidden');
+            //        $bodyTextPersons.html(vc.task.BodyPersons);
+            //        $editorPersons.val(vc.task.BodyPersons);
+            //    } else {
+            //        $bodyBlockPersons.find('.js-none').removeClass('hidden');
+            //        $bodyTextPersons.addClass('hidden');
+            //    }
+
+            //    //回调
+            //    vc.options.resBody(vc.task.Id, vc.task.Body, vc.task.BodyPersons);
+
+            //    //post
+            //    BoardService.UpdateTaskBody(vc.task.Id, vc.task.Body, valuePersons, function (res) {
+            //        vc.modules.logs.initialize();
+            //        if (!res.value.Success) {
+            //            console.log('error: BoardService.UpdateTaskBody');
+            //        }
+            //    });
+
+            //    $editorBlockPersons.addClass('hidden');
+            //    $bodyBlockPersons.removeClass('hidden');
+            //});
+
             //##event editor cancel click
             $editorBlock.find('.btn-default').unbind('click');
             $editorBlock.find('.btn-default').bind('click', function () {
                 $editorBlock.addClass('hidden');
                 $bodyBlock.removeClass('hidden');
+            });
+
+            $editorBlockPersons.find('.btn-default').unbind('click');
+            $editorBlockPersons.find('.btn-default').bind('click', function () {
+                $editorBlockPersons.addClass('hidden');
+                $bodyBlockPersons.removeClass('hidden');
             });
         }
 
@@ -334,8 +392,12 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
             var $editorBlock = $container.find('.js-bodyEditor');
             var $bodyBlock = $container.find('.js-body');
             var $bodyText = $bodyBlock.find('.js-bodyText');
+            var $editorBlockPersons = $container.find('.js-bodyEditorPersons');
+            var $bodyBlockPersons = $container.find('.js-bodyPersons');
+            var $bodyTextPersons = $bodyBlockPersons.find('.js-bodyTextPersons');
 
             vc.task.Body = $.trim(vc.task.Body);
+            vc.task.BodyPersons = $.trim(vc.task.BodyPersons);
 
             //editor
             //fix editor 重复loading
@@ -356,6 +418,21 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                 filterMode: false
             });
 
+            $editorBlockPersons.html($('.js-bodyEditorPersons-copy').clone().html());
+            $editorPersons = $container.find('#txtTaskBodyPersons');
+            $editorPersons.val(vc.task.BodyPersons);
+
+            editorPersons = KindEditor.create('#txtTaskBodyPersons', {
+                width: '100%',
+                items: ['source', '|',
+                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'clearhtml', '|', 'table', 'hr', 'fullscreen', '/',
+                    'formatblock', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                    'italic', 'underline', 'strikethrough', '|', 'image', 'multiimage',
+                    'insertfile', 'link', 'unlink'],
+                uploadJson: '/editors/kindeditor/handler/upload_json.ashx',
+                filterMode: false
+            });
 
             //init datas
             if (vc.task.Body != '') {
@@ -366,9 +443,19 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                 $bodyBlock.find('.js-none').removeClass('hidden');
                 $bodyText.addClass('hidden');
             }
+            if (vc.task.BodyPersons != '') {
+                $bodyBlockPersons.find('.js-none').addClass('hidden');
+                $bodyTextPersons.removeClass('hidden');
+                $bodyTextPersons.html(vc.task.BodyPersons);
+            } else {
+                $bodyBlockPersons.find('.js-none').removeClass('hidden');
+                $bodyTextPersons.addClass('hidden');
+            }
 
             $bodyBlock.removeClass('hidden');
             $editorBlock.addClass('hidden');
+            $bodyBlockPersons.removeClass('hidden');
+            $editorBlockPersons.addClass('hidden');
 
             _bindEvents();
         }

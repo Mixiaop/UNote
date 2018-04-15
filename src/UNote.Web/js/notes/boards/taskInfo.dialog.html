@@ -1,5 +1,5 @@
 ﻿<div class="modal board-task-dialog" id="modalTaskInfo" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" style="width:90%;">
         <div class="modal-content">
             <div class="block block-themed block-transparent remove-margin-b">
                 <!-- title -->
@@ -7,16 +7,16 @@
                     <ul class="block-options">
                         <li>
                             <button data-dismiss="modal" type="button" class="close"><i class="si si-close"></i></button>
-                            <button type="button" class="close btn-actions" data-toggle="dropdown"><i class="fa fa-angle-down" ></i></button>
+                            <button type="button" class="close btn-actions" data-toggle="dropdown"><i class="fa fa-angle-down"></i></button>
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="dropdown-header">任务菜单</li>
                                 <li>
-                                    <a tabindex="-1" href="/notes/content/4470" target="_blank" class="js-preview" >
+                                    <a tabindex="-1" href="/notes/content/4470" target="_blank" class="js-preview">
                                         <i class="si si-screen-desktop pull-right"></i>预览任务
                                     </a>
                                 </li>
                                 <li>
-                                    <a tabindex="-1"  href="javascript:void(0)" class="js-setExpirationDate">
+                                    <a tabindex="-1" href="javascript:void(0)" class="js-setExpirationDate">
                                         <i class="si si-clock pull-right"></i>设置截止日期
                                     </a>
                                     <input type="text" class="form-control hidden">
@@ -43,29 +43,42 @@
                         <div class="clear"></div>
                     </div>
                     <div class="clearfix"></div>
-                    <div class="block-expiration hidden" >
+                    <div class="block-expiration hidden">
                         <i class="fa fa-clock-o js-tooltip" title="截止日期"></i>&nbsp;<a href="javascript:;" class="js-tooltip" title="点击取消">2017-08-09</a>
                         <!--<div class="input-group" data-provide="datepicker">
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-hourglass js-tooltip" title="截止时间"></span>
                             </div>
-                            
+
                         </div>-->
                     </div>
                 </div>
                 <!-- end title-->
                 <!-- body -->
-                <div class="block-content body-text block-line js-body js-tooltip" title="点击即可编辑">
+                <div class="block-content body-text block-line ">
                     <div class="js-none hidden">点击添加备注</div>
-                    <div class="js-bodyText hidden">u</div>
-                </div>
-                <div class="block-content body-editor block-line js-bodyEditor  text-center">
-                    <!--<textarea id="txtTaskBody"  style="height:360px;"></textarea>
-                    <button type="button" class="btn btn-success push-10-t">保存</button>&nbsp;&nbsp;<button type="button" class="btn btn-default push-10-t">取消</button>-->
-                </div>
-                <div class="block-content body-editor block-line js-bodyEditor-copy hidden text-center">
-                    <textarea id="txtTaskBody" style="height:460px;"></textarea>
-                    <button type="button" class="btn btn-success push-10-t">保存</button>&nbsp;&nbsp;<button type="button" class="btn btn-default push-10-t">取消</button>
+
+                    <div class="col-xs-8 js-body js-tooltip" title="编辑任务描述">
+                        <div class="row">
+                            <div class="js-bodyText hidden">u</div>
+                            <div class="block-content body-editor block-line js-bodyEditor text-center"></div>
+                            <div class="block-content body-editor block-line js-bodyEditor-copy hidden text-center">
+                                <textarea id="txtTaskBody" style="height:460px;"></textarea>
+                                <button type="button" class="btn btn-success push-10-t">保存</button>&nbsp;&nbsp;<button type="button" class="btn btn-default push-10-t">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 js-bodyPersons js-tooltip" title="编辑人员详情">
+                        <div class="row">
+                            <div class="js-bodyTextPersons hidden">u</div>
+                            <div class="block-content body-editorPersons block-line js-bodyEditorPersons text-center"></div>
+                            <div class="block-content body-editorPersons block-line js-bodyEditorPersons-copy hidden text-center">
+                                <textarea id="txtTaskBodyPersons" style="height:460px;"></textarea>
+                                <button type="button" class="btn btn-success push-10-t">保存</button>&nbsp;&nbsp;<button type="button" class="btn btn-default push-10-t">取消</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- end body -->
                 <!-- tags -->
@@ -111,10 +124,10 @@
                     </div>
                     <div class="form-chooseusers ">
                         <input type="text" placeholder="查找成员" id="txtSearchUsers" class="form-control" />
-                            <ul>
-                                <!--<li><div class="item item-circle bg-info-light text-info">施俊彦</div>&nbsp;&nbsp;&nbsp;施俊彦 <span class="selected"></span></li>
-                                <li><div class="item item-circle bg-info-light text-info">王力</div>&nbsp;&nbsp;&nbsp;王力 <span class="selected"></span></li>-->
-                            </ul>
+                        <ul>
+                            <!--<li><div class="item item-circle bg-info-light text-info">施俊彦</div>&nbsp;&nbsp;&nbsp;施俊彦 <span class="selected"></span></li>
+                            <li><div class="item item-circle bg-info-light text-info">王力</div>&nbsp;&nbsp;&nbsp;王力 <span class="selected"></span></li>-->
+                        </ul>
                     </div>
                 </div>
                 <!-- end users-->

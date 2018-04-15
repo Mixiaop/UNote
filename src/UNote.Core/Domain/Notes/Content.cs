@@ -16,6 +16,7 @@ namespace UNote.Domain.Notes
         {
             Title = "";
             Body = "";
+            BodyPersons = "";
             PreviewId = 0;
             PreviewUrl = "";
             FileId = 0;
@@ -57,6 +58,11 @@ namespace UNote.Domain.Notes
         /// </summary>
         public string Body { get; set; }
 
+        /// <summary>
+        /// 参与任务的相关人员
+        /// </summary>
+        public string BodyPersons { get; set; }
+        
         /// <summary>
         /// 简介
         /// </summary>
