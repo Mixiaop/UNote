@@ -276,8 +276,8 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
             //var $bodyText = $bodyBlock.find('.js-bodyText');
 
             var $editorBlockPersons = $container.find('.js-bodyEditorPersons');
-            var $bodyBlockPersons = $container.find('.js-bodyPersons');
-            var $bodyTextPersons = $bodyBlockPersons.find('.js-bodyTextPersons');
+            var $bodyBlockPersons = $container.find('.js-bodyTextPersons');
+            //var $bodyTextPersons = $bodyBlockPersons.find('.js-bodyTextPersons');
             
             //##events
             //##event body click
@@ -333,7 +333,6 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
                 //post
                 BoardService.UpdateTaskBody(vc.task.Id, value, valuePersons, function (res) {
-                    console.log(5)
                     vc.modules.logs.initialize();
                     if (!res.value.Success) {
                         console.log('error: BoardService.UpdateTaskBody');
@@ -344,35 +343,35 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
                 $bodyBlock.removeClass('hidden');
             });
 
-            //$editorBlockPersons.find('.btn-success').unbind('click');
-            //$editorBlockPersons.find('.btn-success').bind('click', function () {
-            //    editorPersons.sync();
-            //    var valuePersons = $.trim($editorPersons.val());
-            //    vc.task.BodyPersons = value;
-            //    if (vc.task.BodyPersons != '') {
-            //        $bodyBlockPersons.find('.js-none').addClass('hidden');
-            //        $bodyTextPersons.removeClass('hidden');
-            //        $bodyTextPersons.html(vc.task.BodyPersons);
-            //        $editorPersons.val(vc.task.BodyPersons);
-            //    } else {
-            //        $bodyBlockPersons.find('.js-none').removeClass('hidden');
-            //        $bodyTextPersons.addClass('hidden');
-            //    }
+            $editorBlockPersons.find('.btn-success').unbind('click');
+            $editorBlockPersons.find('.btn-success').bind('click', function () {
+                editorPersons.sync();
+                var valuePersons = $.trim($editorPersons.val());
+                vc.task.BodyPersons = valuePersons;
+                if (vc.task.BodyPersons != '') {
+                    //$bodyBlockPersons.find('.js-none').addClass('hidden');
+                    $bodyBlockPersons.removeClass('hidden');
+                    $bodyBlockPersons.html(vc.task.BodyPersons);
+                    $editorPersons.val(vc.task.BodyPersons);
+                } else {
+                    //$bodyBlockPersons.find('.js-none').removeClass('hidden');
+                    $bodyBlockPersons.addClass('hidden');
+                }
 
-            //    //回调
-            //    vc.options.resBody(vc.task.Id, vc.task.Body, vc.task.BodyPersons);
+                //回调
+                vc.options.resBody(vc.task.Id, vc.task.Body, vc.task.BodyPersons);
 
-            //    //post
-            //    BoardService.UpdateTaskBody(vc.task.Id, vc.task.Body, valuePersons, function (res) {
-            //        vc.modules.logs.initialize();
-            //        if (!res.value.Success) {
-            //            console.log('error: BoardService.UpdateTaskBody');
-            //        }
-            //    });
+                //post
+                BoardService.UpdateTaskBody(vc.task.Id, vc.task.Body, valuePersons, function (res) {
+                    vc.modules.logs.initialize();
+                    if (!res.value.Success) {
+                        console.log('error: BoardService.UpdateTaskBody');
+                    }
+                });
 
-            //    $editorBlockPersons.addClass('hidden');
-            //    $bodyBlockPersons.removeClass('hidden');
-            //});
+                $editorBlockPersons.addClass('hidden');
+                $bodyBlockPersons.removeClass('hidden');
+            });
 
             //##event editor cancel click
             $editorBlock.find('.btn-default').unbind('click');
@@ -399,6 +398,10 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
             vc.task.Body = $.trim(vc.task.Body);
             vc.task.BodyPersons = $.trim(vc.task.BodyPersons);
 
+            if (vc.task.Body == '') {
+                vc.task.Body = " ";
+            }
+
             //editor
             //fix editor 重复loading
             $editorBlock.html($('.js-bodyEditor-copy').clone().html());
@@ -424,12 +427,7 @@ define(['jquery', 'utils/notify', 'underscore', 'kindeditor', 'bootstrap', 'jque
 
             editorPersons = KindEditor.create('#txtTaskBodyPersons', {
                 width: '100%',
-                items: ['source', '|',
-                    'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
-                    'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'clearhtml', '|', 'table', 'hr', 'fullscreen', '/',
-                    'formatblock', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
-                    'italic', 'underline', 'strikethrough', '|', 'image', 'multiimage',
-                    'insertfile', 'link', 'unlink'],
+                items: ['source'],
                 uploadJson: '/editors/kindeditor/handler/upload_json.ashx',
                 filterMode: false
             });
