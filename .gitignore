@@ -12,3 +12,4 @@ src/UNote.v12.suo
 *.ide
 *.ide-journal
 *.ide
+src/.vs/UNote/v15/sqlite3/storage.ide

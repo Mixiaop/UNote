@@ -30,8 +30,17 @@
                         //只看自己
                         $('.js-filterOneself').unbind('click');
                         $('.js-filterOneself').bind('click', function () {
-                            $(this).addClass('selected');
-                            vc.modules.service.filterOneself();
+                            var status = $(this).data('status');
+                            if (status == 0) {
+                                $(this).addClass('selected');
+                                $(this).data('status', '1');
+                                vc.modules.service.filterOneself();
+                            } else {
+                                $(this).removeClass('selected');
+                                $(this).data('status', '0');
+                                window.location.reload();
+                            }
+                            
                         });
                     },
                     //列表 - 所有事件初始化
@@ -341,6 +350,7 @@
                     if ($column != null)
                         $column.remove();
                 },
+               
                 //列表 - 新增任务表单重置
                 columnNewTaskFormReset: function (columnId) {
                     var $column = $('#board-column-' + columnId);
@@ -850,6 +860,9 @@
                     deleteColumn: function (columnId) {
                         vc.modules.renders.columnRemove(columnId);
                     },
+                    addColumn: function (columnId) {
+                        vc.modules.renders.columnAdd(columnId);
+                    },
                     //tasks
                     addTask: function (task) {
                         vc.modules.service.taskItemAdd(task);
@@ -880,7 +893,10 @@
                     },
                     deleteTask: function (taskId) {
                         vc.modules.renders.taskRemove(taskId);
-                    }
+                    },
+                    addTask: function (taskId) {
+                        vc.modules.renders.taskAdd(taskId);
+                    },
                 });
 
                 $.connection.hub.start()

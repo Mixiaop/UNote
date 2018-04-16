@@ -258,6 +258,18 @@ namespace UNote.Services.Notes
                     content.Summary = body;
             }
 
+            if (!content.BodyPersons.IsNullOrEmpty())
+            {
+                var bodyPersons = content.BodyPersons.RemoveHtml();
+
+                if (bodyPersons.Length > 255)
+                {
+                    content.Summary = bodyPersons.SubString2(255);
+                }
+                else
+                    content.Summary = bodyPersons;
+            }
+
             //if (content.Tag.IsNotNullOrEmpty())
             //{
             //    content.Tag = content.Tag.Replace("，", ",");

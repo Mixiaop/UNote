@@ -14,6 +14,11 @@ namespace UNote.Services.Notes.Dto
         public string Body { get; set; }
 
         /// <summary>
+        /// 任务相关人员内容
+        /// </summary>
+        public string BodyPersons { get; set; }
+
+        /// <summary>
         /// 简介
         /// </summary>
         public string Summary { get; set; }

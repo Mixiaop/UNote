@@ -134,7 +134,7 @@ namespace UNote.Services.Notes
 
         StateOutput UpdateTaskTitle(int taskId, string newTitle);
 
-        StateOutput UpdateTaskBody(int taskId, string newBody);
+        StateOutput UpdateTaskBody(int taskId, string newBody,string newBodyPersons);
 
         StateOutput UpdateTaskExpirationDate(int taskId, string date);
 

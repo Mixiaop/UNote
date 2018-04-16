@@ -507,7 +507,7 @@ namespace UNote.Services.Notes.Impl
             return res;
         }
 
-        public StateOutput UpdateTaskBody(int taskId, string newBody)
+        public StateOutput UpdateTaskBody(int taskId, string newBody, string newBodyPersons)
         {
             StateOutput res = new StateOutput();
             var task = _contentService.GetById(taskId);
@@ -517,6 +517,7 @@ namespace UNote.Services.Notes.Impl
                 return res;
             }
             task.Body = newBody;
+            task.BodyPersons = newBodyPersons;
             _contentService.Update(task);
 
             AddTaskLog(task.Id, GetLoginedUserId(), "更新了任务内容");
