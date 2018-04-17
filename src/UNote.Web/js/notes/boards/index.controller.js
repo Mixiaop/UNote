@@ -294,13 +294,13 @@
                     var $boards = $('.board');
                     var height = $(window).height();
 
-                    $('.board-list').css('height', (height - 60) + 'px');
-                    $('.board').css('height', (height - 105) + 'px');
-                    $('.board-content-list').css('height', (height - 150) + 'px');
+                    $('.board-list').css('height', (height - 115) + 'px');
+                    $('.board').css('height', (height - 160) + 'px');
+                    $('.board-content-list').css('height', (height - 212) + 'px');
 
                     //scroll
                     $('.board-content-list').slimScroll({
-                        height: (height - 150) + 'px'
+                        height: (height - 212) + 'px'
                     });
                 },
                 //列载入时loading控制
